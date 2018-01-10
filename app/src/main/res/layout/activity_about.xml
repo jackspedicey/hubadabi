@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="id.zakafikry.ewaris.AboutActivity">
+
+    <TextView
+        android:id="@+id/tvTeks1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="70dp"
+        android:text="eWaris v.1.0.1" />
+
+    <TextView
+        android:id="@+id/tvTeks2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTeks1"
+        android:layout_alignStart="@+id/tvTeks1"
+        android:layout_below="@+id/tvTeks1"
+        android:layout_marginTop="24dp"
+        android:text="Created and developed by Zaka Fikry" />
+</RelativeLayout>
