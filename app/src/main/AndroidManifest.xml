@@ -4,9 +4,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/hitung2"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -26,9 +27,16 @@
         <activity android:name=".InputActivity.InputActivity7" />
         <activity android:name=".InputActivity.InputActivity8" />
         <activity android:name=".InputActivity.InputActivity9" />
-        <activity android:name=".InputActivity.FinishActivity9" />
-        <activity android:name=".InputActivity.FinishActivity1" />
-        <activity android:name=".TeoriActivity"></activity>
+        <activity android:name=".FinishActivity9" />
+        <activity android:name=".InputActivity.ConfirmActivity1" />
+        <activity android:name=".IntroActivity.IntroActivity" />
+        <activity android:name=".InputActivity.ResultActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".IntroActivity.FaraidhActivity" />
+        <activity android:name=".IntroActivity.AWarisActivity" />
+        <activity android:name=".IntroActivity.DalilActivity" />
+        <activity android:name=".IntroActivity.FTreeActivity" />
+        <activity android:name=".IntroActivity.Main2Activity" />
     </application>
 
 </manifest>

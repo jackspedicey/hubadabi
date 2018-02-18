@@ -1,52 +1,45 @@
 package id.zakafikry.ewaris.InputActivity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import id.zakafikry.ewaris.Class.Function;
 import id.zakafikry.ewaris.R;
 
 public class InputActivity2 extends AppCompatActivity {
 
-    Button btnNext;
-    Button btnPrev;
-    TextView tvNominal;
-    CheckBox cbAyah;
-    CheckBox cbSuami;
-    CheckBox cbIbu;
+    Button btnNext, btnPrev;
+    TextView tvIrts;
+    CheckBox cbAyah, cbSuami, cbIbu;
     TextView tvIstri;
-    EditText etIstri;
-    EditText etAnakLk;
-    EditText etAnakPr;
+    EditText etIstri, etAnakLk, etAnakPr;
 
-    int irts;
-    int ayah = 0;
-    int ibu = 0;
-    int suami = 0;
-    int istri = 0;
-    int anakLk = 0;
-    int anakPr = 0;
+    String istri, anakLk, anakPr;
+
+    Function f = new Function();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input2);
+        setTitle("Hitung");
 
-        tvNominal = (TextView)findViewById(R.id.tvNominal);
-        btnNext = (Button)findViewById(R.id.btnNext2);
-        btnPrev = (Button)findViewById(R.id.btnPrev2);
-        cbAyah = (CheckBox)findViewById(R.id.cbAyah);
-        cbIbu = (CheckBox)findViewById(R.id.cbIbu);
-        cbSuami = (CheckBox)findViewById(R.id.cbSuami);
-        tvIstri = (TextView)findViewById(R.id.tvIstri);
-        etIstri = (EditText)findViewById(R.id.etIstri);
-        etAnakLk = (EditText)findViewById(R.id.etAnakLk);
-        etAnakPr = (EditText)findViewById(R.id.etAnakPr);
+        tvIrts = findViewById(R.id.tvNominal);
+        btnNext = findViewById(R.id.btnNext2);
+        btnPrev = findViewById(R.id.btnPrev2);
+        cbAyah = findViewById(R.id.cbAyah);
+        cbIbu = findViewById(R.id.cbIbu);
+        cbSuami = findViewById(R.id.cbSuami);
+        tvIstri = findViewById(R.id.tvIstri);
+        etIstri = findViewById(R.id.etIstri);
+        etAnakLk = findViewById(R.id.etAnakLk);
+        etAnakPr = findViewById(R.id.etAnakPr);
 
         setGender();
 
@@ -58,73 +51,44 @@ public class InputActivity2 extends AppCompatActivity {
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
+                istri = String.valueOf(etIstri.getText().toString());
+                anakLk = String.valueOf(etAnakLk.getText().toString());
+                anakPr = String.valueOf(etAnakPr.getText().toString());
+
+                ResultActivity.jIstri = f.convertStr(istri);
+                ResultActivity.jAnakLk = f.convertStr(anakLk);
+                ResultActivity.jAnakPr = f.convertStr(anakPr);
                 getCbVal();
 
-                InputActivity1 ia1 = new InputActivity1();
-                String Istri = etIstri.getText().toString();
-                String AnakLk = etAnakLk.getText().toString();
-                String AnakPr = etAnakPr.getText().toString();
-                istri = ia1.convert(Istri);
-                anakLk = ia1.convert(AnakLk);
-                anakPr = ia1.convert(AnakPr);
-
-                Bundle b = new Bundle();
-                b.putInt("irtsI2", irts);
-                b.putInt("ayah", ayah);
-                b.putInt("ibu", ibu);
-                b.putInt("suami", suami);
-                b.putInt("istri", istri);
-                b.putInt("anakLk", anakLk);
-                b.putInt("anakPr", anakPr);
-
-                if (anakLk >= 1 && ayah == 1) {
-                    Intent i = new Intent(InputActivity2.this, FinishActivity1.class);
-                    i.putExtras(b);
-                    startActivity(i);
-                } else if (anakLk >= 1 && ayah == 0) {
-                    Intent i = new Intent(InputActivity2.this, InputActivity4.class);
-                    i.putExtras(b);
-                    startActivity(i);
-                } else {
-                    Intent i = new Intent(InputActivity2.this, InputActivity3.class);
-                    i.putExtras(b);
-                    startActivity(i);
-                }
+                Intent i = new Intent(InputActivity2.this, InputActivity3.class);
+                startActivity(i);
             }
         });
     }
 
     public void setGender () {
-        Intent i = getIntent();
-        Bundle b = i.getExtras();
-        int gender = b.getInt("gender");
-        if (gender == 1) {
+        if (!ResultActivity.gender) {
             cbSuami.setVisibility(View.GONE);
-        }else if (gender == 2){
+        } else if (ResultActivity.gender) {
             tvIstri.setVisibility(View.GONE);
             etIstri.setVisibility(View.GONE);
         }
 
-        irts = b.getInt("irts");
-        tvNominal.setText(String.valueOf(irts));
+        tvIrts.setText(String.valueOf(ResultActivity.irts));
     }
 
     public void getCbVal() {
-        if (cbAyah.isChecked()){
-            ayah = 1;
-        } else {
-            ayah = 0;
+        if (cbAyah.isChecked()) {
+            ResultActivity.jAyah = 1;
         }
 
-        if (cbIbu.isChecked()){
-            ibu = 1;
-        } else {
-            ibu = 0;
+        if (cbIbu.isChecked()) {
+            ResultActivity.jIbu = 1;
+        }
 
-        }if (cbSuami.isChecked()){
-            suami = 1;
-        } else {
-            suami = 0;
+        if (cbSuami.isChecked()) {
+            ResultActivity.jSuami = 1;
         }
     }
+
 }

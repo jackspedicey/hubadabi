@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bluecomb"
     android:orientation="vertical"
-    tools:context="id.zakafikry.ewaris.FinishActivity9">
+    tools:context="id.zakafikry.ewaris.InputActivity.ResultActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -134,20 +135,21 @@
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+            android:id="@+id/tableHasil"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginTop="128dp"
             android:gravity="center"
-            android:stretchColumns="0,1,2">
+            android:stretchColumns="*">
 
             <TableRow
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
+                android:background="@color/blackcomb"
                 android:weightSum="100">
 
                 <TextView
@@ -156,10 +158,11 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
+                    android:background="@color/blackcomb"
                     android:gravity="start"
                     android:text=" Ahli Waris"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <TextView
@@ -168,10 +171,11 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
+                    android:background="@color/blackcomb"
                     android:gravity="start"
                     android:text=" Kadar "
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <TextView
@@ -180,20 +184,20 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
+                    android:background="@color/blackcomb"
                     android:gravity="start"
                     android:text=" Bagian "
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowAnakLk"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -203,21 +207,21 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Anak Laki-laki"
+                    android:paddingLeft="4dp"
+                    android:text="Anak Laki-laki"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
                     android:id="@+id/tvKdAnakLk"
                     android:layout_width="0dp"
-                    android:layout_height="21dp"
+                    android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Ashobah"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -227,20 +231,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Rp. 100"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowAnakPr"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -250,9 +253,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Anak Perempuan"
+                    android:paddingLeft="4dp"
+                    android:text="Anak Perempuan"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -262,9 +265,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Ashobah"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -274,20 +277,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Rp.50"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowAyah"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -297,9 +299,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Ayah"
+                    android:paddingLeft="4dp"
+                    android:text="Ayah"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -309,9 +311,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -321,20 +323,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Rp.16"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowIbu"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -344,9 +345,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Ibu"
+                    android:paddingLeft="4dp"
+                    android:text="Ibu"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -356,9 +357,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -368,20 +369,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowSuami"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -391,9 +391,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Suami"
+                    android:paddingLeft="4dp"
+                    android:text="Suami"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -403,9 +403,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/4"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -415,9 +415,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
 
@@ -425,11 +425,10 @@
 
             <TableRow
                 android:id="@+id/rowIstri"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -439,9 +438,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Istri"
+                    android:paddingLeft="4dp"
+                    android:text="Istri"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -451,9 +450,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -463,9 +462,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -473,11 +472,10 @@
 
             <TableRow
                 android:id="@+id/rowCucuLk"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -487,9 +485,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Cucu Laki-laki"
+                    android:paddingLeft="4dp"
+                    android:text="Cucu Laki-laki"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -499,9 +497,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Ashobah"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -511,20 +509,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowCucuPr"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -534,9 +531,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Cucu Perempuan"
+                    android:paddingLeft="4dp"
+                    android:text="Cucu Perempuan"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -546,9 +543,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Ashobah"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -558,20 +555,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowKakek"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -581,9 +577,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Kakek"
+                    android:paddingLeft="4dp"
+                    android:text="Kakek"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -593,9 +589,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -605,20 +601,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowNenekA"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -628,9 +623,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Nenek dari Pihay Ayah"
+                    android:paddingLeft="4dp"
+                    android:text="Nenek dari Pihak Ayah"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -640,9 +635,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -652,20 +647,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowNenekI"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -675,9 +669,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Nenek dari Pihay Ibu"
+                    android:paddingLeft="4dp"
+                    android:text="Nenek dari Pihak Ibu"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -687,9 +681,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -699,20 +693,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowSaudaraLkKd"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -722,9 +715,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Saudara Laki-laki Kandung"
+                    android:paddingLeft="4dp"
+                    android:text="Saudara Laki-laki Kandung"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -734,9 +727,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -746,20 +739,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowSaudaraPrKd"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -769,9 +761,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Saudara Perempuan Kandung"
+                    android:paddingLeft="2dp"
+                    android:text="Saudara Perempuan Kandung"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -781,9 +773,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -793,20 +785,19 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
 
             <TableRow
                 android:id="@+id/rowSaudaraLkSa"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -816,9 +807,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Saudara Laki-laki Se-Ayah"
+                    android:paddingLeft="4dp"
+                    android:text="Saudara Laki-laki Se-Ayah"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -828,21 +819,21 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
-                    android:id="@+id/tvBagSaudaraLkKSa"
+                    android:id="@+id/tvBagSaudaraLkSa"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -853,7 +844,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -863,9 +853,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Saudara Perempuan Se-Ayah"
+                    android:paddingLeft="4dp"
+                    android:text="Saudara Perempuan Se-Ayah"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -875,9 +865,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -887,9 +877,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -900,7 +890,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -910,9 +899,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Saudara Laki-laki Se-Ibu"
+                    android:paddingLeft="4dp"
+                    android:text="Saudara Laki-laki Se-Ibu"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -922,9 +911,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -934,9 +923,56 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            </TableRow>
+
+
+            <TableRow
+                android:id="@+id/rowSaudaraPrSi"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/tvAwSaudaraPrSi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="50"
+                    android:gravity="start"
+                    android:paddingLeft="4dp"
+                    android:text="Saudara Perempuan Se-Ibu"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                <TextView
+                    android:id="@+id/tvKdSaudaraPrSi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="25"
+                    android:gravity="start"
+                    android:paddingLeft="4dp"
+                    android:text="-"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                <TextView
+                    android:id="@+id/tvBagSaudaraPrSi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="25"
+                    android:gravity="start"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -947,7 +983,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -957,9 +992,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Keponakan Laki-laki dari saudara kandung"
+                    android:paddingLeft="4dp"
+                    android:text="Keponakan Laki-laki dari saudara kandung"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -969,9 +1004,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -981,9 +1016,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -994,7 +1029,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -1004,9 +1038,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Keponakan Laki-laki dari saudara se-Ayah"
+                    android:paddingLeft="4dp"
+                    android:text="Keponakan Laki-laki dari saudara se-Ayah"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1016,9 +1050,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1028,9 +1062,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -1041,7 +1075,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -1051,9 +1084,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Paman Kandung"
+                    android:paddingLeft="4dp"
+                    android:text="Paman Kandung"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1063,9 +1096,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1075,9 +1108,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -1088,7 +1121,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -1098,9 +1130,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Paman se-Kakek"
+                    android:paddingLeft="4dp"
+                    android:text="Paman se-Kakek"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1110,9 +1142,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1122,9 +1154,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -1135,7 +1167,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -1145,9 +1176,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Sepupu dari Paman Kandung"
+                    android:paddingLeft="4dp"
+                    android:text="Sepupu dari Paman Kandung"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1157,9 +1188,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1169,9 +1200,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -1182,7 +1213,6 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-                android:background="#000000"
                 android:weightSum="100">
 
                 <TextView
@@ -1192,9 +1222,9 @@
                     android:layout_column="0"
                     android:layout_margin="1dp"
                     android:layout_weight="50"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Sepupu dari Paman Se-Kakek"
+                    android:paddingLeft="4dp"
+                    android:text="Sepupu dari Paman Se-Kakek"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1204,9 +1234,9 @@
                     android:layout_column="1"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" 1/6"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
@@ -1216,9 +1246,9 @@
                     android:layout_column="2"
                     android:layout_margin="1dp"
                     android:layout_weight="25"
-                    android:background="#FFFFFF"
                     android:gravity="start"
-                    android:text=" Text"
+                    android:paddingLeft="4dp"
+                    android:text="-"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
             </TableRow>
@@ -1226,5 +1256,28 @@
         </TableLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnHomeR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:text="Menu Utama" />
+
+        <Button
+            android:id="@+id/btnRepeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:text="Ulang" />
+
+    </LinearLayout>
 
 </RelativeLayout>

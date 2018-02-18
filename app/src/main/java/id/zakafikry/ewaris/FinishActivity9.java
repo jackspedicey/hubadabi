@@ -1,9 +1,7 @@
-package id.zakafikry.ewaris.InputActivity;
+package id.zakafikry.ewaris;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import id.zakafikry.ewaris.R;
+import android.support.v7.app.AppCompatActivity;
 
 public class FinishActivity9 extends AppCompatActivity {
 
