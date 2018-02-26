@@ -24,11 +24,24 @@
 
         <TextView
             android:id="@+id/tvNotifCucuLk"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginTop="32dp"
-            android:text="@string/notif_cucu"
+            android:text="Cucu laki-laki dan perempuan dilewati karena sudah terhalang(mahjub) oleh anak laki-laki"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNotifCucuPr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Cucu perempuan dilewati karena sudah terhalang(mahjub) oleh dua orang atau lebih anak perempuan"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:visibility="gone" />

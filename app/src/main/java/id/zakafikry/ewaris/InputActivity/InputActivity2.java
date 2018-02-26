@@ -45,7 +45,9 @@ public class InputActivity2 extends AppCompatActivity {
 
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-                startActivity(new Intent(InputActivity2.this, InputActivity1.class));
+                //startActivity(new Intent(InputActivity2.this, InputActivity1.class));
+                f.resetValueIA1();
+                finish();
             }
         });
 

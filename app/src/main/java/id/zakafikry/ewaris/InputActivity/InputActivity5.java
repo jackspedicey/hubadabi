@@ -14,9 +14,10 @@ import id.zakafikry.ewaris.R;
 public class InputActivity5 extends AppCompatActivity {
 
     Button btnNext, btnPrev;
-    TextView tvSdrLkKd, tvSdrPrKd;
+    TextView tvSdrLkKd, tvSdrPrKd, tvNotifSaudaraKd;
     EditText etSdrLkKd, etSdrPrKd;
     String sdrLkKd, sdrPrKd;
+    Function f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +32,16 @@ public class InputActivity5 extends AppCompatActivity {
         etSdrLkKd = findViewById(R.id.etSaudaraLkKd);
         etSdrPrKd = findViewById(R.id.etSaudaraPrKd);
 
+        tvNotifSaudaraKd = findViewById(R.id.tvNotifSaudaraKd);
+
+        setVisibility();
+        f = new Function();
+
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-                startActivity(new Intent(InputActivity5.this, InputActivity4.class));
+                f.resetValueIA4();
+                finish();
+                //startActivity(new Intent(InputActivity5.this, InputActivity4.class));
             }
         });
 
@@ -46,8 +54,24 @@ public class InputActivity5 extends AppCompatActivity {
                 ResultActivity.jSaudaraLkKd = f.convertStr(sdrLkKd);
                 ResultActivity.jSaudaraPrKd = f.convertStr(sdrPrKd);
 
-                startActivity(new Intent(InputActivity5.this, InputActivity6.class));
+                if (ResultActivity.jAnakLk >= 1 || ResultActivity.jAyah >= 1 || ResultActivity.jCucuLk >= 1 || ResultActivity.jKakek >= 1) {
+                    startActivity(new Intent(InputActivity5.this, ConfirmActivity1.class));
+                } else {
+                    startActivity(new Intent(InputActivity5.this, InputActivity6.class));
+
+                }
             }
         });
+    }
+
+    public void setVisibility() {
+        if (ResultActivity.jKakek == 1) {
+            tvSdrLkKd.setVisibility(View.GONE);
+            etSdrLkKd.setVisibility(View.GONE);
+            tvSdrPrKd.setVisibility(View.GONE);
+            etSdrPrKd.setVisibility(View.GONE);
+
+            tvNotifSaudaraKd.setVisibility(View.VISIBLE);
+        }
     }
 }

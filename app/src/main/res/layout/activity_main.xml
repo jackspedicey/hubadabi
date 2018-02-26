@@ -15,42 +15,107 @@
         android:layout_centerVertical="true"
         android:layout_margin="32dp">
 
-        <Button
-            android:id="@+id/btnIntro"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:id="@+id/LLIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/pengenalan" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_above="@+id/btnAbout"
+            <Button
+                android:id="@+id/btnIntro"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/pengenalan" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Pengenalan"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LLHitung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/LLAbout"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/hitung1" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnHelp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignBottom="@+id/btnAbout"
-            android:layout_alignLeft="@+id/btnStart"
-            android:layout_alignStart="@+id/btnStart"
-            android:background="@drawable/help" />
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/hitung1" />
 
-        <Button
-            android:id="@+id/btnAbout"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignLeft="@+id/btnIntro"
-            android:layout_alignStart="@+id/btnIntro"
-            android:layout_below="@+id/btnIntro"
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="     Hitung"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LLAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/LLIntro"
+            android:layout_alignStart="@+id/LLIntro"
+            android:layout_below="@+id/LLIntro"
             android:layout_marginTop="128dp"
-            android:background="@drawable/about" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnAbout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/about" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="   Tentang"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LLHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/LLAbout"
+            android:layout_alignLeft="@+id/LLHitung"
+            android:layout_alignStart="@+id/LLHitung"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnHelp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/help" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="    Bantuan"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
 
     </RelativeLayout>

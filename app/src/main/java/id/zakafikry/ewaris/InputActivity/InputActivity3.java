@@ -15,8 +15,10 @@ public class InputActivity3 extends AppCompatActivity {
 
     Button btnNext, btnPrev;
     EditText etCucuLk, etCucuPr;
-    TextView tvCucuLk, tvCucuPr;
+    TextView tvCucuLk, tvCucuPr, tvNotifCucu, tvNotifCucuPr;
     String cucuLk, cucuPr;
+
+    Function f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +33,17 @@ public class InputActivity3 extends AppCompatActivity {
         etCucuLk = findViewById(R.id.etCucuLk);
         etCucuPr = findViewById(R.id.etCucuPr);
 
+        tvNotifCucu = findViewById(R.id.tvNotifCucuLk);
+        tvNotifCucuPr = findViewById(R.id.tvNotifCucuPr);
+        setVisibility();
+
+        f = new Function();
+
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-                startActivity(new Intent(InputActivity3.this, InputActivity2.class));
+                f.resetValueIA2();
+                finish();
+                //startActivity(new Intent(InputActivity3.this, InputActivity2.class));
             }
         });
 
@@ -50,5 +60,21 @@ public class InputActivity3 extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void setVisibility() {
+        if (ResultActivity.jAnakLk >= 1) {
+            tvCucuLk.setVisibility(View.GONE);
+            etCucuLk.setVisibility(View.GONE);
+            tvCucuPr.setVisibility(View.GONE);
+            etCucuPr.setVisibility(View.GONE);
+
+            tvNotifCucu.setVisibility(View.VISIBLE);
+        } else if (ResultActivity.jAnakPr >= 2) {
+            tvCucuPr.setVisibility(View.GONE);
+            etCucuPr.setVisibility(View.GONE);
+
+            tvNotifCucuPr.setVisibility(View.VISIBLE);
+        }
     }
 }

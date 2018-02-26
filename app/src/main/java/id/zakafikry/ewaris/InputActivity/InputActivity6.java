@@ -14,9 +14,10 @@ import id.zakafikry.ewaris.R;
 public class InputActivity6 extends AppCompatActivity {
 
     Button btnNext, btnPrev;
-    TextView tvSdrLkSa, tvSdrPrSa, tvSdrLkSi, tvSdrPrSi;
+    TextView tvSdrLkSa, tvSdrPrSa, tvSdrLkSi, tvSdrPrSi, tvNotifSdrSa, tvNotifSdrPrSa, tvNotifSdrSi;
     EditText etSdrLkSa, etSdrPrSa, etSdrLkSi, etSdrPrSi;
     String sdrLkSa, sdrPrSa, sdrLkSi, sdrPrSi;
+    Function f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,18 @@ public class InputActivity6 extends AppCompatActivity {
         etSdrLkSi = findViewById(R.id.etSaudaraLkSi);
         etSdrPrSi = findViewById(R.id.etSaudaraPrSi);
 
+        tvNotifSdrSa = findViewById(R.id.tvNotifSdrSa);
+        tvNotifSdrPrSa = findViewById(R.id.tvNotifSdrPrSa);
+        tvNotifSdrSi = findViewById(R.id.tvNotifSdrSi);
+
+        setVisibility();
+        f = new Function();
+
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-
-                startActivity(new Intent(InputActivity6.this, InputActivity5.class));
+                f.resetValueIA5();
+                finish();
+                //startActivity(new Intent(InputActivity6.this, InputActivity5.class));
             }
         });
 
@@ -57,8 +66,39 @@ public class InputActivity6 extends AppCompatActivity {
                 ResultActivity.jSaudaraLkSi = f.convertStr(sdrLkSi);
                 ResultActivity.jSaudaraPrSi = f.convertStr(sdrPrSi);
 
-                startActivity(new Intent(InputActivity6.this, InputActivity7.class));
+                if (ResultActivity.jAnakLk >= 1 || ResultActivity.jAyah >= 1 || ResultActivity.jCucuLk >= 1 || ResultActivity.jKakek >= 1
+                        || ResultActivity.jSaudaraLkKd >= 1) {
+                    startActivity(new Intent(InputActivity6.this, ConfirmActivity1.class));
+                } else {
+                    startActivity(new Intent(InputActivity6.this, InputActivity7.class));
+                }
             }
         });
+    }
+
+    public void setVisibility() {
+        if (ResultActivity.jSaudaraPrKd >= 2 && ResultActivity.jSaudaraLkKd == 0) {
+
+            etSdrPrSa.setVisibility(View.GONE);
+            tvSdrPrSa.setVisibility(View.GONE);
+
+            tvNotifSdrPrSa.setVisibility(View.VISIBLE);
+        } else if (ResultActivity.jSaudaraLkKd >= 1) {
+            etSdrLkSa.setVisibility(View.GONE);
+            tvSdrLkSa.setVisibility(View.GONE);
+            etSdrPrSa.setVisibility(View.GONE);
+            tvSdrPrSa.setVisibility(View.GONE);
+
+            tvNotifSdrSa.setVisibility(View.VISIBLE);
+        }
+
+        if (ResultActivity.jKakek == 1) {
+            etSdrLkSi.setVisibility(View.GONE);
+            etSdrPrSi.setVisibility(View.GONE);
+            tvSdrLkSi.setVisibility(View.GONE);
+            tvSdrPrSi.setVisibility(View.GONE);
+
+            tvNotifSdrSi.setVisibility(View.VISIBLE);
+        }
     }
 }

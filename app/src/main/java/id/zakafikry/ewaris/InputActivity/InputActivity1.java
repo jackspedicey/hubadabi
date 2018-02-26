@@ -2,7 +2,6 @@ package id.zakafikry.ewaris.InputActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +44,7 @@ public class InputActivity1 extends AppCompatActivity {
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
+                //finish();
                 Intent i = new Intent(InputActivity1.this, MainActivity.class);
                 startActivity(i);
             }
@@ -94,30 +94,5 @@ public class InputActivity1 extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-
-        savedInstanceState.putString("tirkah", tirkah);
-        savedInstanceState.putString("hutang", hutang);
-        savedInstanceState.putString("tajhiz", tajhiz);
-        savedInstanceState.putString("wasiat", wasiat);
-
-        savedInstanceState.putInt("tirkah", ResultActivity.tirkah);
-        savedInstanceState.putInt("hutang", ResultActivity.hutang);
-        savedInstanceState.putInt("tajhiz", ResultActivity.tajhiz);
-        savedInstanceState.putInt("wasiat", ResultActivity.wasiat);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onRestoreInstanceState(savedInstanceState, persistentState);
-
-        tirkah = savedInstanceState.getString("tirkah");
-        hutang = savedInstanceState.getString("hutang");
-        tajhiz = savedInstanceState.getString("tajhiz");
-        wasiat = savedInstanceState.getString("wasiat");
     }
 }

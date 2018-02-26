@@ -17,6 +17,8 @@ public class InputActivity9 extends AppCompatActivity {
     TextView tvSepupuLkPmnKd, tvSepupuLkPmnSa;
     EditText etSepupuLkPmnKd, etSepupuLkPmnSa;
     String sepupuLkPmnKd, sepupuLkPmnSa;
+    TextView tvNotifSepupu;
+    Function f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,15 @@ public class InputActivity9 extends AppCompatActivity {
         tvSepupuLkPmnSa = findViewById(R.id.tvAnakLkPmnSa);
         etSepupuLkPmnKd = findViewById(R.id.etAnakLkPmnKd);
         etSepupuLkPmnSa = findViewById(R.id.etAnakLkPmnSa);
+        tvNotifSepupu = findViewById(R.id.tvNotifSepupu);
+        f = new Function();
+        setVisibility();
 
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-                startActivity(new Intent(InputActivity9.this, InputActivity8.class));
+                f.resetValueIA8();
+                finish();
+                //startActivity(new Intent(InputActivity9.this, InputActivity8.class));
             }
         });
 
@@ -45,9 +52,19 @@ public class InputActivity9 extends AppCompatActivity {
 
                 ResultActivity.jSepupuLkPmnKd = f.convertStr(sepupuLkPmnKd);
                 ResultActivity.jSepupuLkPmnSa = f.convertStr(sepupuLkPmnSa);
-
                 startActivity(new Intent(InputActivity9.this, ConfirmActivity1.class));
             }
         });
+    }
+
+    public void setVisibility() {
+        if (ResultActivity.jPamanKd >= 1 || ResultActivity.jPamanSa >= 1) {
+            tvSepupuLkPmnKd.setVisibility(View.GONE);
+            etSepupuLkPmnKd.setVisibility(View.GONE);
+            tvSepupuLkPmnSa.setVisibility(View.GONE);
+            etSepupuLkPmnSa.setVisibility(View.GONE);
+
+            tvNotifSepupu.setVisibility(View.VISIBLE);
+        }
     }
 }

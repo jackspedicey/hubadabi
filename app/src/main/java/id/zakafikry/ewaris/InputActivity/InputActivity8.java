@@ -14,9 +14,11 @@ import id.zakafikry.ewaris.R;
 public class InputActivity8 extends AppCompatActivity {
 
     Button btnNext, btnPrev;
-    TextView tvPamanKd, tvPamanSa;
+    TextView tvPamanKd, tvPamanSa, tvNotifPaman;
     EditText etPamanKd, etPamanSa;
     String PamanKd, PamanSa;
+    Function f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +31,17 @@ public class InputActivity8 extends AppCompatActivity {
         tvPamanSa = findViewById(R.id.tvPamanSa);
         etPamanKd = findViewById(R.id.etPamanKd);
         etPamanSa = findViewById(R.id.etPamanSa);
+        tvNotifPaman = findViewById(R.id.tvNotifPaman);
+        setVisibility();
+
+        f = new Function();
+
 
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-                startActivity(new Intent(InputActivity8.this, InputActivity7.class));
+                f.resetValueIA7();
+                finish();
+                //startActivity(new Intent(InputActivity8.this, InputActivity7.class));
             }
         });
 
@@ -44,9 +53,25 @@ public class InputActivity8 extends AppCompatActivity {
 
                 ResultActivity.jPamanKd = f.convertStr(PamanKd);
                 ResultActivity.jPamanSa = f.convertStr(PamanSa);
-
-                startActivity(new Intent(InputActivity8.this, InputActivity9.class));
+                if (ResultActivity.jAnakLk >= 1 || ResultActivity.jAyah >= 1 || ResultActivity.jCucuLk >= 1 || ResultActivity.jKakek >= 1
+                        || ResultActivity.jSaudaraLkKd >= 1 || ResultActivity.jSaudaraLkSa >= 1
+                        || ResultActivity.jKeponakanLkKd >= 1 || ResultActivity.jKeponakanLkSa >= 1) {
+                    startActivity(new Intent(InputActivity8.this, ConfirmActivity1.class));
+                } else {
+                    startActivity(new Intent(InputActivity8.this, InputActivity9.class));
+                }
             }
         });
+    }
+
+    public void setVisibility() {
+        if (ResultActivity.jKeponakanLkKd >= 1 || ResultActivity.jKeponakanLkSa >= 1) {
+            tvPamanKd.setVisibility(View.GONE);
+            etPamanKd.setVisibility(View.GONE);
+            tvPamanSa.setVisibility(View.GONE);
+            etPamanSa.setVisibility(View.GONE);
+
+            tvNotifPaman.setVisibility(View.VISIBLE);
+        }
     }
 }

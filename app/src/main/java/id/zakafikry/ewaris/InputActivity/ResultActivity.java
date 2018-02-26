@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -19,28 +21,168 @@ import id.zakafikry.ewaris.R;
 public class
 ResultActivity extends AppCompatActivity {
     public static boolean gender = false;
-
-    public static int tirkah = 0, tajhiz = 0, wasiat = 0, hutang = 0, irts = 0, jAnakPr = 0, jAnakLk = 0, jAyah = 0, jIbu = 0, jSuami = 0, jIstri = 0, jCucuLk = 0, jCucuPr = 0, jKakek = 0, jNenekA = 0, jNenekI = 0, jSaudaraLkKd = 0, jSaudaraPrKd = 0, jSaudaraLkSa = 0, jSaudaraPrSa = 0, jSaudaraLkSi = 0, jSaudaraPrSi = 0, jKeponakanLkKd = 0, jKeponakanLkSa = 0, jPamanKd = 0, jPamanSa = 0, jSepupuLkPmnKd = 0, jSepupuLkPmnSa = 0
-            //Angka Pembagi
-            , pbAnakPr, pbAyah, pbIbu, pbSuami, pbIstri, pbCucuPr, pbKakek, pbNenekA, pbNenekI, pbSaudaraPrKd, pbSaudaraPrSa, pbSaudaraLkSi, pbSaudaraPrSi
-            //Angka
-            ;
-
-
+    public static int tirkah = 0, tajhiz = 0, wasiat = 0, hutang = 0, irts = 0, jAnakPr = 0, jAnakLk = 0, jAyah = 0, jIbu = 0, jSuami = 0, jIstri = 0, jCucuLk = 0, jCucuPr = 0, jKakek = 0, jNenekA = 0, jNenekI = 0, jSaudaraLkKd = 0, jSaudaraPrKd = 0, jSaudaraLkSa = 0, jSaudaraPrSa = 0, jSaudaraLkSi = 0, jSaudaraPrSi = 0, jKeponakanLkKd = 0, jKeponakanLkSa = 0, jPamanKd = 0, jPamanSa = 0, jSepupuLkPmnKd = 0, jSepupuLkPmnSa = 0;
     public static double
             //------------------ashabul Furudh
-            kbAnakPr = 0, kbCucuPr = 0, kbAyah = 0, kbIbu = 0, kbSuami = 0, kbIstri = 0, kbKakek = 0, kbNenekA = 0, kbNenekI = 0, kbSaudaraPrKd = 0, kbSaudaraPrSa = 0, kbSaudaraLkSi = 0, kbSaudaraPrSi = 0
+            kbAnakPr = 0, kbCucuPr = 0, kbAyah = 0, kbIbu = 0, kbSuami = 0, kbIstri = 0, kbKakek = 0, kbNenek = 0, kbSaudaraPrKd = 0, kbSaudaraPrSa = 0, kbSaudaraSi = 0
             //------------------ashobah
             , Ashobah = 0, ashAnakLk = 0, ashCucuLk = 0, ashAyah = 0, ashKakek = 0, ashSaudaraLkKd = 0, ashSaudaraLkSa = 0, ashKeponakanLkKd = 0, ashKeponakanLkSa = 0, ashPamanKd = 0, ashPamanSa = 0, ashSepupuLkPmnKd = 0, ashSepupuLkPmnSa = 0, ashAnakPr = 0, ashCucuPr = 0, ashSaudaraPrKd = 0, ashSaudaraPrSa = 0, ashIbu = 0
             //------------------jatah atau bagian masing-masing ahli waaris
-            , bagAnakLk = 0, bagAnakPr = 0, bagAyah = 0, bagIbu = 0, bagSuami = 0, bagIstri = 0, bagCucuLk = 0, bagCucuPr = 0, bagKakek = 0, bagNenekA = 0, bagNenekI = 0, bagSaudaraLkKd = 0, bagSaudaraPrKd = 0, bagSaudaraLkSa = 0, bagSaudaraPrSa = 0, bagSaudaraLkSi = 0, bagSaudaraPrSi = 0, bagKeponakanLkKd = 0, bagKeponakanLkSa = 0, bagPamanKd = 0, bagPamanSa = 0, bagSepupuPamanKd = 0, bagSepupuPamanSa = 0;
-    public static Boolean checkKbAyah = false, checkAshAyah = false, checkKbKakek = false, checkAshKakek = false;
+            , bagAnakLk = 0, bagAnakPr = 0, bagAyah = 0, bagIbu = 0, bagSuami = 0, bagIstri = 0, bagCucuLk = 0, bagCucuPr = 0, bagKakek = 0, bagNenekA = 0, bagNenekI = 0, bagSaudaraLkKd = 0, bagSaudaraPrKd = 0, bagSaudaraLkSa = 0, bagSaudaraPrSa = 0, bagSaudaraLkSi = 0, bagSaudaraPrSi = 0, bagKeponakanLkKd = 0, bagKeponakanLkSa = 0, bagPamanKd = 0, bagPamanSa = 0, bagSepupuPamanKd = 0, bagSepupuPamanSa = 0
+            //------------------Aul
+            , kpk, jPembilang, jPembagi
+            //Angka Pembagi
+            , pbAnakPr = 0, pbAyah = 0, pbIbu = 0, pbSuami = 0, pbIstri = 0, pbCucuPr = 0, pbKakek = 0, pbNenek = 0, pbSaudaraPrKd = 0, pbSaudaraPrSa = 0, pbSaudaraSi = 0
+            //Angka Pembilang
+            , pmAnakPr = 0, pmAyah = 0, pmIbu = 0, pmSuami = 0, pmIstri = 0, pmCucuPr = 0, pmKakek = 0, pmNenek = 0, pmSaudaraPrKd = 0, pmSaudaraPrSa = 0, pmSaudaraSi = 0
+            //----------------Radd
+            ;
+    public static Boolean checkAshAyah = false, checkAshKakek = false, checkKbAnakPr = false, checkKbAyah = false, checkKbIbu = false, checkKbSuami = false, checkKbIstri = false, checkKbCucuPr = false, checkKbKakek = false, checkKbNenek = false, checkKbSaudaraPrKd = false, checkKbSaudaraPrSa = false, checkKbSaudaraSi = false;
+    public double[] pembagi;
     public String jthAnakLk = "-", jthAnakPr = "-", jthAyah = "-", jthIbu = "-", jthSuami = "-", jthIstri = "-", jthCucuLk = "-", jthCucuPr = "-", jthKakek = "-", jthNenekA = "-", jthNenekI = "-", jthSaudaraLkKd = "-", jthSaudaraPrKd = "-", jthSaudaraLkSa = "-", jthSaudaraPrSa = "-", jthSaudaraLkSi = "-", jthSaudaraPrSi = "-", jthKeponakanLkKd = "-", jthKeponakanLkSa = "-", jthPamanKd = "-", jthPamanSa = "-", jthSepupuLkKd = "-", jthSepupuLkSa = "-";
-    TextView tvTirkah, tvHutang, tvTajhiz, tvWasiat, tvIrts, tvBagAnakLk, tvBagAnakPr, tvBagAyah, tvBagIbu, tvBagSuami, tvBagIstri, tvBagCucuLk, tvBagCucuPr, tvBagKakek, tvBagNenekA, tvBagNenekI, tvBagSaudaraLkKd, tvBagSaudaraPrKd, tvBagSaudaraLkSa, tvBagSaudaraPrSa, tvBagSaudaraLkSi, tvBagSaudaraPrSi, tvBagKeponakanLkKd, tvBagKeponakanLkSa, tvBagPamanKd, tvBagPamanSa, tvBagSepupuKd, tvBagSepupuSa, tvJthAnakLk, tvJthAnakPr, tvJthAyah, tvJthIbu, tvJthSuami, tvJthIstri, tvJthCucuLk, tvJthCucuPr, tvJthKakek, tvJthNenekA, tvJthNenekI, tvJthSaudaraLkKd, tvJthSaudaraPrKd, tvJthSaudaraLkSa, tvJthSaudaraPrSa, tvJthSaudaraLkSi, tvJthSaudaraPrSi, tvJthKeponakanLkKd, tvJthKeponakanLkSa, tvJthPamanKd, tvJthPamanSa, tvJthSepupuKd, tvJthSepupuSa, tvAnakLk, tvAnakPr, tvAyah, tvIbu, tvSuami, tvIstri, tvCucuLk, tvCucuPr, tvKakek, tvNenekA, tvNenekI, tvSaudaraLkKd, tvSaudaraPrKd, tvSaudaraLkSa, tvSaudaraPrSa, tvSaudaraLkSi, tvSaudaraPrSi, tvKeponakanLkKd, tvKeponakanLkSa, tvPamanKd, tvPamanSa, tvSepupuKd, tvSepupuSa;
+    ScrollView svtabel;
+    String stringAsal;
+    TextView tvTirkah, tvHutang, tvTajhiz, tvWasiat, tvIrts, tvBagAnakLk, tvBagAnakPr, tvBagAyah, tvBagIbu, tvBagSuami, tvBagIstri, tvBagCucuLk, tvBagCucuPr, tvBagKakek, tvBagNenekA, tvBagNenekI, tvBagSaudaraLkKd, tvBagSaudaraPrKd, tvBagSaudaraLkSa, tvBagSaudaraPrSa, tvBagSaudaraLkSi, tvBagSaudaraPrSi, tvBagKeponakanLkKd, tvBagKeponakanLkSa, tvBagPamanKd, tvBagPamanSa, tvBagSepupuKd, tvBagSepupuSa, tvJthAnakLk, tvJthAnakPr, tvJthAyah, tvJthIbu, tvJthSuami, tvJthIstri, tvJthCucuLk, tvJthCucuPr, tvJthKakek, tvJthNenekA, tvJthNenekI, tvJthSaudaraLkKd, tvJthSaudaraPrKd, tvJthSaudaraLkSa, tvJthSaudaraPrSa, tvJthSaudaraLkSi, tvJthSaudaraPrSi, tvJthKeponakanLkKd, tvJthKeponakanLkSa, tvJthPamanKd, tvJthPamanSa, tvJthSepupuKd, tvJthSepupuSa, tvAnakLk, tvAnakPr, tvAyah, tvIbu, tvSuami, tvIstri, tvCucuLk, tvCucuPr, tvKakek, tvNenekA, tvNenekI, tvSaudaraLkKd, tvSaudaraPrKd, tvSaudaraLkSa, tvSaudaraPrSa, tvSaudaraLkSi, tvSaudaraPrSi, tvKeponakanLkKd, tvKeponakanLkSa, tvPamanKd, tvPamanSa, tvSepupuKd, tvSepupuSa, tvKPK, tvJkpk;
+
     TableLayout tabelHasil;
+
     TableRow rowAnakLk, rowAnakPr, rowAyah, rowIbu, rowSuami, rowIstri, rowCucuLk, rowCucuPr, rowKakek, rowNenekA, rowNenekI, rowSaudaraLkKd, rowSaudaraPrKd, rowSaudaraLkSa, rowSaudaraPrSa, rowSaudaraLkSi, rowSaudaraPrSi, rowKeponakanLkKd, rowKeponakanLkSa, rowPamanKd, rowPamanSa, rowSepupuKd, rowSepupuSa;
     Button btnHome, btnRepeat;
     Function f = new Function();
+
+    TextView tvnoaw;
+
+    public void resetValue() {
+        checkAshAyah = false;
+        checkAshKakek = false;
+        checkKbAnakPr = false;
+        checkKbAyah = false;
+        checkKbIbu = false;
+        checkKbSuami = false;
+        checkKbIstri = false;
+        checkKbCucuPr = false;
+        checkKbKakek = false;
+        checkKbNenek = false;
+        checkKbSaudaraPrKd = false;
+        checkKbSaudaraPrSa = false;
+        checkKbSaudaraSi = false;
+
+        tirkah = 0;
+        tajhiz = 0;
+        wasiat = 0;
+        hutang = 0;
+        irts = 0;
+
+        pembagi = null;
+        stringAsal = null;
+        kpk = 0;
+        jPembilang = 0;
+        jPembagi = 0;
+        pbAnakPr = 0;
+        pbAyah = 0;
+        pbIbu = 0;
+        pbSuami = 0;
+        pbIstri = 0;
+        pbCucuPr = 0;
+        pbKakek = 0;
+        pbNenek = 0;
+        pbSaudaraPrKd = 0;
+        pbSaudaraPrSa = 0;
+        pbSaudaraSi = 0;
+        pmAnakPr = 0;
+        pmAyah = 0;
+        pmIbu = 0;
+        pmSuami = 0;
+        pmIstri = 0;
+        pmCucuPr = 0;
+        pmKakek = 0;
+        pmNenek = 0;
+        pmSaudaraPrKd = 0;
+        pmSaudaraPrSa = 0;
+        pmSaudaraSi = 0;
+
+        jAnakPr = 0;
+        jAnakLk = 0;
+        jAyah = 0;
+        jIbu = 0;
+        jSuami = 0;
+        jIstri = 0;
+        jCucuLk = 0;
+        jCucuPr = 0;
+        jKakek = 0;
+        jNenekA = 0;
+        jNenekI = 0;
+        jSaudaraLkKd = 0;
+        jSaudaraPrKd = 0;
+        jSaudaraLkSa = 0;
+        jSaudaraPrSa = 0;
+        jSaudaraLkSi = 0;
+        jSaudaraPrSi = 0;
+        jKeponakanLkKd = 0;
+        jKeponakanLkSa = 0;
+        jPamanKd = 0;
+        jPamanSa = 0;
+        jSepupuLkPmnKd = 0;
+        jSepupuLkPmnSa = 0;
+
+        //------------------ashabul Furudh
+        kbAnakPr = 0;
+        kbCucuPr = 0;
+        kbAyah = 0;
+        kbIbu = 0;
+        kbSuami = 0;
+        kbIstri = 0;
+        kbKakek = 0;
+        kbNenek = 0;
+        kbSaudaraPrKd = 0;
+        kbSaudaraPrSa = 0;
+        kbSaudaraSi = 0;
+
+        //------------------ashobah
+        ashAnakLk = 0;
+        ashCucuLk = 0;
+        ashAyah = 0;
+        ashKakek = 0;
+        ashSaudaraLkKd = 0;
+        ashSaudaraLkSa = 0;
+        ashKeponakanLkKd = 0;
+        ashKeponakanLkSa = 0;
+
+        ashPamanKd = 0;
+        ashPamanSa = 0;
+        ashSepupuLkPmnKd = 0;
+        ashSepupuLkPmnSa = 0;
+
+        ashAnakPr = 0;
+        ashCucuPr = 0;
+        ashSaudaraPrKd = 0;
+        ashSaudaraPrSa = 0;
+        ashIbu = 0;
+
+        bagAnakLk = 0;
+        bagAnakPr = 0;
+        bagAyah = 0;
+        bagIbu = 0;
+        bagSuami = 0;
+        bagIstri = 0;
+        bagCucuLk = 0;
+        bagCucuPr = 0;
+        bagKakek = 0;
+        bagNenekA = 0;
+        bagNenekI = 0;
+        bagSaudaraLkKd = 0;
+        bagSaudaraPrKd = 0;
+        bagSaudaraLkSa = 0;
+        bagSaudaraPrSa = 0;
+        bagSaudaraLkSi = 0;
+        bagSaudaraPrSi = 0;
+        bagKeponakanLkKd = 0;
+        bagKeponakanLkSa = 0;
+        bagPamanKd = 0;
+        bagPamanSa = 0;
+        bagSepupuPamanKd = 0;
+        bagSepupuPamanSa = 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +190,11 @@ ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         setTitle("Hasil");
+
+        tvnoaw = findViewById(R.id.tvNoAW);
+        svtabel = findViewById(R.id.svtabel);
+        tvKPK = findViewById(R.id.tvKpk);
+        tvJkpk = findViewById(R.id.tvJkpk);
 
         btnHome = findViewById(R.id.btnHomeR);
         btnRepeat = findViewById(R.id.btnRepeat);
@@ -155,11 +302,36 @@ ResultActivity extends AppCompatActivity {
         tvJthSepupuKd = findViewById(R.id.tvKdSepupuKd);
         tvJthSepupuSa = findViewById(R.id.tvKdSepupuSa);
 
-        setKadarBagi();
-        hitungWaris();
+        HitungWaris();
+        setBagian();
+        setTextAll();
+        setRowGone();
 
+        if (jAnakLk == 0 && jAnakPr == 0 && jAyah == 0 && jIbu == 0 && jSuami == 0 && jIstri == 0 && jCucuLk == 0 && jCucuPr == 0 && jKakek == 0 && jNenekA == 0 && jNenekI == 0
+                && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jSaudaraLkSa == 0 && jSaudaraPrSa == 0 && jKeponakanLkKd == 0 && jKeponakanLkSa == 0
+                && jPamanKd == 0 && jPamanSa == 0 && jSepupuLkPmnKd == 0 && jSepupuLkPmnSa == 0) {
+            svtabel.setVisibility(View.GONE);
+            tvnoaw.setVisibility(View.VISIBLE);
+        }
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                resetValue();
+                startActivity(new Intent(ResultActivity.this, MainActivity.class));
+            }
+        });
+
+        btnRepeat.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                resetValue();
+                startActivity(new Intent(ResultActivity.this, InputActivity1.class));
+            }
+        });
+    }
+
+    public void setTextAll() {
         Locale localeId = new Locale("in", "ID");
-        NumberFormat rp = NumberFormat.getCurrencyInstance();
+        NumberFormat rp = NumberFormat.getCurrencyInstance(localeId);
 
         tvTirkah.setText(rp.format(tirkah));
         tvHutang.setText(rp.format(hutang));
@@ -261,97 +433,81 @@ ResultActivity extends AppCompatActivity {
         tvPamanSa.setText(String.valueOf(jPamanSa + descPamanSa));
         tvSepupuKd.setText(String.valueOf(jSepupuLkPmnKd + descSepupuLkKd));
         tvSepupuSa.setText(String.valueOf(jSepupuLkPmnSa + descSepupuLkSa));
-
-        setRowGone();
-
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                resetValue();
-                startActivity(new Intent(ResultActivity.this, MainActivity.class));
-            }
-        });
-
-        btnRepeat.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                resetValue();
-                startActivity(new Intent(ResultActivity.this, InputActivity1.class));
-            }
-        });
     }
 
     public void setRowGone() {
-        if (bagAnakLk == 0) {
+        if (bagAnakLk == 0 || Double.isNaN(bagAnakLk)) {
             rowAnakLk.setVisibility(View.GONE);
         }
-        if (bagAnakPr == 0) {
+        if (bagAnakPr == 0 || Double.isNaN(bagAnakPr)) {
             rowAnakPr.setVisibility(View.GONE);
         }
-        if (bagAyah == 0) {
+        if (bagAyah == 0 || Double.isNaN(bagAyah)) {
             rowAyah.setVisibility(View.GONE);
         }
-        if (bagIbu == 0) {
+        if (bagIbu == 0 || Double.isNaN(bagIbu)) {
             rowIbu.setVisibility(View.GONE);
         }
-        if (bagSuami == 0) {
+        if (bagSuami == 0 || Double.isNaN(bagSuami)) {
             rowSuami.setVisibility(View.GONE);
         }
-        if (bagIstri == 0) {
+        if (bagIstri == 0 || Double.isNaN(bagIstri)) {
             rowIstri.setVisibility(View.GONE);
         }
-        if (bagCucuLk == 0) {
+        if (bagCucuLk == 0 || Double.isNaN(bagCucuLk)) {
             rowCucuLk.setVisibility(View.GONE);
         }
-        if (bagCucuPr == 0) {
+        if (bagCucuPr == 0 || Double.isNaN(bagCucuPr)) {
             rowCucuPr.setVisibility(View.GONE);
         }
-        if (bagKakek == 0) {
+        if (bagKakek == 0 || Double.isNaN(bagKakek)) {
             rowKakek.setVisibility(View.GONE);
         }
-        if (bagNenekA == 0) {
+        if (bagNenekA == 0 || Double.isNaN(bagNenekA)) {
             rowNenekA.setVisibility(View.GONE);
         }
-        if (bagNenekI == 0) {
+        if (bagNenekI == 0 || Double.isNaN(bagNenekI)) {
             rowNenekI.setVisibility(View.GONE);
         }
-        if (bagSaudaraLkKd == 0) {
+        if (bagSaudaraLkKd == 0 || Double.isNaN(bagSaudaraLkKd)) {
             rowSaudaraLkKd.setVisibility(View.GONE);
         }
-        if (bagSaudaraPrKd == 0) {
+        if (bagSaudaraPrKd == 0 || Double.isNaN(bagSaudaraPrKd)) {
             rowSaudaraPrKd.setVisibility(View.GONE);
         }
-        if (bagSaudaraLkSa == 0) {
+        if (bagSaudaraLkSa == 0 || Double.isNaN(bagSaudaraLkSa)) {
             rowSaudaraLkSa.setVisibility(View.GONE);
         }
-        if (bagSaudaraPrSa == 0) {
+        if (bagSaudaraPrSa == 0 || Double.isNaN(bagSaudaraPrSa)) {
             rowSaudaraPrSa.setVisibility(View.GONE);
         }
-        if (bagSaudaraLkSi == 0) {
+        if (bagSaudaraLkSi == 0 || Double.isNaN(bagSaudaraLkSi)) {
             rowSaudaraLkSi.setVisibility(View.GONE);
         }
-        if (bagSaudaraPrSi == 0) {
+        if (bagSaudaraPrSi == 0 || Double.isNaN(bagSaudaraPrSi)) {
             rowSaudaraPrSi.setVisibility(View.GONE);
         }
-        if (bagKeponakanLkKd == 0) {
+        if (bagKeponakanLkKd == 0 || Double.isNaN(bagKeponakanLkKd)) {
             rowKeponakanLkKd.setVisibility(View.GONE);
         }
-        if (bagKeponakanLkSa == 0) {
+        if (bagKeponakanLkSa == 0 || Double.isNaN(bagKeponakanLkSa)) {
             rowKeponakanLkSa.setVisibility(View.GONE);
         }
-        if (bagPamanKd == 0) {
+        if (bagPamanKd == 0 || Double.isNaN(bagPamanKd)) {
             rowPamanKd.setVisibility(View.GONE);
         }
-        if (bagPamanSa == 0) {
+        if (bagPamanSa == 0 || Double.isNaN(bagPamanSa)) {
             rowPamanSa.setVisibility(View.GONE);
         }
-        if (bagSepupuPamanKd == 0) {
+        if (bagSepupuPamanKd == 0 || Double.isNaN(bagSepupuPamanKd)) {
             rowSepupuKd.setVisibility(View.GONE);
         }
-        if (bagSepupuPamanSa == 0) {
+        if (bagSepupuPamanSa == 0 || Double.isNaN(bagSepupuPamanSa)) {
             rowSepupuSa.setVisibility(View.GONE);
         }
     }
 
-    public void setKadarBagi() {
+    public void HitungWaris() {
         setKbAnakPr();
         setKbAyah();
         setKbIbu();
@@ -366,8 +522,8 @@ ResultActivity extends AppCompatActivity {
         setKbSaudaraPrSa();
         setKbSaudaraSi();
 
-        Ashobah = irts - (kbAnakPr + kbAyah + kbIbu + kbSuami + kbIstri + kbCucuPr + kbKakek + kbNenekA + kbNenekI
-                + kbSaudaraPrKd + kbSaudaraPrSa + kbSaudaraLkSi + kbSaudaraPrSi);
+        Ashobah = irts - (kbAnakPr + kbAyah + kbIbu + kbSuami + kbIstri + kbCucuPr + kbKakek + kbNenek
+                + kbSaudaraPrKd + kbSaudaraPrSa + kbSaudaraSi);
 
         setAshAnak();
         setAshAyah();
@@ -388,11 +544,814 @@ ResultActivity extends AppCompatActivity {
         setAshSepupuLkSa();
 
         setAshMaalGhoir();
-        //setAshMaalGhoir2();
 
+        Double sisaHarta = irts - (kbAnakPr + kbAyah + kbIbu + kbSuami + kbIstri + kbCucuPr + kbKakek + kbNenek
+                + kbSaudaraPrKd + kbSaudaraPrSa + kbSaudaraSi
+                + ashAnakLk + ashAnakPr + ashAyah + ashIbu + ashCucuLk + ashCucuPr + ashKakek
+                + ashSaudaraLkKd + ashSaudaraPrKd + ashSaudaraLkSa + ashSaudaraPrSa + ashKeponakanLkKd + ashKeponakanLkSa
+                + ashPamanKd + ashPamanSa + ashSepupuLkPmnKd + ashSepupuLkPmnSa);
+
+        if (sisaHarta > 0) {
+            Radd();
+        } else {
+            Aul();
+        }
+        //Aul();
     }
 
-    public void hitungWaris() {
+    public void Aul() {
+        // cek Pembagi/Penyebut
+        if (pbAnakPr == 0) {
+            pbAnakPr = 1;
+        }
+
+        if (pbAyah == 0) {
+            pbAyah = 1;
+        }
+
+        if (pbIbu == 0) {
+            pbIbu = 1;
+        }
+
+        if (pbSuami == 0) {
+            pbSuami = 1;
+        }
+
+        if (pbIstri == 0) {
+            pbIstri = 1;
+        }
+
+        if (pbCucuPr == 0) {
+            pbCucuPr = 1;
+        }
+
+        if (pbKakek == 0) {
+            pbKakek = 1;
+        }
+
+        if (pbNenek == 0) {
+            pbNenek = 1;
+        }
+
+        if (pbSaudaraPrKd == 0) {
+            pbSaudaraPrKd = 1;
+        }
+
+        if (pbSaudaraPrSa == 0) {
+            pbSaudaraPrSa = 1;
+        }
+
+        if (pbSaudaraSi == 0) {
+            pbSaudaraSi = 1;
+        }
+
+        pembagi = new double[]{pbAnakPr, pbAyah, pbIbu, pbSuami, pbIstri, pbCucuPr, pbKakek, pbNenek, pbSaudaraPrKd, pbSaudaraPrSa, pbSaudaraSi};
+        kpk = lcm(pembagi);
+
+        pmAnakPr = kpk / pbAnakPr * pmAnakPr;
+        pmAyah = kpk / pbAyah * pmAyah;
+        pmIbu = kpk / pbIbu * pmIbu;
+        pmSuami = kpk / pbSuami * pmSuami;
+        pmIstri = kpk / pbIstri * pmIstri;
+        pmCucuPr = kpk / pbCucuPr * pmCucuPr;
+        pmKakek = kpk / pbKakek * pmKakek;
+        pmNenek = kpk / pbNenek * pmNenek;
+        pmSaudaraPrKd = kpk / pbSaudaraPrKd * pmSaudaraPrKd;
+        pmSaudaraPrSa = kpk / pbSaudaraPrSa * pmSaudaraPrSa;
+        pmSaudaraSi = kpk / pbSaudaraSi * pmSaudaraSi;
+
+        jPembilang = pmAnakPr + pmAyah + pmIbu + pmSuami + pmIstri + pmCucuPr + pmKakek + pmNenek + pmSaudaraPrKd + pmSaudaraPrSa + pmSaudaraSi;
+
+        DecimalFormat df = new DecimalFormat("##.#");
+        String sKpk = String.valueOf(df.format(kpk));
+        String sp = String.valueOf(df.format(jPembilang));
+        stringAsal = sKpk + " -> " + sp;
+
+        //kaidah a'ul
+        if (jPembilang > kpk) {
+            tvKPK.setText("Asal Masalah A'ul :");
+            tvKPK.setVisibility(View.VISIBLE);
+            tvJkpk.setVisibility(View.VISIBLE);
+            tvJkpk.setText(stringAsal);
+            jPembagi = jPembilang;
+
+            if (kpk == 6 && jPembilang == 7) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 6 && jPembilang == 8) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 6 && jPembilang == 9) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 6 && jPembilang == 10) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 12 && jPembilang == 13) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 12 && jPembilang == 15) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 12 && jPembilang == 17) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (kpk == 24 && jPembilang == 27) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbAyah) {
+                    kbAyah = (pmAyah / jPembagi) * irts;
+                    jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSuami) {
+                    kbSuami = (pmSuami / jPembagi * irts);
+                    jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIstri) {
+                    kbIstri = (pmIstri / jPembagi) * irts;
+                    jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbKakek) {
+                    kbKakek = (pmKakek / jPembagi) * irts;
+                    jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            }
+        }
+    }
+
+    public void Radd() {
+        // cek Pembagi/Penyebut
+        if (pbAnakPr == 0) {
+            pbAnakPr = 1;
+        }
+
+        if (pbIbu == 0) {
+            pbIbu = 1;
+        }
+
+        if (pbCucuPr == 0) {
+            pbCucuPr = 1;
+        }
+
+        if (pbNenek == 0) {
+            pbNenek = 1;
+        }
+
+        if (pbSaudaraPrKd == 0) {
+            pbSaudaraPrKd = 1;
+        }
+
+        if (pbSaudaraPrSa == 0) {
+            pbSaudaraPrSa = 1;
+        }
+
+        if (pbSaudaraSi == 0) {
+            pbSaudaraSi = 1;
+        }
+
+        pembagi = new double[]{pbAnakPr, pbIbu, pbCucuPr, pbNenek, pbSaudaraPrKd, pbSaudaraPrSa, pbSaudaraSi};
+        kpk = lcm(pembagi);
+
+        pmAnakPr = kpk / pbAnakPr * pmAnakPr;
+        pmIbu = kpk / pbIbu * pmIbu;
+        pmCucuPr = kpk / pbCucuPr * pmCucuPr;
+        pmNenek = kpk / pbNenek * pmNenek;
+        pmSaudaraPrKd = kpk / pbSaudaraPrKd * pmSaudaraPrKd;
+        pmSaudaraPrSa = kpk / pbSaudaraPrSa * pmSaudaraPrSa;
+        pmSaudaraSi = kpk / pbSaudaraSi * pmSaudaraSi;
+
+        jPembilang = pmAnakPr + pmIbu + pmCucuPr + pmNenek + pmSaudaraPrKd + pmSaudaraPrSa + pmSaudaraSi;
+
+        if (kpk > jPembilang) {
+            jPembagi = jPembilang;
+
+            DecimalFormat df = new DecimalFormat("##.#");
+            String sKpk = String.valueOf(df.format(kpk));
+            String sp = String.valueOf(df.format(jPembilang));
+            stringAsal = sKpk + " -> " + sp;
+            tvKPK.setVisibility(View.VISIBLE);
+            tvKPK.setText("Asal Masalah Radd :");
+            tvJkpk.setVisibility(View.VISIBLE);
+            tvJkpk.setText(stringAsal);
+
+            if (jSuami == 0 && jIstri == 0) {
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * irts;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * irts;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * irts;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * irts;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            } else if (jSuami == 1 || jIstri == 1) {
+                Double harta;
+                harta = irts - (kbSuami + kbIstri);
+
+                if (checkKbAnakPr) {
+                    kbAnakPr = (pmAnakPr / jPembagi) * harta;
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbIbu) {
+                    kbIbu = (pmIbu / jPembagi) * harta;
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbCucuPr) {
+                    kbCucuPr = (pmCucuPr / jPembagi) * harta;
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbNenek) {
+                    kbNenek = (pmNenek / jPembagi) * harta;
+                    if (jNenekA > 0 && jNenekI == 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekI > 0 && jNenekA == 0) {
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                    } else if (jNenekA > 0 && jNenekI > 0) {
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+
+                if (checkKbSaudaraPrKd) {
+                    kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * harta);
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraPrSa) {
+                    kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * harta;
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                }
+
+                if (checkKbSaudaraSi) {
+                    kbSaudaraSi = (pmSaudaraSi / jPembagi) * harta;
+                    if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                    } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                    }
+                }
+            }
+        }
+    }
+
+    public void setBagian() {
         if (kbSuami > 0) {
             bagSuami = kbSuami;
         }
@@ -401,39 +1360,56 @@ ResultActivity extends AppCompatActivity {
             bagIstri = kbIstri / jIstri;
         }
 
-        if (kbNenekA > 0) {
-            bagNenekA = kbNenekA;
-        }
-
-        if (kbNenekI > 0) {
-            bagNenekI = kbNenekI;
+        if (kbNenek > 0 && jNenekA > 0 && jNenekI > 0) {
+            bagNenekA = (kbNenek / 2) / jNenekA;
+            bagNenekI = (kbNenek / 2) / jNenekI;
+        } else if (kbNenek > 0 && jNenekA > 0 && jNenekI == 0) {
+            bagNenekA = kbNenek / jNenekA;
+        } else if (kbNenek > 0 && jNenekA == 0 && jNenekI > 0) {
+            bagNenekI = kbNenek / jNenekI;
         }
 
         if (ashAnakLk > 0) {
             bagAnakLk = ashAnakLk / jAnakLk;
         }
 
-        if (ashAnakPr > 0 || kbAnakPr > 0) {
+        if (kbAnakPr > 0) {
+            bagAnakPr = kbAnakPr / jAnakPr;
+        } else if (ashAnakPr > 0) {
+            bagAnakPr = ashAnakPr / jAnakPr;
+        } else if (ashAnakPr > 0 && kbAnakPr > 0) {
             bagAnakPr = (ashAnakPr + kbAnakPr) / jAnakPr;
         }
 
-        if (ashAyah > 0 || kbAyah > 0) {
-            bagAyah = ashAyah + kbAyah;
+        if (kbAyah > 0) {
+            bagAyah = kbAyah;
+        } else if (ashAyah > 0) {
+            bagAyah = ashAyah;
+        } else if (kbAyah > 0 && ashAyah > 0) {
+            bagAyah = kbAyah + ashAyah;
         }
 
-        if (ashIbu > 0 || kbIbu > 0) {
-            bagIbu = ashIbu + kbIbu;
+        if (kbIbu > 0) {
+            bagIbu = kbIbu;
+        } else if (ashIbu > 0) {
+            bagIbu = ashIbu;
         }
 
         if (ashCucuLk > 0) {
             bagCucuLk = ashCucuLk / jCucuLk;
         }
 
-        if (ashCucuPr > 0 || kbCucuPr > 0) {
-            bagCucuPr = (ashCucuPr + kbCucuPr) / jCucuPr;
+        if (kbCucuPr > 0) {
+            bagCucuPr = kbCucuPr / jCucuPr;
+        } else if (ashCucuPr > 0) {
+            bagCucuPr = ashCucuPr / jCucuPr;
         }
 
-        if (ashKakek > 0 || kbKakek > 0) {
+        if (kbKakek > 0) {
+            bagKakek = kbKakek;
+        } else if (ashKakek > 0) {
+            bagKakek = ashKakek;
+        } else if (ashKakek > 0 && kbKakek > 0) {
             bagKakek = ashKakek + kbKakek;
         }
 
@@ -441,24 +1417,29 @@ ResultActivity extends AppCompatActivity {
             bagSaudaraLkKd = ashSaudaraLkKd / jSaudaraLkKd;
         }
 
-        if (ashSaudaraPrKd > 0 || kbSaudaraPrKd > 0) {
-            bagSaudaraPrKd = (kbSaudaraPrKd + ashSaudaraPrKd) / jSaudaraPrKd;
+        if (kbSaudaraPrKd > 0) {
+            bagSaudaraPrKd = kbSaudaraPrKd / jSaudaraPrKd;
+        } else if (ashSaudaraPrKd > 0) {
+            bagSaudaraPrKd = ashSaudaraPrKd / jSaudaraPrKd;
         }
 
         if (ashSaudaraLkSa > 0) {
             bagSaudaraLkSa = ashSaudaraLkSa / jSaudaraLkSa;
         }
 
-        if (kbSaudaraPrSa > 0 || ashSaudaraPrSa > 0) {
-            bagSaudaraPrSa = (kbSaudaraPrSa + ashSaudaraPrSa) / jSaudaraPrSa;
+        if (kbSaudaraPrSa > 0) {
+            bagSaudaraPrSa = kbSaudaraPrSa / jSaudaraPrSa;
+        } else if (ashSaudaraPrKd > 0) {
+            bagSaudaraPrSa = ashSaudaraPrSa / jSaudaraPrSa;
         }
 
-        if (kbSaudaraLkSi > 0) {
-            bagSaudaraLkSi = kbSaudaraLkSi / jSaudaraLkSi;
-        }
-
-        if (kbSaudaraPrSi > 0) {
-            bagSaudaraPrSi = kbSaudaraPrSi / jSaudaraPrSi;
+        if (kbSaudaraSi > 0 && jSaudaraLkSi > 0 && jSaudaraPrSi > 0) {
+            bagSaudaraLkSi = (kbSaudaraSi / 2) / jSaudaraLkSi;
+            bagSaudaraPrSi = (kbSaudaraSi / 2) / jSaudaraPrSi;
+        } else if (kbSaudaraSi > 0 && jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+            bagSaudaraLkSi = kbSaudaraSi / jSaudaraLkSi;
+        } else if (kbSaudaraSi > 0 && jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+            bagSaudaraPrSi = kbSaudaraSi / jSaudaraPrSi;
         }
 
         if (ashKeponakanLkKd > 0) {
@@ -484,103 +1465,6 @@ ResultActivity extends AppCompatActivity {
         if (ashSepupuLkPmnSa > 0) {
             bagSepupuPamanSa = ashSepupuLkPmnSa / jSepupuLkPmnSa;
         }
-
-    }
-
-    public void resetValue() {
-        checkAshKakek = false;
-        checkKbKakek = false;
-        checkAshAyah = false;
-        checkKbAyah = false;
-
-        tirkah = 0;
-        tajhiz = 0;
-        wasiat = 0;
-        hutang = 0;
-        irts = 0;
-        jAnakPr = 0;
-        jAnakLk = 0;
-        jAyah = 0;
-        jIbu = 0;
-        jSuami = 0;
-        jIstri = 0;
-        jCucuLk = 0;
-        jCucuPr = 0;
-        jKakek = 0;
-        jNenekA = 0;
-        jNenekI = 0;
-        jSaudaraLkKd = 0;
-        jSaudaraPrKd = 0;
-        jSaudaraLkSa = 0;
-        jSaudaraPrSa = 0;
-        jSaudaraLkSi = 0;
-        jSaudaraPrSi = 0;
-        jKeponakanLkKd = 0;
-        jKeponakanLkSa = 0;
-        jPamanKd = 0;
-        jPamanSa = 0;
-        jSepupuLkPmnKd = 0;
-        jSepupuLkPmnSa = 0;
-
-        //------------------ashabul Furudh
-        kbAnakPr = 0;
-        kbCucuPr = 0;
-        kbAyah = 0;
-        kbIbu = 0;
-        kbSuami = 0;
-        kbIstri = 0;
-        kbKakek = 0;
-        kbNenekA = 0;
-        kbNenekI = 0;
-        kbSaudaraPrKd = 0;
-        kbSaudaraPrSa = 0;
-        kbSaudaraLkSi = 0;
-        kbSaudaraPrSi = 0;
-
-        //------------------ashobah
-        ashAnakLk = 0;
-        ashCucuLk = 0;
-        ashAyah = 0;
-        ashKakek = 0;
-        ashSaudaraLkKd = 0;
-        ashSaudaraLkSa = 0;
-        ashKeponakanLkKd = 0;
-        ashKeponakanLkSa = 0;
-
-        ashPamanKd = 0;
-        ashPamanSa = 0;
-        ashSepupuLkPmnKd = 0;
-        ashSepupuLkPmnSa = 0;
-
-        ashAnakPr = 0;
-        ashCucuPr = 0;
-        ashSaudaraPrKd = 0;
-        ashSaudaraPrSa = 0;
-        ashIbu = 0;
-
-        bagAnakLk = 0;
-        bagAnakPr = 0;
-        bagAyah = 0;
-        bagIbu = 0;
-        bagSuami = 0;
-        bagIstri = 0;
-        bagCucuLk = 0;
-        bagCucuPr = 0;
-        bagKakek = 0;
-        bagNenekA = 0;
-        bagNenekI = 0;
-        bagSaudaraLkKd = 0;
-        bagSaudaraPrKd = 0;
-        bagSaudaraLkSa = 0;
-        bagSaudaraPrSa = 0;
-        bagSaudaraLkSi = 0;
-        bagSaudaraPrSi = 0;
-        bagKeponakanLkKd = 0;
-        bagKeponakanLkSa = 0;
-        bagPamanKd = 0;
-        bagPamanSa = 0;
-        bagSepupuPamanKd = 0;
-        bagSepupuPamanSa = 0;
     }
 
     // Keluarga terdekat
@@ -590,6 +1474,8 @@ ResultActivity extends AppCompatActivity {
                 // ada ayah, ada salah satu furu'
                 kbAyah = Math.round(irts / 6);
                 checkKbAyah = true;
+                pmAyah = 1;
+                pbAyah = 6;
             }
     }
 
@@ -601,11 +1487,11 @@ ResultActivity extends AppCompatActivity {
         }
 
         if (checkKbAyah && checkAshAyah) {
-            jthAyah = "1/6 + Ashobah";
+            jthAyah = "1/6 + A";
         } else if (checkKbAyah) {
             jthAyah = "1/6";
         } else if (checkAshAyah) {
-            jthAyah = "1:1A";
+            jthAyah = "A";
         }
     }
 
@@ -618,8 +1504,8 @@ ResultActivity extends AppCompatActivity {
                 ashIbu = Math.round(Ashobah / 3);
                 kbAyah = 0;
                 kbIbu = 0;
-                jthAyah = "1:1A";
-                jthIbu = "1:3A";
+                jthAyah = "A";
+                jthIbu = "1/3 A";
             }
     }
 
@@ -633,10 +1519,16 @@ ResultActivity extends AppCompatActivity {
                 // ada ibu, ada furu' atau berkumpulnya saudara kandung atau saudara seayah atau saudara seibu
                 kbIbu = Math.round(irts / 6);
                 jthIbu = "1/6";
+                checkKbIbu = true;
+                pmIbu = 1;
+                pbIbu = 6;
             } else if (jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jSdrKd <= 1 && jSdrSa <= 1 && jSdrSi <= 1) {
                 // ada ibu, tidak ada furu' dan  tidak berkumpul saudara kandung atau saudara seayah
                 kbIbu = Math.round(irts / 3);
                 jthIbu = "1/3";
+                checkKbIbu = true;
+                pmIbu = 1;
+                pbIbu = 3;
             }
     }
 
@@ -645,9 +1537,15 @@ ResultActivity extends AppCompatActivity {
             if (jAnakLk >= 1 || jAnakPr >= 1 || jCucuLk >= 1 || jCucuPr >= 1) { // ada furu'
                 kbSuami = Math.round(irts / 4);
                 jthSuami = "1/4";
+                checkKbSuami = true;
+                pmSuami = 1;
+                pbSuami = 4;
             } else if (jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0) { // tidak ada furu'
                 kbSuami = Math.round(irts / 2);
                 jthSuami = "1/2";
+                checkKbSuami = true;
+                pmSuami = 1;
+                pbSuami = 2;
             }
     }
 
@@ -656,9 +1554,15 @@ ResultActivity extends AppCompatActivity {
             if (jAnakLk >= 1 || jAnakPr >= 1 || jCucuLk >= 1 || jCucuPr >= 1) { // ada furu'
                 kbIstri = Math.round(irts / 8);
                 jthIstri = "1/8";
+                checkKbIstri = true;
+                pmIstri = 1;
+                pbIstri = 8;
             } else if (jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0) { // tidak ada furu'
                 kbIstri = Math.round(irts / 4);
                 jthIstri = "1/4";
+                checkKbIstri = true;
+                pmIstri = 1;
+                pbIstri = 4;
             }
     }
 
@@ -670,8 +1574,7 @@ ResultActivity extends AppCompatActivity {
             jthAnakPr = "1:1A";
         } else if (jAnakLk >= 1 && jAnakPr == 0) {
             ashAnakLk = Ashobah;
-            jthAnakLk = "Ashobah";
-
+            jthAnakLk = "A";
         }
     }
 
@@ -679,9 +1582,15 @@ ResultActivity extends AppCompatActivity {
         if (jAnakPr == 1 && jAnakLk == 0) { //anak perempuan tungal
             kbAnakPr = Math.round(irts / 2);
             jthAnakPr = "1/2";
+            checkKbAnakPr = true;
+            pmAnakPr = 1;
+            pbAnakPr = 2;
         } else if (jAnakPr >= 2 && jAnakLk == 0) { //anak perempuan banyak
             kbAnakPr = Math.round(2 * irts / 3);
             jthAnakPr = "2/3";
+            checkKbAnakPr = true;
+            pmAnakPr = 2;
+            pbAnakPr = 3;
         }
     }
 
@@ -692,7 +1601,7 @@ ResultActivity extends AppCompatActivity {
             jthCucuLk = "2:1A";
         } else if (jAnakLk == 0 && jCucuLk >= 1 && jCucuPr == 0) { // tidak ada cucu perempuan
             ashCucuLk = Ashobah;
-            jthCucuLk = "Ashobah";
+            jthCucuLk = "A";
         }
     }
 
@@ -707,21 +1616,31 @@ ResultActivity extends AppCompatActivity {
         if (jCucuPr == 1 && jCucuLk == 0 && jAnakLk == 0 && jAnakPr == 0) { // seorang diri
             kbCucuPr = Math.round(irts / 2);
             jthCucuPr = "1/2";
+            checkKbCucuPr = true;
+            pmCucuPr = 1;
+            pbCucuPr = 2;
         } else if (jCucuPr >= 1 && jCucuLk == 0 && jAnakLk == 0 && jAnakPr == 1) { // bersama seorang anak perempuan
             kbCucuPr = Math.round(irts / 6);
             jthCucuPr = "1/6";
+            checkKbCucuPr = true;
+            pmCucuPr = 1;
+            pbCucuPr = 6;
         } else if (jCucuPr >= 2 && jCucuLk == 0 && jAnakLk == 0 && jAnakPr == 0) { // dua orang atau lebih
             kbCucuPr = Math.round(2 * irts / 3);
             jthCucuPr = "2/3";
+            checkKbCucuPr = true;
+            pmCucuPr = 2;
+            pbCucuPr = 3;
         }
     }
-
 
     //---------------------------- kakek dan nenek
     public void setKbKakek() {
         if (jKakek == 1 && jAyah == 0) {
             kbKakek = Math.round(irts / 6);
             checkKbKakek = true;
+            pmKakek = 1;
+            pbKakek = 6;
         }
     }
 
@@ -737,26 +1656,35 @@ ResultActivity extends AppCompatActivity {
         }
 
         if (checkKbKakek && checkAshKakek) {
-            jthKakek = "1/6 + Ashobah";
+            jthKakek = "1/6 + A";
         } else if (checkKbKakek) {
             jthKakek = "1/6";
         } else if (checkAshKakek) {
-            jthKakek = "Ashobah";
+            jthKakek = "A";
         }
     }
 
     public void setKbNenek() {
         if (jIbu == 0 && jNenekA >= 1 && jNenekI == 0) {
-            kbNenekA = Math.round(irts / 6);
+            kbNenek = Math.round(irts / 6);
             jthNenekA = "1/6";
+            checkKbNenek = true;
+            pmNenek = 1;
+            pbNenek = 6;
         } else if (jIbu == 0 && jNenekA == 0 && jNenekI >= 1) {
-            kbNenekA = Math.round(irts / 6);
+            kbNenek = Math.round(irts / 6);
             jthNenekI = "1/6";
+            checkKbNenek = true;
+            pmNenek = 1;
+            pbNenek = 6;
         } else if (jIbu == 0 && jNenekA >= 1 && jNenekI >= 1) {
-            kbNenekA = Math.round(irts / 12);
-            kbNenekI = Math.round(irts / 12);
+            kbNenek = Math.round(irts / 6);
+            //kbNenek = Math.round(irts / 6);
             jthNenekA = "1/6B";
             jthNenekI = "1/6B";
+            checkKbNenek = true;
+            pmNenek = 1;
+            pbNenek = 6;
         }
     }
 
@@ -764,7 +1692,7 @@ ResultActivity extends AppCompatActivity {
     public void setAshSaudaraKd() {
         if (jSaudaraLkKd >= 1 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
             ashSaudaraLkKd = Ashobah;
-            jthSaudaraLkKd = "Ashobah";
+            jthSaudaraLkKd = "A";
         } else if (jSaudaraLkKd >= 1 && jSaudaraPrKd >= 1 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
             ashSaudaraLkKd = Math.round(2 * Ashobah / 3); // ashobah bil ghoir
             ashSaudaraPrKd = Math.round(Ashobah / 3);
@@ -777,9 +1705,15 @@ ResultActivity extends AppCompatActivity {
         if (jSaudaraPrKd == 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrKd = Math.round(irts / 2);
             jthSaudaraPrKd = "1/2";
+            checkKbSaudaraPrKd = true;
+            pmSaudaraPrKd = 1;
+            pbSaudaraPrKd = 2;
         } else if (jSaudaraPrKd >= 2 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrKd = Math.round(2 * irts / 3);
             jthSaudaraPrKd = "2/3";
+            checkKbSaudaraPrKd = true;
+            pmSaudaraPrKd = 2;
+            pbSaudaraPrKd = 3;
         }
     }
 
@@ -789,7 +1723,7 @@ ResultActivity extends AppCompatActivity {
             if (jSaudaraPrKd >= 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
                 ashSaudaraPrKd = Ashobah; //Ashobah maal ghoir, bersama anak perempuan atau cucu perempuan
                 kbSaudaraPrKd = 0;
-                jthSaudaraPrKd = "Ashobah";
+                jthSaudaraPrKd = "A";
                 // ketika saudara perempuan mendapat ashobah maal ghoir, maka dihukumi seperti saudara laki-laki kandung
                 ashSaudaraLkSa = 0;
                 ashSaudaraPrSa = 0;
@@ -803,7 +1737,7 @@ ResultActivity extends AppCompatActivity {
             } else if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
                 ashSaudaraPrSa = Ashobah; //Ashobah maal ghoir, bersama anak perempuan atau cucu perempuan
                 kbSaudaraPrSa = 0;
-                jthSaudaraPrSa = "Ashobah";
+                jthSaudaraPrSa = "A";
                 // ketika saudara perempuan mendapat ashobah maal ghoir, maka dihukumi seperti saudara laki-laki seayah
                 ashKeponakanLkKd = 0;
                 ashKeponakanLkSa = 0;
@@ -815,35 +1749,17 @@ ResultActivity extends AppCompatActivity {
         }
     }
 
-/*
-    public void setAshMaalGhoir2() {
-        if (jAnakPr >= 1 || jCucuPr >= 1)
-            if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
-                Ashobah = Ashobah + kbSaudaraPrSa;
-                ashSaudaraPrSa = Ashobah; //Ashobah maal ghoir, bersama anak perempuan atau cucu perempuan
-                kbSaudaraPrSa = 0;
-                jthSaudaraPrSa = "Ashobah";
-            }
-    }*/
-
     //------------------------------ saudara tiri
     public void setAshSaudaraSa() {
         if (jSaudaraLkSa >= 1 && jSaudaraPrSa == 0 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
             ashSaudaraLkSa = Ashobah;
-            jthSaudaraLkSa = "Ashobah";
+            jthSaudaraLkSa = "A";
         } else if (jSaudaraLkSa >= 1 && jSaudaraPrSa >= 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
             ashSaudaraLkSa = Math.round(2 * Ashobah / 3);
             ashSaudaraPrSa = Math.round(Ashobah / 3);
             jthSaudaraLkSa = "2:1A";
             jthSaudaraPrSa = "1:1A";
-        } else if (jAnakPr >= 1 || jCucuPr >= 1)
-            if (jSaudaraPrKd >= 1) {
-                ashSaudaraLkSa = 0;
-                ashSaudaraPrSa = 0;
-                kbSaudaraPrSa = 0;
-                jthSaudaraLkSa = "Terhalang";
-                jthSaudaraPrSa = "Terhalang";
-            }
+        }
     }
 
     public void setKbSaudaraPrSa() {
@@ -851,35 +1767,60 @@ ResultActivity extends AppCompatActivity {
                 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrSa = Math.round(irts / 2);
             jthSaudaraPrSa = "1/2";
+            checkKbSaudaraPrSa = true;
+            pmSaudaraPrSa = 1;
+            pbSaudaraPrSa = 2;
         } else if (jSaudaraPrSa >= 2 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0
                 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrSa = Math.round(2 * irts / 3);
             jthSaudaraPrSa = "2/3";
+            checkKbSaudaraPrSa = true;
+            pmSaudaraPrSa = 2;
+            pbSaudaraPrSa = 3;
         } else if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd >= 1 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0
                 && jAnakPr == 0 && jCucuPr == 0) {
-            kbSaudaraPrSa = Math.round(irts / 3);
+            kbSaudaraPrSa = Math.round(irts / 6);
             jthSaudaraPrSa = "1/6";
+            checkKbSaudaraPrSa = true;
+            pmSaudaraPrSa = 1;
+            pbSaudaraPrSa = 6;
         }
     }
 
     public void setKbSaudaraSi() {
         if (jSaudaraLkSi == 1 && jSaudaraPrSi == 0 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
-            kbSaudaraLkSi = Math.round(irts / 6);
+            kbSaudaraSi = Math.round(irts / 6);
             jthSaudaraLkSi = "1/6";
+            checkKbSaudaraSi = true;
+            pmSaudaraSi = 1;
+            pbSaudaraSi = 6;
         } else if (jSaudaraLkSi >= 2 && jSaudaraPrSi == 0 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
-            kbSaudaraLkSi = Math.round(irts / 3);
+            kbSaudaraSi = Math.round(irts / 3);
             jthSaudaraLkSi = "1/3";
+            checkKbSaudaraSi = true;
+            pmSaudaraSi = 1;
+            pbSaudaraSi = 3;
         } else if (jSaudaraLkSi == 0 && jSaudaraPrSi == 1 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
-            kbSaudaraPrSi = Math.round(irts / 6);
+            kbSaudaraSi = Math.round(irts / 6);
             jthSaudaraPrSi = "1/6";
+            checkKbSaudaraSi = true;
+            pmSaudaraSi = 1;
+            pbSaudaraSi = 6;
         } else if (jSaudaraLkSi == 0 && jSaudaraPrSi >= 2 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
-            kbSaudaraPrSi = Math.round(irts / 3);
+            kbSaudaraSi = Math.round(irts / 3);
             jthSaudaraPrSi = "1/3";
+            checkKbSaudaraSi = true;
+            pmSaudaraSi = 1;
+            pbSaudaraSi = 3;
         } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
-            kbSaudaraLkSi = Math.round(irts / 6);
-            kbSaudaraPrSi = Math.round(irts / 6);
+            kbSaudaraSi = Math.round(irts / 3);
+            //kbSaudaraSi = Math.round(irts / 6);
             jthSaudaraLkSi = "1/3B";
             jthSaudaraPrSi = "1/3B";
+            checkKbSaudaraSi = true;
+            pmSaudaraSi = 1;
+            pbSaudaraSi = 3;
+            //checkKbSaudaraPrSi = true;
         }
 
     }
@@ -889,6 +1830,7 @@ ResultActivity extends AppCompatActivity {
         if (jKeponakanLkKd >= 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
                 && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
             ashKeponakanLkKd = Ashobah;
+            jthKeponakanLkKd = "A";
         }
     }
 
@@ -896,6 +1838,7 @@ ResultActivity extends AppCompatActivity {
         if (jKeponakanLkSa >= 1 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
                 && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
             ashKeponakanLkSa = Ashobah;
+            jthKeponakanLkSa = "A";
         }
     }
 
@@ -904,6 +1847,7 @@ ResultActivity extends AppCompatActivity {
         if (jPamanKd >= 1 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
                 && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
             ashPamanKd = Ashobah;
+            jthPamanKd = "A";
         }
     }
 
@@ -911,6 +1855,7 @@ ResultActivity extends AppCompatActivity {
         if (jPamanSa >= 1 && jPamanKd == 0 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
                 && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
             ashPamanSa = Ashobah;
+            jthPamanSa = "A";
         }
     }
 
@@ -919,6 +1864,7 @@ ResultActivity extends AppCompatActivity {
         if (jSepupuLkPmnKd >= 1 && jPamanSa == 0 && jPamanKd == 0 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
                 && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
             ashSepupuLkPmnKd = Ashobah;
+            jthSepupuLkKd = "A";
         }
     }
 
@@ -927,7 +1873,34 @@ ResultActivity extends AppCompatActivity {
                 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
                 && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
             ashSepupuLkPmnSa = Ashobah;
+            jthSepupuLkSa = "A";
         }
     }
 
+    //--------------------------------------------- method mencari KPK untuk masalah aul
+    public double gcd(double a, double b) {
+        while (b > 0) {
+            double temp = b;
+            b = a % b; // % is remainder
+            a = temp;
+        }
+        return a;
+    }
+
+    public double gcd(double[] input) {
+        double result = input[0];
+        for (int i = 1; i < input.length; i++) result = gcd(result, input[i]);
+        return result;
+    }
+
+    public double lcm(double a, double b) {
+        return a * (b / gcd(a, b));
+    }
+
+    public double lcm(double[] input) {
+        double result = input[0];
+        for (int i = 1; i < input.length; i++)
+            result = lcm(result, input[i]);
+        return result;
+    }
 }

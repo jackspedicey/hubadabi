@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="8dp"
-            android:text="My Mom" />
+            android:text="My Parents who always support me" />
 
 
         <TextView
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="8dp"
-            android:text="Hartatik, ST, M.Cs" />
+            android:text="Ibu Hartatik, ST, M.Cs" />
 
 
     </LinearLayout>

@@ -23,12 +23,48 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvNotifSdrSa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Saudara laki-laki dan perempuan se-ayah dilewati karena sudah terhalang(mahjub) oleh Saudara laki-laki kandung"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNotifSdrPrSa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Saudara perempuan se-ayah dilewati karena sudah terhalang(mahjub) oleh dua orang atau lebih Saudara perempuan kandung"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNotifSdrSi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Saudara laki-laki dan perempuan se-ibu dilewati karena sudah terhalang(mahjub) oleh kakek"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/tvSaudaraLkSa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
-            android:text="Saudara Laki-laki seAyah"
+            android:text="Saudara Laki-laki se-ayah"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
@@ -48,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
-            android:text="Saudara Perempuan seAyah"
+            android:text="Saudara Perempuan se-ayah"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
@@ -68,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
-            android:text="Saudara Perempuan seIbu"
+            android:text="Saudara laki-laki se-ibu"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 
@@ -88,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
-            android:text="Saudara Perempuan seIbu"
+            android:text="Saudara perempuan se-ibu"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
 

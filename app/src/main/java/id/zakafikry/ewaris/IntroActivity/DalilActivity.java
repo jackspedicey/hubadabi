@@ -64,16 +64,15 @@ public class DalilActivity extends AppCompatActivity {
     }
 
     private void pausePlayers() {
-        if (annisa11.isPlaying())
-            annisa11.stop();
-        annisa11 = MediaPlayer.create(DalilActivity.this, R.raw.annisa11);
-        if (annisa12.isPlaying())
-            annisa12.stop();
-        annisa12 = MediaPlayer.create(DalilActivity.this, R.raw.annisa12);
-        if (annisa176.isPlaying())
-            annisa176.stop();
-        annisa176 = MediaPlayer.create(DalilActivity.this, R.raw.annisa176);
-
+        if (annisa11.isPlaying()) {
+            annisa11.pause();
+        }
+        if (annisa12.isPlaying()) {
+            annisa12.pause();
+        }
+        if (annisa176.isPlaying()) {
+            annisa176.pause();
+        }
     }
 
     public void onBackPressed() {

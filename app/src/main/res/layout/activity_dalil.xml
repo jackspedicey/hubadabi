@@ -38,12 +38,21 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/btnPlay1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="end"
-                android:background="@drawable/playpause" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnPlay1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/playpause" />
+
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,8 +79,8 @@
 
             <ImageButton
                 android:id="@+id/btnPlay2"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_gravity="end"
                 android:background="@drawable/playpause" />
 
@@ -100,8 +109,8 @@
 
             <ImageButton
                 android:id="@+id/btnPlay3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_gravity="end"
                 android:background="@drawable/playpause" />
 

@@ -15,11 +15,11 @@ import id.zakafikry.ewaris.R;
 public class InputActivity4 extends AppCompatActivity {
 
     Button btnNext, btnPrev;
-    TextView tvNenekA, tvNenekI;
+    TextView tvNenekA, tvNenekI, tvNotifKakek, tvNotifNenek;
     EditText etNenekA, etNenekI;
     CheckBox cbKakek;
-
     String nenekA, nenekI;
+    Function f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +35,18 @@ public class InputActivity4 extends AppCompatActivity {
         etNenekI = findViewById(R.id.etNenekIbu);
         cbKakek = findViewById(R.id.cbKakek);
 
+        tvNotifKakek = findViewById(R.id.tvNotifKakek);
+        tvNotifNenek = findViewById(R.id.tvNotifNenek);
+
+        setVisibility();
+        f = new Function();
 
 
         btnPrev.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v) {
-                startActivity(new Intent(InputActivity4.this, InputActivity3.class));
+                f.resetValueIA3();
+                finish();
+                //startActivity(new Intent(InputActivity4.this, InputActivity3.class));
             }
         });
 
@@ -53,7 +60,11 @@ public class InputActivity4 extends AppCompatActivity {
                 ResultActivity.jNenekA = f.convertStr(nenekA);
                 ResultActivity.jNenekI = f.convertStr(nenekI);
 
-                startActivity(new Intent(InputActivity4.this, InputActivity5.class));
+                if (ResultActivity.jAnakLk >= 1 || ResultActivity.jAyah >= 1 || ResultActivity.jCucuLk >= 1) {
+                    startActivity(new Intent(InputActivity4.this, ConfirmActivity1.class));
+                } else {
+                    startActivity(new Intent(InputActivity4.this, InputActivity5.class));
+                }
             }
         });
     }
@@ -61,6 +72,21 @@ public class InputActivity4 extends AppCompatActivity {
     public void getCbVal() {
         if (cbKakek.isChecked()) {
             ResultActivity.jKakek = 1;
+        }
+    }
+
+    public void setVisibility() {
+        if (ResultActivity.jAyah == 1) {
+            cbKakek.setVisibility(View.GONE);
+            tvNotifKakek.setVisibility(View.VISIBLE);
+        }
+
+        if (ResultActivity.jIbu == 1) {
+            tvNenekA.setVisibility(View.GONE);
+            tvNenekI.setVisibility(View.GONE);
+            etNenekI.setVisibility(View.GONE);
+            etNenekA.setVisibility(View.GONE);
+            tvNotifNenek.setVisibility(View.VISIBLE);
         }
     }
 }

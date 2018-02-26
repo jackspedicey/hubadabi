@@ -13,44 +13,128 @@
         android:layout_centerVertical="true"
         android:layout_margin="32dp">
 
-        <Button
-            android:id="@+id/btnFaraid"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:id="@+id/LLFaraid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="@drawable/hitung2" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnDalil"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/btnFaraid"
+            <Button
+                android:id="@+id/btnFaraid"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/hitung2" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     Faraid"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LLDalil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/LLFaraid"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignRight="@+id/btnFaraid"
-            android:background="@drawable/quran"
-            android:textColor="@color/white" />
+            android:layout_alignRight="@+id/LLFaraid"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnAhliWaris"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            <Button
+                android:id="@+id/btnDalil"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/quran" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="       Dalil"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LLAWaris"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/btnFaraid"
+            android:layout_below="@+id/LLFaraid"
             android:layout_marginTop="128dp"
-            android:background="@drawable/family" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnFamilyTree"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignBottom="@+id/btnAhliWaris"
-            android:layout_alignLeft="@id/btnDalil"
-            android:layout_alignStart="@id/btnDalil"
-            android:background="@drawable/familytree2" />
+            <Button
+                android:id="@+id/btnAhliWaris"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/family" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="    Daftar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ahli Waris"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LLFtree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/LLAWaris"
+            android:layout_alignLeft="@id/LLDalil"
+            android:layout_alignStart="@id/LLDalil"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnFamilyTree"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/familytree2" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     Pohon"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="   Keluarga"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>

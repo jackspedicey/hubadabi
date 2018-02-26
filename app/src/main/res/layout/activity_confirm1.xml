@@ -29,7 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="50"
-            android:text="Back" />
+            android:text="Kembali"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnHtgF1"
@@ -37,7 +40,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="50"
-            android:text="Hitung" />
+            android:text="Hitung"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>

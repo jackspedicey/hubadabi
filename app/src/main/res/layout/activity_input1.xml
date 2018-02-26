@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Data Mayit"
+            android:text="Data Pewaris"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="24sp"
             android:textStyle="bold" />
