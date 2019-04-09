@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="id.zakafikry.ewaris.IntroActivity.AWarisActivity">
+    tools:context="id.zakafikry.ewaris.Introduction.AWarisActivity">
 
     <ExpandableListView
         android:id="@+id/lvExp"

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context="id.zakafikry.ewaris.InputActivity.InputActivity1">
+    tools:context="id.zakafikry.ewaris.Input.InputActivity1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,9 +29,9 @@
             android:id="@+id/tvGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="Jenis Kelamin"
+            android:text="Jenis Kelamin (*wajib diisi)"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="16sp" />
 
@@ -39,7 +39,7 @@
             android:id="@+id/rgGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="2dp"
             android:orientation="horizontal">
 
@@ -67,86 +67,139 @@
             android:id="@+id/tvTirkah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="Jumlah Harta Peninggalan (Tirkah)"
+            android:text="Jumlah Harta Peninggalan (*wajib diisi)"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/etTirkah"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <EditText
+                android:id="@+id/etTirkah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/tvHutang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="Hutang"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/etHutang"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:ems="10"
-            android:inputType="number"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <EditText
+                android:id="@+id/etHutang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvTajhiz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="Biaya Pemakaman (Tajhiz)"
+            android:text="Biaya Pemakaman"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/etTajhiz"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <EditText
+                android:id="@+id/etTajhiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvWasiat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="Wasiat (Maks : 1/3)"
+            android:text="Wasiat (maksimal 1/3 harta peninggalan)"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/etWasiat"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <EditText
+                android:id="@+id/etWasiat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-        <Button
-            android:id="@+id/btnPrevF1"
+    <Button
+        android:id="@+id/btnPrev1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
@@ -154,8 +207,8 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="8dp"
-            android:layout_marginLeft="32dp"
-            android:background="@drawable/home"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/prev2"
             android:gravity="bottom" />
 
         <Button
@@ -167,7 +220,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="8dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/next2"
             android:gravity="bottom" />
 

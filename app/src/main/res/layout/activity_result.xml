@@ -5,1326 +5,1383 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="id.zakafikry.ewaris.InputActivity.ResultActivity">
-
-    <LinearLayout
-        android:id="@+id/LLHarta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvTirkahR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:gravity="start"
-                android:text="Jumlah Peninggalan :"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvHutangR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="start"
-                android:text="Hutang :"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvTajhizR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="start"
-                android:text="Biaya Pemakaman :"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvWasiatR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="start"
-                android:text="Wasiat :"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvIrtsR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="start"
-                android:text="Harta yang siap dibagi :"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvKpk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="start"
-                android:text="Asal masalah :"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvJmlTirkahR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:gravity="end"
-                android:text="Rp. 200"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-
-            <TextView
-                android:id="@+id/tvJmlHutangR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="end"
-                android:text="Rp. 50"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-
-            <TextView
-                android:id="@+id/tvJmlTajhizR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="end"
-                android:text="Rp. 25"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-
-            <TextView
-                android:id="@+id/tvJmlWasiatR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="end"
-                android:text="Rp. 25"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvJmlIrtsR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="end"
-                android:text="Rp. 100"
-                android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            <TextView
-                android:id="@+id/tvJkpk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="2dp"
-                android:gravity="end"
-                android:text="-"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:visibility="gone" />
-        </LinearLayout>
-
-
-    </LinearLayout>
+    tools:context="id.zakafikry.ewaris.Input.ResultActivity">
 
     <ScrollView
         android:id="@+id/svtabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/LLHarta"
-        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
         android:scrollbars="none">
 
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="2dp">
 
-            android:id="@+id/tableHasil"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:gravity="center"
-            android:stretchColumns="*">
+            <LinearLayout
+                android:id="@+id/LLHarta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <TableRow
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="@color/blackcomb"
-                android:weightSum="100">
-
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTirkahR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="start"
+                        android:text="Jumlah Peninggalan :"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvHutangR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="start"
+                        android:text="Hutang :"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvTajhizR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="start"
+                        android:text="Biaya Pemakaman :"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvWasiatR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="start"
+                        android:text="Wasiat :"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvIrtsR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="start"
+                        android:text="Harta yang siap dibagi :"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKpk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="start"
+                        android:text="Asal masalah :"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvJmlTirkahR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="end"
+                        android:text="Rp. 200"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+
+                    <TextView
+                        android:id="@+id/tvJmlHutangR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="end"
+                        android:text="Rp. 50"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+
+                    <TextView
+                        android:id="@+id/tvJmlTajhizR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="end"
+                        android:text="Rp. 25"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+
+                    <TextView
+                        android:id="@+id/tvJmlWasiatR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="end"
+                        android:text="Rp. 25"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvJmlIrtsR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="end"
+                        android:text="Rp. 100"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvJkpk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="2dp"
+                        android:gravity="end"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tableHasil"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="50"
+                    android:layout_weight="1"
                     android:background="@color/blackcomb"
-                    android:gravity="start"
-                    android:text=" Ahli Waris"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:background="@color/blackcomb"
-                    android:gravity="start"
-                    android:text=" Kadar "
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:background="@color/blackcomb"
-                    android:gravity="start"
-                    android:text=" Bagian "
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowAnakLk"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwAnakLk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Anak Laki-laki"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdAnakLk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagAnakLk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowAnakPr"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwAnakPr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Anak Perempuan"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdAnakPr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagAnakPr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowAyah"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwAyah"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Ayah"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdAyah"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagAyah"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowIbu"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwIbu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Ibu"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdIbu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagIbu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSuami"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSuami"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Suami"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSuami"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSuami"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowIstri"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwIstri"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Istri"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdIstri"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagIstri"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-
-            <TableRow
-                android:id="@+id/rowCucuLk"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwcucuLk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Cucu Laki-laki"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdCucuLk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagCucuLk"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowCucuPr"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwCucuPr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Cucu Perempuan"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdCucuPr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagCucuPr"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowKakek"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwKakek"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Kakek"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdKakek"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagKakek"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowNenekA"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwNenekA"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Nenek dari Pihak Ayah"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdNenekA"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagNenekA"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowNenekI"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwNenekI"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Nenek dari Pihak Ibu"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdNenekI"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagNenekI"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSaudaraLkKd"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSaudaraLkKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Saudara Laki-laki Kandung"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSaudaraLkKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSaudaraLkKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSaudaraPrKd"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSaudaraPrKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="2dp"
-                    android:text="Saudara Perempuan Kandung"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSaudaraPrKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSaudaraPrKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSaudaraLkSa"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSaudaraLkSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Saudara Laki-laki Se-Ayah"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSaudaraLkSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSaudaraLkSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSaudaraPrSa"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSaudaraPrSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Saudara Perempuan Se-Ayah"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSaudaraPrSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSaudaraPrSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSaudaraLkSi"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSaudaraLkSi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Saudara Laki-laki Se-Ibu"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSaudaraLkSi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSaudaraLkSi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-
-            <TableRow
-                android:id="@+id/rowSaudaraPrSi"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSaudaraPrSi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Saudara Perempuan Se-Ibu"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSaudaraPrSi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSaudaraPrSi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowKeponakanLkKd"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwKeponakanLkKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Keponakan Laki-laki dari saudara kandung"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdKeponakanLkKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagKeponakanLkKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowKeponakanLkSa"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwKeponakanLkSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Keponakan Laki-laki dari saudara se-Ayah"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdKeponakanLkSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagKeponakanLkSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowPamanKd"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwPamanKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Paman Kandung"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdPamanKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagPamanKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowPamanSa"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwPamanSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Paman se-Kakek"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdPamanSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagPamanSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSepupuKd"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSepupuKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Sepupu dari Paman Kandung"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSepupuKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSepupuKd"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/rowSepupuSa"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:weightSum="100">
-
-                <TextView
-                    android:id="@+id/tvAwSepupuSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_margin="1dp"
-                    android:layout_weight="50"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="Sepupu dari Paman Se-Kakek"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvKdSepupuSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-                <TextView
-                    android:id="@+id/tvBagSepupuSa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_margin="1dp"
-                    android:layout_weight="25"
-                    android:gravity="start"
-                    android:paddingLeft="4dp"
-                    android:text="-"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
-
-            </TableRow>
-
-        </TableLayout>
+                    android:weightSum="100">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:background="@color/blackcomb"
+                        android:gravity="start"
+                        android:text=" Ahli Waris"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:background="@color/blackcomb"
+                        android:gravity="start"
+                        android:text=" Kadar"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:background="@color/blackcomb"
+                        android:gravity="start"
+                        android:text="Nominal"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowAnakLk"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwAnakLk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Anak Laki-laki"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdAnakLk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagAnakLk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowAnakPr"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwAnakPr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Anak Perempuan"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdAnakPr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagAnakPr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowAyah"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwAyah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Ayah"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdAyah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagAyah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowIbu"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwIbu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Ibu"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdIbu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagIbu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSuami"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSuami"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Suami"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSuami"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSuami"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowIstri"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwIstri"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Istri"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdIstri"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagIstri"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:id="@+id/rowCucuLk"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwcucuLk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Cucu Laki-laki"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdCucuLk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagCucuLk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowCucuPr"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwCucuPr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Cucu Perempuan"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdCucuPr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagCucuPr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowKakek"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwKakek"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Kakek"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdKakek"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagKakek"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowNenekA"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwNenekA"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Nenek dari Pihak Ayah"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdNenekA"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagNenekA"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowNenekI"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwNenekI"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Nenek dari Pihak Ibu"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdNenekI"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagNenekI"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSaudaraLkKd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSaudaraLkKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Saudara Laki-laki Kandung"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSaudaraLkKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSaudaraLkKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSaudaraPrKd"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSaudaraPrKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="2dp"
+                        android:text="Saudara Perempuan Kandung"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSaudaraPrKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSaudaraPrKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSaudaraLkSa"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSaudaraLkSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Saudara Laki-laki Se-Ayah"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSaudaraLkSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSaudaraLkSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSaudaraPrSa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSaudaraPrSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Saudara Perempuan Se-Ayah"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSaudaraPrSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSaudaraPrSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSaudaraLkSi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSaudaraLkSi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Saudara Laki-laki Se-Ibu"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSaudaraLkSi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSaudaraLkSi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:id="@+id/rowSaudaraPrSi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSaudaraPrSi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Saudara Perempuan Se-Ibu"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSaudaraPrSi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSaudaraPrSi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowKeponakanLkKd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwKeponakanLkKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Keponakan Laki-laki dari saudara kandung"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdKeponakanLkKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagKeponakanLkKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowKeponakanLkSa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwKeponakanLkSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Keponakan Laki-laki dari saudara se-Ayah"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdKeponakanLkSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagKeponakanLkSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowPamanKd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwPamanKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Paman Kandung"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdPamanKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagPamanKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowPamanSa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwPamanSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Paman se-Kakek"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdPamanSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagPamanSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSepupuKd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSepupuKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Sepupu dari Paman Kandung"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSepupuKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSepupuKd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSepupuSa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:id="@+id/tvAwSepupuSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_margin="1dp"
+                        android:layout_weight="50"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="Sepupu dari Paman Se-Kakek"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvKdSepupuSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                    <TextView
+                        android:id="@+id/tvBagSepupuSa"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_margin="1dp"
+                        android:layout_weight="25"
+                        android:gravity="start"
+                        android:paddingLeft="4dp"
+                        android:text="-"
+                        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:text="Keterangan :"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvJatah"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:text="Nominal menunjukan bagian warisan yang diterima untuk per satu orang ahli waris" />
+
+            <TextView
+                android:id="@+id/tvKet1"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:text=""
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvKet2"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:text=""
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/tvKet3"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:text=""
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvNoAW"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="4dp"
+                android:text="Karena tidak ahli waris yang berhak menerima harta, harta waris dibagikan kepada Dzawil Arham atau kerabat pewaris yang bukan termasuk golongan ahli waris. Bila tidak ditemukan kerabat pewaris, maka harta waris diberikan kepada Baitul Maal"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnHomeR"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/home" />
+
+                <Button
+                    android:id="@+id/btnRepeat"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/redo" />
+            </RelativeLayout>
+
+        </LinearLayout>
 
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/LLHarta">
-
-        <TextView
-            android:id="@+id/tvNoAW"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Karena tidak ahli waris yang berhak menerima harta, harta waris dibagikan kepada Dzawil Arham"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp"
-            android:visibility="gone" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnHomeR"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        android:background="@drawable/home" />
-
-        <Button
-            android:id="@+id/btnRepeat"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:background="@drawable/redo" />
 
 </RelativeLayout>

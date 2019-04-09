@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="id.zakafikry.ewaris.InputActivity.InputActivity3">
+    tools:context="id.zakafikry.ewaris.Input.InputActivity3">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Cucu"
+            android:text="Cucu Pewaris"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -26,8 +26,8 @@
             android:id="@+id/tvNotifCucuLk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Cucu laki-laki dan perempuan dilewati karena sudah terhalang(mahjub) oleh anak laki-laki"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -38,8 +38,8 @@
             android:id="@+id/tvNotifCucuPr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Cucu perempuan dilewati karena sudah terhalang(mahjub) oleh dua orang atau lebih anak perempuan"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -50,7 +50,7 @@
             android:id="@+id/tvCucuLk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Cucu Laki-laki (dari Anak Laki-laki)"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -60,9 +60,10 @@
             android:id="@+id/etCucuLk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -70,7 +71,7 @@
             android:id="@+id/tvCucuPr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Cucu Perempuan (dari Anak Laki-laki)"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -80,9 +81,10 @@
             android:id="@+id/etCucuPr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -96,8 +98,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/prev2" />
 
     <Button
@@ -108,8 +110,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/next2" />
 
 </RelativeLayout>

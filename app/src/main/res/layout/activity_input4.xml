@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="id.zakafikry.ewaris.InputActivity.InputActivity4">
+    tools:context="id.zakafikry.ewaris.Input.InputActivity4">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,11 +23,20 @@
             android:textStyle="bold" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pewaris"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/tvNotifKakek"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Kakek dilewati karena sudah terhalang(mahjub) oleh ayah"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -38,8 +47,8 @@
             android:id="@+id/tvNotifNenek"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Nenek dilewati karena sudah terhalang(mahjub) oleh ibu"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -50,7 +59,7 @@
             android:id="@+id/cbKakek"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Kakek"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -60,7 +69,7 @@
             android:id="@+id/tvNenekAyah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Nenek (dai pihak Ayah)"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -70,9 +79,10 @@
             android:id="@+id/etNenekAyah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -80,7 +90,7 @@
             android:id="@+id/tvNenekIbu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Nenek (dari pihak Ibu)"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -90,9 +100,10 @@
             android:id="@+id/etNenekIbu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -106,8 +117,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/prev2" />
 
     <Button
@@ -118,8 +129,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/next2" />
 
 

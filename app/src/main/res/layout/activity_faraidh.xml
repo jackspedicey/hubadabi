@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="id.zakafikry.ewaris.IntroActivity.FaraidhActivity">
+    tools:context="id.zakafikry.ewaris.Introduction.FaraidhActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Apa itu  Faraidh"
+                android:text="Apa itu  Faraid"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Ilmu Faraidh"
+                android:text="Ilmu Faraid"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Hukum Mempelajari Ilmu Faraidh"
+                android:text="Hukum Mempelajari Ilmu Faraid"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2. Menunaikan semua kewajiban yang menjadi tanggungan orang yang meninggal (muwarrits), mulai dari hutang, wasiat, dan juga biaya pemakaman (tajhiz) apabila ahli waris berkenan"
+                android:text="2. Menunaikan semua kewajiban yang menjadi tanggungan orang yang meninggal (pewaris), mulai dari hutang, wasiat, dan juga biaya pemakaman (tajhiz) apabila ahli waris berkenan"
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9. Apabila setelah semua harta waris telah dibagikan kepada orang-orang yang berhak menerimanya, dan masih tersisa, maka sisa-nya dibagikan kepada dzawil arham [5] atau diserahkan kepada baitul maal."
+                android:text="9. Apabila setelah semua harta waris telah dibagikan kepada orang-orang yang berhak menerimanya, dan masih tersisa, maka sisa-nya dibagikan kepada dzawil arham [5] atau diserahkan kepada baitul maal [6]."
                 android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
@@ -127,32 +127,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Keterangan Tambahan"
+                android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[1]" />
+                android:text="[1] Ashabul Furudh ialah ahli waris yang mendapat bagian pasti, yaitu (1/2, 1/4, 1/8, 1/3, 2/3, dan 1/6)"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[2]" />
+                android:text="[2] Ahli waris Ashobah ialah ahli waris yang mendapat bagian sisa atau ashobah"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[3]" />
+                android:text="[3] Radd adalah kasus yang terjadi apabila tidak terdapat ahli waris ashobah, dan terdapat sisa pembagian harta akibat jumlah bilangan penyebut (pembagi) lebih besar daripada jumlah pembilang."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[4]" />
+                android:text="[4] A'ul adalah kasus yang terjadi dimana jumlah bilangan penyebut lebih kecil daripada jumlah bilangan pembilang, akibatnya jumlah harta waris yang dibagi lebih sedikit dibanding seluruh bagian ahli waris. "
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[5]" />
+                android:text="[5] Dzawil Arham ialah kerabat atau keluarga pewaris yang tidak mendapat bagian warisan (bukan termasuk ahli waris), yang termasuk dalam golongan ini ialah bibi, kakek dari pihak ibu, cucu dari anak perempuan, dan masih banyak lagi."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="[6] Baitul Maal ialah semacam lembaga yang dimiliki umat islam yang berfungsi untuk mengatur keuangan."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
 
         </LinearLayout>
 

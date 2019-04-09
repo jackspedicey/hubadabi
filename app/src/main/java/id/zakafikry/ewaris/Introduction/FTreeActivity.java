@@ -1,4 +1,4 @@
-package id.zakafikry.ewaris.IntroActivity;
+package id.zakafikry.ewaris.Introduction;
 
 import android.annotation.SuppressLint;
 import android.graphics.Matrix;
@@ -35,7 +35,7 @@ public class FTreeActivity extends AppCompatActivity implements View.OnTouchList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ftree);
-        setTitle("Struktur Keluarga");
+        setTitle("Pohon Keluarga");
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ImageView view = findViewById(R.id.imageFtree);

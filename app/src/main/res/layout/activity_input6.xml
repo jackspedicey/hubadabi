@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="id.zakafikry.ewaris.InputActivity.InputActivity6">
+    tools:context="id.zakafikry.ewaris.Input.InputActivity6">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,11 +23,20 @@
             android:textStyle="bold" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pewaris"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/tvNotifSdrSa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Saudara laki-laki dan perempuan se-ayah dilewati karena sudah terhalang(mahjub) oleh Saudara laki-laki kandung"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -38,8 +47,8 @@
             android:id="@+id/tvNotifSdrPrSa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Saudara perempuan se-ayah dilewati karena sudah terhalang(mahjub) oleh dua orang atau lebih Saudara perempuan kandung"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -50,8 +59,8 @@
             android:id="@+id/tvNotifSdrSi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Saudara laki-laki dan perempuan se-ibu dilewati karena sudah terhalang(mahjub) oleh kakek"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -62,7 +71,7 @@
             android:id="@+id/tvSaudaraLkSa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Saudara Laki-laki se-ayah"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -72,9 +81,10 @@
             android:id="@+id/etSaudaraLkSa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -82,7 +92,7 @@
             android:id="@+id/tvSaudaraPrSa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:text="Saudara Perempuan se-ayah"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -92,9 +102,10 @@
             android:id="@+id/etSaudaraPrSa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -102,7 +113,7 @@
             android:id="@+id/tvSaudaraLkSi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:text="Saudara laki-laki se-ibu"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -112,9 +123,10 @@
             android:id="@+id/etSaudaraLkSi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -122,7 +134,7 @@
             android:id="@+id/tvSaudaraPrSi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:text="Saudara perempuan se-ibu"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -132,9 +144,10 @@
             android:id="@+id/etSaudaraPrSi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -148,8 +161,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/prev2" />
 
     <Button
@@ -160,8 +173,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/next2" />
 
 </RelativeLayout>

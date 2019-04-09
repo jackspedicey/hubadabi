@@ -1,391 +1,93 @@
-package id.zakafikry.ewaris.InputActivity;
+package id.zakafikry.ewaris.Model;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import id.zakafikry.ewaris.Class.Function;
-import id.zakafikry.ewaris.MainActivity;
-import id.zakafikry.ewaris.R;
+import id.zakafikry.ewaris.Input.ResultActivity;
 
-public class
-ResultActivity extends AppCompatActivity {
-    public static boolean gender = false;
-    public static int tirkah = 0, tajhiz = 0, wasiat = 0, hutang = 0, irts = 0, jAnakPr = 0, jAnakLk = 0, jAyah = 0, jIbu = 0, jSuami = 0, jIstri = 0, jCucuLk = 0, jCucuPr = 0, jKakek = 0, jNenekA = 0, jNenekI = 0, jSaudaraLkKd = 0, jSaudaraPrKd = 0, jSaudaraLkSa = 0, jSaudaraPrSa = 0, jSaudaraLkSi = 0, jSaudaraPrSi = 0, jKeponakanLkKd = 0, jKeponakanLkSa = 0, jPamanKd = 0, jPamanSa = 0, jSepupuLkPmnKd = 0, jSepupuLkPmnSa = 0;
-    public static double
-            //------------------ashabul Furudh
-            kbAnakPr = 0, kbCucuPr = 0, kbAyah = 0, kbIbu = 0, kbSuami = 0, kbIstri = 0, kbKakek = 0, kbNenek = 0, kbSaudaraPrKd = 0, kbSaudaraPrSa = 0, kbSaudaraSi = 0
-            //------------------ashobah
-            , Ashobah = 0, ashAnakLk = 0, ashCucuLk = 0, ashAyah = 0, ashKakek = 0, ashSaudaraLkKd = 0, ashSaudaraLkSa = 0, ashKeponakanLkKd = 0, ashKeponakanLkSa = 0, ashPamanKd = 0, ashPamanSa = 0, ashSepupuLkPmnKd = 0, ashSepupuLkPmnSa = 0, ashAnakPr = 0, ashCucuPr = 0, ashSaudaraPrKd = 0, ashSaudaraPrSa = 0, ashIbu = 0
-            //------------------jatah atau bagian masing-masing ahli waaris
-            , bagAnakLk = 0, bagAnakPr = 0, bagAyah = 0, bagIbu = 0, bagSuami = 0, bagIstri = 0, bagCucuLk = 0, bagCucuPr = 0, bagKakek = 0, bagNenekA = 0, bagNenekI = 0, bagSaudaraLkKd = 0, bagSaudaraPrKd = 0, bagSaudaraLkSa = 0, bagSaudaraPrSa = 0, bagSaudaraLkSi = 0, bagSaudaraPrSi = 0, bagKeponakanLkKd = 0, bagKeponakanLkSa = 0, bagPamanKd = 0, bagPamanSa = 0, bagSepupuPamanKd = 0, bagSepupuPamanSa = 0
-            //------------------Aul
-            , kpk, jPembilang, jPembagi
-            //Angka Pembagi
-            , pbAnakPr = 0, pbAyah = 0, pbIbu = 0, pbSuami = 0, pbIstri = 0, pbCucuPr = 0, pbKakek = 0, pbNenek = 0, pbSaudaraPrKd = 0, pbSaudaraPrSa = 0, pbSaudaraSi = 0
-            //Angka Pembilang
-            , pmAnakPr = 0, pmAyah = 0, pmIbu = 0, pmSuami = 0, pmIstri = 0, pmCucuPr = 0, pmKakek = 0, pmNenek = 0, pmSaudaraPrKd = 0, pmSaudaraPrSa = 0, pmSaudaraSi = 0
-            //----------------Radd
-            ;
-    public static Boolean checkAshAyah = false, checkAshKakek = false, checkKbAnakPr = false, checkKbAyah = false, checkKbIbu = false, checkKbSuami = false, checkKbIstri = false, checkKbCucuPr = false, checkKbKakek = false, checkKbNenek = false, checkKbSaudaraPrKd = false, checkKbSaudaraPrSa = false, checkKbSaudaraSi = false;
-    public double[] pembagi;
-    public String jthAnakLk = "-", jthAnakPr = "-", jthAyah = "-", jthIbu = "-", jthSuami = "-", jthIstri = "-", jthCucuLk = "-", jthCucuPr = "-", jthKakek = "-", jthNenekA = "-", jthNenekI = "-", jthSaudaraLkKd = "-", jthSaudaraPrKd = "-", jthSaudaraLkSa = "-", jthSaudaraPrSa = "-", jthSaudaraLkSi = "-", jthSaudaraPrSi = "-", jthKeponakanLkKd = "-", jthKeponakanLkSa = "-", jthPamanKd = "-", jthPamanSa = "-", jthSepupuLkKd = "-", jthSepupuLkSa = "-";
-    ScrollView svtabel;
-    String stringAsal;
-    TextView tvTirkah, tvHutang, tvTajhiz, tvWasiat, tvIrts, tvBagAnakLk, tvBagAnakPr, tvBagAyah, tvBagIbu, tvBagSuami, tvBagIstri, tvBagCucuLk, tvBagCucuPr, tvBagKakek, tvBagNenekA, tvBagNenekI, tvBagSaudaraLkKd, tvBagSaudaraPrKd, tvBagSaudaraLkSa, tvBagSaudaraPrSa, tvBagSaudaraLkSi, tvBagSaudaraPrSi, tvBagKeponakanLkKd, tvBagKeponakanLkSa, tvBagPamanKd, tvBagPamanSa, tvBagSepupuKd, tvBagSepupuSa, tvJthAnakLk, tvJthAnakPr, tvJthAyah, tvJthIbu, tvJthSuami, tvJthIstri, tvJthCucuLk, tvJthCucuPr, tvJthKakek, tvJthNenekA, tvJthNenekI, tvJthSaudaraLkKd, tvJthSaudaraPrKd, tvJthSaudaraLkSa, tvJthSaudaraPrSa, tvJthSaudaraLkSi, tvJthSaudaraPrSi, tvJthKeponakanLkKd, tvJthKeponakanLkSa, tvJthPamanKd, tvJthPamanSa, tvJthSepupuKd, tvJthSepupuSa, tvAnakLk, tvAnakPr, tvAyah, tvIbu, tvSuami, tvIstri, tvCucuLk, tvCucuPr, tvKakek, tvNenekA, tvNenekI, tvSaudaraLkKd, tvSaudaraPrKd, tvSaudaraLkSa, tvSaudaraPrSa, tvSaudaraLkSi, tvSaudaraPrSi, tvKeponakanLkKd, tvKeponakanLkSa, tvPamanKd, tvPamanSa, tvSepupuKd, tvSepupuSa, tvKPK, tvJkpk;
+/**
+ * Created by Zaka on 4/8/2019.
+ */
 
-    TableLayout tabelHasil;
+public class FaraidEngine extends AhliWaris {
 
-    TableRow rowAnakLk, rowAnakPr, rowAyah, rowIbu, rowSuami, rowIstri, rowCucuLk, rowCucuPr, rowKakek, rowNenekA, rowNenekI, rowSaudaraLkKd, rowSaudaraPrKd, rowSaudaraLkSa, rowSaudaraPrSa, rowSaudaraLkSi, rowSaudaraPrSi, rowKeponakanLkKd, rowKeponakanLkSa, rowPamanKd, rowPamanSa, rowSepupuKd, rowSepupuSa;
-    Button btnHome, btnRepeat;
-    Function f = new Function();
+    public FaraidEngine() {
 
-    TextView tvnoaw;
-
-    public void resetValue() {
-        checkAshAyah = false;
-        checkAshKakek = false;
-        checkKbAnakPr = false;
-        checkKbAyah = false;
-        checkKbIbu = false;
-        checkKbSuami = false;
-        checkKbIstri = false;
-        checkKbCucuPr = false;
-        checkKbKakek = false;
-        checkKbNenek = false;
-        checkKbSaudaraPrKd = false;
-        checkKbSaudaraPrSa = false;
-        checkKbSaudaraSi = false;
-
-        tirkah = 0;
-        tajhiz = 0;
-        wasiat = 0;
-        hutang = 0;
-        irts = 0;
-
-        pembagi = null;
-        stringAsal = null;
-        kpk = 0;
-        jPembilang = 0;
-        jPembagi = 0;
-        pbAnakPr = 0;
-        pbAyah = 0;
-        pbIbu = 0;
-        pbSuami = 0;
-        pbIstri = 0;
-        pbCucuPr = 0;
-        pbKakek = 0;
-        pbNenek = 0;
-        pbSaudaraPrKd = 0;
-        pbSaudaraPrSa = 0;
-        pbSaudaraSi = 0;
-        pmAnakPr = 0;
-        pmAyah = 0;
-        pmIbu = 0;
-        pmSuami = 0;
-        pmIstri = 0;
-        pmCucuPr = 0;
-        pmKakek = 0;
-        pmNenek = 0;
-        pmSaudaraPrKd = 0;
-        pmSaudaraPrSa = 0;
-        pmSaudaraSi = 0;
-
-        jAnakPr = 0;
-        jAnakLk = 0;
-        jAyah = 0;
-        jIbu = 0;
-        jSuami = 0;
-        jIstri = 0;
-        jCucuLk = 0;
-        jCucuPr = 0;
-        jKakek = 0;
-        jNenekA = 0;
-        jNenekI = 0;
-        jSaudaraLkKd = 0;
-        jSaudaraPrKd = 0;
-        jSaudaraLkSa = 0;
-        jSaudaraPrSa = 0;
-        jSaudaraLkSi = 0;
-        jSaudaraPrSi = 0;
-        jKeponakanLkKd = 0;
-        jKeponakanLkSa = 0;
-        jPamanKd = 0;
-        jPamanSa = 0;
-        jSepupuLkPmnKd = 0;
-        jSepupuLkPmnSa = 0;
-
-        //------------------ashabul Furudh
-        kbAnakPr = 0;
-        kbCucuPr = 0;
-        kbAyah = 0;
-        kbIbu = 0;
-        kbSuami = 0;
-        kbIstri = 0;
-        kbKakek = 0;
-        kbNenek = 0;
-        kbSaudaraPrKd = 0;
-        kbSaudaraPrSa = 0;
-        kbSaudaraSi = 0;
-
-        //------------------ashobah
-        ashAnakLk = 0;
-        ashCucuLk = 0;
-        ashAyah = 0;
-        ashKakek = 0;
-        ashSaudaraLkKd = 0;
-        ashSaudaraLkSa = 0;
-        ashKeponakanLkKd = 0;
-        ashKeponakanLkSa = 0;
-
-        ashPamanKd = 0;
-        ashPamanSa = 0;
-        ashSepupuLkPmnKd = 0;
-        ashSepupuLkPmnSa = 0;
-
-        ashAnakPr = 0;
-        ashCucuPr = 0;
-        ashSaudaraPrKd = 0;
-        ashSaudaraPrSa = 0;
-        ashIbu = 0;
-
-        bagAnakLk = 0;
-        bagAnakPr = 0;
-        bagAyah = 0;
-        bagIbu = 0;
-        bagSuami = 0;
-        bagIstri = 0;
-        bagCucuLk = 0;
-        bagCucuPr = 0;
-        bagKakek = 0;
-        bagNenekA = 0;
-        bagNenekI = 0;
-        bagSaudaraLkKd = 0;
-        bagSaudaraPrKd = 0;
-        bagSaudaraLkSa = 0;
-        bagSaudaraPrSa = 0;
-        bagSaudaraLkSi = 0;
-        bagSaudaraPrSi = 0;
-        bagKeponakanLkKd = 0;
-        bagKeponakanLkSa = 0;
-        bagPamanKd = 0;
-        bagPamanSa = 0;
-        bagSepupuPamanKd = 0;
-        bagSepupuPamanSa = 0;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+    public void resetAll() {
+        reset();
 
-        setTitle("Hasil");
-
-        tvnoaw = findViewById(R.id.tvNoAW);
-        svtabel = findViewById(R.id.svtabel);
-        tvKPK = findViewById(R.id.tvKpk);
-        tvJkpk = findViewById(R.id.tvJkpk);
-
-        btnHome = findViewById(R.id.btnHomeR);
-        btnRepeat = findViewById(R.id.btnRepeat);
-
-        tvTirkah = findViewById(R.id.tvJmlTirkahR);
-        tvHutang = findViewById(R.id.tvJmlHutangR);
-        tvTajhiz = findViewById(R.id.tvJmlTajhizR);
-        tvWasiat = findViewById(R.id.tvJmlWasiatR);
-        tvIrts = findViewById(R.id.tvJmlIrtsR);
-
-        tabelHasil = findViewById(R.id.tableHasil);
-        rowAnakLk = findViewById(R.id.rowAnakLk);
-        rowAnakPr = findViewById(R.id.rowAnakPr);
-        rowAyah = findViewById(R.id.rowAyah);
-        rowIbu = findViewById(R.id.rowIbu);
-        rowSuami = findViewById(R.id.rowSuami);
-        rowIstri = findViewById(R.id.rowIstri);
-        rowCucuLk = findViewById(R.id.rowCucuLk);
-        rowCucuPr = findViewById(R.id.rowCucuPr);
-        rowKakek = findViewById(R.id.rowKakek);
-        rowNenekA = findViewById(R.id.rowNenekA);
-        rowNenekI = findViewById(R.id.rowNenekI);
-        rowSaudaraLkKd = findViewById(R.id.rowSaudaraLkKd);
-        rowSaudaraPrKd = findViewById(R.id.rowSaudaraPrKd);
-        rowSaudaraLkSa = findViewById(R.id.rowSaudaraLkSa);
-        rowSaudaraPrSa = findViewById(R.id.rowSaudaraPrSa);
-        rowSaudaraLkSi = findViewById(R.id.rowSaudaraLkSi);
-        rowSaudaraPrSi = findViewById(R.id.rowSaudaraPrSi);
-        rowKeponakanLkKd = findViewById(R.id.rowKeponakanLkKd);
-        rowKeponakanLkSa = findViewById(R.id.rowKeponakanLkSa);
-        rowPamanKd = findViewById(R.id.rowPamanKd);
-        rowPamanSa = findViewById(R.id.rowPamanSa);
-        rowSepupuKd = findViewById(R.id.rowSepupuKd);
-        rowSepupuSa = findViewById(R.id.rowSepupuSa);
-
-        tvAnakLk = findViewById(R.id.tvAwAnakLk);
-        tvAnakPr = findViewById(R.id.tvAwAnakPr);
-        tvAyah = findViewById(R.id.tvAwAyah);
-        tvIbu = findViewById(R.id.tvAwIbu);
-        tvSuami = findViewById(R.id.tvAwSuami);
-        tvIstri = findViewById(R.id.tvAwIstri);
-        tvCucuLk = findViewById(R.id.tvAwcucuLk);
-        tvCucuPr = findViewById(R.id.tvAwCucuPr);
-        tvKakek = findViewById(R.id.tvAwKakek);
-        tvNenekA = findViewById(R.id.tvAwNenekA);
-        tvNenekI = findViewById(R.id.tvAwNenekI);
-        tvSaudaraLkKd = findViewById(R.id.tvAwSaudaraLkKd);
-        tvSaudaraPrKd = findViewById(R.id.tvAwSaudaraPrKd);
-        tvSaudaraLkSa = findViewById(R.id.tvAwSaudaraLkSa);
-        tvSaudaraPrSa = findViewById(R.id.tvAwSaudaraPrSa);
-        tvSaudaraLkSi = findViewById(R.id.tvAwSaudaraLkSi);
-        tvSaudaraPrSi = findViewById(R.id.tvAwSaudaraPrSi);
-        tvKeponakanLkKd = findViewById(R.id.tvAwKeponakanLkKd);
-        tvKeponakanLkSa = findViewById(R.id.tvAwKeponakanLkSa);
-        tvPamanKd = findViewById(R.id.tvAwPamanKd);
-        tvPamanSa = findViewById(R.id.tvAwPamanSa);
-        tvSepupuKd = findViewById(R.id.tvAwSepupuKd);
-        tvSepupuSa = findViewById(R.id.tvAwSepupuSa);
-
-        tvBagAnakLk = findViewById(R.id.tvBagAnakLk);
-        tvBagAnakPr = findViewById(R.id.tvBagAnakPr);
-        tvBagAyah = findViewById(R.id.tvBagAyah);
-        tvBagIbu = findViewById(R.id.tvBagIbu);
-        tvBagSuami = findViewById(R.id.tvBagSuami);
-        tvBagIstri = findViewById(R.id.tvBagIstri);
-        tvBagCucuLk = findViewById(R.id.tvBagCucuLk);
-        tvBagCucuPr = findViewById(R.id.tvBagCucuPr);
-        tvBagKakek = findViewById(R.id.tvBagKakek);
-        tvBagNenekA = findViewById(R.id.tvBagNenekA);
-        tvBagNenekI = findViewById(R.id.tvBagNenekI);
-        tvBagSaudaraLkKd = findViewById(R.id.tvBagSaudaraLkKd);
-        tvBagSaudaraPrKd = findViewById(R.id.tvBagSaudaraPrKd);
-        tvBagSaudaraLkSa = findViewById(R.id.tvBagSaudaraLkSa);
-        tvBagSaudaraPrSa = findViewById(R.id.tvBagSaudaraPrSa);
-        tvBagSaudaraLkSi = findViewById(R.id.tvBagSaudaraLkSi);
-        tvBagSaudaraPrSi = findViewById(R.id.tvBagSaudaraPrSi);
-        tvBagKeponakanLkKd = findViewById(R.id.tvBagKeponakanLkKd);
-        tvBagKeponakanLkSa = findViewById(R.id.tvBagKeponakanLkSa);
-        tvBagPamanKd = findViewById(R.id.tvBagPamanKd);
-        tvBagPamanSa = findViewById(R.id.tvBagPamanSa);
-        tvBagSepupuKd = findViewById(R.id.tvBagSepupuKd);
-        tvBagSepupuSa = findViewById(R.id.tvBagSepupuSa);
-
-        tvJthAnakLk = findViewById(R.id.tvKdAnakLk);
-        tvJthAnakPr = findViewById(R.id.tvKdAnakPr);
-        tvJthAyah = findViewById(R.id.tvKdAyah);
-        tvJthIbu = findViewById(R.id.tvKdIbu);
-        tvJthSuami = findViewById(R.id.tvKdSuami);
-        tvJthIstri = findViewById(R.id.tvKdIstri);
-        tvJthCucuLk = findViewById(R.id.tvKdCucuLk);
-        tvJthCucuPr = findViewById(R.id.tvKdCucuPr);
-        tvJthKakek = findViewById(R.id.tvKdKakek);
-        tvJthNenekA = findViewById(R.id.tvKdNenekA);
-        tvJthNenekI = findViewById(R.id.tvKdNenekI);
-        tvJthSaudaraLkKd = findViewById(R.id.tvKdSaudaraLkKd);
-        tvJthSaudaraPrKd = findViewById(R.id.tvKdSaudaraPrKd);
-        tvJthSaudaraLkSa = findViewById(R.id.tvKdSaudaraLkSa);
-        tvJthSaudaraPrSa = findViewById(R.id.tvKdSaudaraPrSa);
-        tvJthSaudaraLkSi = findViewById(R.id.tvKdSaudaraLkSi);
-        tvJthSaudaraPrSi = findViewById(R.id.tvKdSaudaraPrSi);
-        tvJthKeponakanLkKd = findViewById(R.id.tvKdKeponakanLkKd);
-        tvJthKeponakanLkSa = findViewById(R.id.tvKdKeponakanLkSa);
-        tvJthPamanKd = findViewById(R.id.tvKdPamanKd);
-        tvJthPamanSa = findViewById(R.id.tvKdPamanSa);
-        tvJthSepupuKd = findViewById(R.id.tvKdSepupuKd);
-        tvJthSepupuSa = findViewById(R.id.tvKdSepupuSa);
-
-        HitungWaris();
-        setBagian();
-        setTextAll();
-        setRowGone();
-
-        if (jAnakLk == 0 && jAnakPr == 0 && jAyah == 0 && jIbu == 0 && jSuami == 0 && jIstri == 0 && jCucuLk == 0 && jCucuPr == 0 && jKakek == 0 && jNenekA == 0 && jNenekI == 0
-                && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jSaudaraLkSa == 0 && jSaudaraPrSa == 0 && jKeponakanLkKd == 0 && jKeponakanLkSa == 0
-                && jPamanKd == 0 && jPamanSa == 0 && jSepupuLkPmnKd == 0 && jSepupuLkPmnSa == 0) {
-            svtabel.setVisibility(View.GONE);
-            tvnoaw.setVisibility(View.VISIBLE);
-        }
-
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                resetValue();
-                startActivity(new Intent(ResultActivity.this, MainActivity.class));
-            }
-        });
-
-        btnRepeat.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                resetValue();
-                startActivity(new Intent(ResultActivity.this, InputActivity1.class));
-            }
-        });
+        resetValueIA1();
+        resetValueIA2();
+        resetValueIA3();
+        resetValueIA4();
+        resetValueIA5();
+        resetValueIA6();
+        resetValueIA7();
+        resetValueIA8();
+        resetValueIA9();
     }
 
-    public void setTextAll() {
+    public void setTextAll(ResultActivity activity) {
         Locale localeId = new Locale("in", "ID");
         NumberFormat rp = NumberFormat.getCurrencyInstance(localeId);
 
-        tvTirkah.setText(rp.format(tirkah));
-        tvHutang.setText(rp.format(hutang));
-        tvTajhiz.setText(rp.format(tajhiz));
-        tvWasiat.setText(rp.format(wasiat));
-        tvIrts.setText(rp.format(irts));
+        activity.tvTirkah.setText(rp.format(tirkah));
+        activity.tvHutang.setText(rp.format(hutang));
+        activity.tvTajhiz.setText(rp.format(tajhiz));
+        activity.tvWasiat.setText(rp.format(wasiat));
+        activity.tvIrts.setText(rp.format(irts));
+        activity.tvBagAnakLk.setText(rp.format(bagAnakLk));
+        activity.tvBagAnakPr.setText(rp.format(bagAnakPr));
+        activity.tvBagAyah.setText(rp.format(bagAyah));
+        activity.tvBagIbu.setText(rp.format(bagIbu));
+        activity.tvBagSuami.setText(rp.format(bagSuami));
+        activity.tvBagIstri.setText(rp.format(bagIstri));
+        activity.tvBagCucuLk.setText(rp.format(bagCucuLk));
+        activity.tvBagCucuPr.setText(rp.format(bagCucuPr));
+        activity.tvBagKakek.setText(rp.format(bagKakek));
+        activity.tvBagNenekA.setText(rp.format(bagNenekA));
+        activity.tvBagNenekI.setText(rp.format(bagNenekI));
+        activity.tvBagSaudaraLkKd.setText(rp.format(bagSaudaraLkKd));
+        activity.tvBagSaudaraPrKd.setText(rp.format(bagSaudaraPrKd));
+        activity.tvBagSaudaraLkSa.setText(rp.format(bagSaudaraLkSa));
+        activity.tvBagSaudaraPrSa.setText(rp.format(bagSaudaraPrSa));
+        activity.tvBagSaudaraLkSi.setText(rp.format(bagSaudaraLkSi));
+        activity.tvBagSaudaraPrSi.setText(rp.format(bagSaudaraPrSi));
+        activity.tvBagKeponakanLkKd.setText(rp.format(bagKeponakanLkKd));
+        activity.tvBagKeponakanLkSa.setText(rp.format(bagKeponakanLkSa));
+        activity.tvBagPamanKd.setText(rp.format(bagPamanKd));
+        activity.tvBagPamanSa.setText(rp.format(bagPamanSa));
+        activity.tvBagSepupuKd.setText(rp.format(bagSepupuPamanKd));
+        activity.tvBagSepupuSa.setText(rp.format(bagSepupuPamanSa));
 
-        tvBagAnakLk.setText(rp.format(bagAnakLk));
-        tvBagAnakPr.setText(rp.format(bagAnakPr));
-        tvBagAyah.setText(rp.format(bagAyah));
-        tvBagIbu.setText(rp.format(bagIbu));
-        tvBagSuami.setText(rp.format(bagSuami));
-        tvBagIstri.setText(rp.format(bagIstri));
-        tvBagCucuLk.setText(rp.format(bagCucuLk));
-        tvBagCucuPr.setText(rp.format(bagCucuPr));
-        tvBagKakek.setText(rp.format(bagKakek));
-        tvBagNenekA.setText(rp.format(bagNenekA));
-        tvBagNenekI.setText(rp.format(bagNenekI));
-        tvBagSaudaraLkKd.setText(rp.format(bagSaudaraLkKd));
-        tvBagSaudaraPrKd.setText(rp.format(bagSaudaraPrKd));
-        tvBagSaudaraLkSa.setText(rp.format(bagSaudaraLkSa));
-        tvBagSaudaraPrSa.setText(rp.format(bagSaudaraPrSa));
-        tvBagSaudaraLkSi.setText(rp.format(bagSaudaraLkSi));
-        tvBagSaudaraPrSi.setText(rp.format(bagSaudaraPrSi));
-        tvBagKeponakanLkKd.setText(rp.format(bagKeponakanLkKd));
-        tvBagKeponakanLkSa.setText(rp.format(bagKeponakanLkSa));
-        tvBagPamanKd.setText(rp.format(bagPamanKd));
-        tvBagPamanSa.setText(rp.format(bagPamanSa));
-        tvBagSepupuKd.setText(rp.format(bagSepupuPamanKd));
-        tvBagSepupuSa.setText(rp.format(bagSepupuPamanSa));
-
-        tvJthAnakLk.setText(jthAnakLk);
-        tvJthAnakPr.setText(jthAnakPr);
-        tvJthAyah.setText(jthAyah);
-        tvJthIbu.setText(jthIbu);
-        tvJthSuami.setText(jthSuami);
-        tvJthIstri.setText(jthIstri);
-        tvJthCucuLk.setText(jthCucuLk);
-        tvJthCucuPr.setText(jthCucuPr);
-        tvJthKakek.setText(jthKakek);
-        tvJthNenekA.setText(jthNenekA);
-        tvJthNenekI.setText(jthNenekI);
-        tvJthSaudaraLkKd.setText(jthSaudaraLkKd);
-        tvJthSaudaraPrKd.setText(jthSaudaraPrKd);
-        tvJthSaudaraLkSa.setText(jthSaudaraLkSa);
-        tvJthSaudaraPrSa.setText(jthSaudaraPrSa);
-        tvJthSaudaraLkSi.setText(jthSaudaraLkSi);
-        tvJthSaudaraPrSi.setText(jthSaudaraPrSi);
-        tvJthPamanKd.setText(jthPamanKd);
-        tvJthPamanSa.setText(jthPamanSa);
-        tvJthKeponakanLkKd.setText(jthKeponakanLkKd);
-        tvJthKeponakanLkSa.setText(jthKeponakanLkSa);
-        tvJthSepupuKd.setText(jthSepupuLkKd);
-        tvJthSepupuSa.setText(jthSepupuLkSa);
+        activity.tvJthAnakLk.setText(jthAnakLk);
+        activity.tvJthAnakPr.setText(jthAnakPr);
+        activity.tvJthAyah.setText(jthAyah);
+        activity.tvJthIbu.setText(jthIbu);
+        activity.tvJthSuami.setText(jthSuami);
+        activity.tvJthIstri.setText(jthIstri);
+        activity.tvJthCucuLk.setText(jthCucuLk);
+        activity.tvJthCucuPr.setText(jthCucuPr);
+        activity.tvJthKakek.setText(jthKakek);
+        activity.tvJthNenekA.setText(jthNenekA);
+        activity.tvJthNenekI.setText(jthNenekI);
+        activity.tvJthSaudaraLkKd.setText(jthSaudaraLkKd);
+        activity.tvJthSaudaraPrKd.setText(jthSaudaraPrKd);
+        activity.tvJthSaudaraLkSa.setText(jthSaudaraLkSa);
+        activity.tvJthSaudaraPrSa.setText(jthSaudaraPrSa);
+        activity.tvJthSaudaraLkSi.setText(jthSaudaraLkSi);
+        activity.tvJthSaudaraPrSi.setText(jthSaudaraPrSi);
+        activity.tvJthPamanKd.setText(jthPamanKd);
+        activity.tvJthPamanSa.setText(jthPamanSa);
+        activity.tvJthKeponakanLkKd.setText(jthKeponakanLkKd);
+        activity.tvJthKeponakanLkSa.setText(jthKeponakanLkSa);
+        activity.tvJthSepupuKd.setText(jthSepupuLkKd);
+        activity.tvJthSepupuSa.setText(jthSepupuLkSa);
 
         String descAnakLk = " Anak Laki-laki";
         String descAnakPr = " Anak Perempuan";
@@ -410,104 +112,112 @@ ResultActivity extends AppCompatActivity {
         String descPamanSa = " Paman Se-Kakek";
         String descSepupuLkKd = " Sepupu Laki-laki dari Paman Kandung";
         String descSepupuLkSa = " Sepupu Laki-laki dari Paman Se-Kakek";
-        tvAnakLk.setText(String.valueOf(jAnakLk + descAnakLk));
-        tvAnakPr.setText(String.valueOf(jAnakPr + descAnakPr));
-        tvAyah.setText(String.valueOf(jAyah + descAyah));
-        tvIbu.setText(String.valueOf(jIbu + descIbu));
-        tvSuami.setText(String.valueOf(jSuami + descSuami));
-        tvIstri.setText(String.valueOf(jIstri + descIstri));
-        tvCucuLk.setText(String.valueOf(jCucuLk + descCucuLk));
-        tvCucuPr.setText(String.valueOf(jCucuPr + descCucuPr));
-        tvKakek.setText(String.valueOf(jKakek + descKakek));
-        tvNenekA.setText(String.valueOf(jNenekA + descNenekA));
-        tvNenekI.setText(String.valueOf(jNenekI + descNenekI));
-        tvSaudaraLkKd.setText(String.valueOf(jSaudaraLkKd + descSaudaraLkKd));
-        tvSaudaraPrKd.setText(String.valueOf(jSaudaraPrKd + descSaudaraPrKd));
-        tvSaudaraLkSa.setText(String.valueOf(jSaudaraLkSa + descSaudaraLkSa));
-        tvSaudaraPrSa.setText(String.valueOf(jSaudaraPrSa + descSaudaraPrSa));
-        tvSaudaraLkSi.setText(String.valueOf(jSaudaraLkSi + descSaudaraLkSi));
-        tvSaudaraPrSi.setText(String.valueOf(jSaudaraPrSi + descSaudaraPrSi));
-        tvKeponakanLkKd.setText(String.valueOf(jKeponakanLkKd + descKeponakanLkKd));
-        tvKeponakanLkSa.setText(String.valueOf(jKeponakanLkSa + descKeponakanLkSa));
-        tvPamanKd.setText(String.valueOf(jPamanKd + descPamanKd));
-        tvPamanSa.setText(String.valueOf(jPamanSa + descPamanSa));
-        tvSepupuKd.setText(String.valueOf(jSepupuLkPmnKd + descSepupuLkKd));
-        tvSepupuSa.setText(String.valueOf(jSepupuLkPmnSa + descSepupuLkSa));
+
+        activity.tvAnakLk.setText(String.valueOf(jAnakLk + descAnakLk));
+        activity.tvAnakPr.setText(String.valueOf(jAnakPr + descAnakPr));
+        activity.tvAyah.setText(String.valueOf((isAyah ? 1 : 0) + descAyah));
+        activity.tvIbu.setText(String.valueOf((isIbu ? 1 : 0) + descIbu));
+        activity.tvSuami.setText(String.valueOf((isSuami ? 1 : 0) + descSuami));
+        activity.tvIstri.setText(String.valueOf(jIstri + descIstri));
+        activity.tvCucuLk.setText(String.valueOf(jCucuLk + descCucuLk));
+        activity.tvCucuPr.setText(String.valueOf(jCucuPr + descCucuPr));
+        activity.tvKakek.setText(String.valueOf((isKakek ? 1 : 0) + descKakek));
+        activity.tvNenekA.setText(String.valueOf(jNenekA + descNenekA));
+        activity.tvNenekI.setText(String.valueOf(jNenekI + descNenekI));
+        activity.tvSaudaraLkKd.setText(String.valueOf(jSaudaraLkKd + descSaudaraLkKd));
+        activity.tvSaudaraPrKd.setText(String.valueOf(jSaudaraPrKd + descSaudaraPrKd));
+        activity.tvSaudaraLkSa.setText(String.valueOf(jSaudaraLkSa + descSaudaraLkSa));
+        activity.tvSaudaraPrSa.setText(String.valueOf(jSaudaraPrSa + descSaudaraPrSa));
+        activity.tvSaudaraLkSi.setText(String.valueOf(jSaudaraLkSi + descSaudaraLkSi));
+        activity.tvSaudaraPrSi.setText(String.valueOf(jSaudaraPrSi + descSaudaraPrSi));
+        activity.tvKeponakanLkKd.setText(String.valueOf(jKeponakanLkKd + descKeponakanLkKd));
+        activity.tvKeponakanLkSa.setText(String.valueOf(jKeponakanLkSa + descKeponakanLkSa));
+        activity.tvPamanKd.setText(String.valueOf(jPamanKd + descPamanKd));
+        activity.tvPamanSa.setText(String.valueOf(jPamanSa + descPamanSa));
+        activity.tvSepupuKd.setText(String.valueOf(jSepupuLkPmnKd + descSepupuLkKd));
+        activity.tvSepupuSa.setText(String.valueOf(jSepupuLkPmnSa + descSepupuLkSa));
     }
 
-    public void setRowGone() {
-        if (bagAnakLk == 0 || Double.isNaN(bagAnakLk)) {
-            rowAnakLk.setVisibility(View.GONE);
+    public void setVisibility(ResultActivity activity) {
+        if (bagAnakLk == 0 || Double.isNaN(bagAnakLk) || Double.isInfinite(bagAnakLk)) {
+            activity.rowAnakLk.setVisibility(View.GONE);
         }
-        if (bagAnakPr == 0 || Double.isNaN(bagAnakPr)) {
-            rowAnakPr.setVisibility(View.GONE);
+        if (bagAnakPr == 0 || Double.isNaN(bagAnakPr) || Double.isInfinite(bagAnakPr)) {
+            activity.rowAnakPr.setVisibility(View.GONE);
         }
-        if (bagAyah == 0 || Double.isNaN(bagAyah)) {
-            rowAyah.setVisibility(View.GONE);
+        if (bagAyah == 0 || Double.isNaN(bagAyah) || Double.isInfinite(bagAyah)) {
+            activity.rowAyah.setVisibility(View.GONE);
         }
-        if (bagIbu == 0 || Double.isNaN(bagIbu)) {
-            rowIbu.setVisibility(View.GONE);
+        if (bagIbu == 0 || Double.isNaN(bagIbu) || Double.isInfinite(bagIbu)) {
+            activity.rowIbu.setVisibility(View.GONE);
         }
-        if (bagSuami == 0 || Double.isNaN(bagSuami)) {
-            rowSuami.setVisibility(View.GONE);
+        if (bagSuami == 0 || Double.isNaN(bagSuami) || Double.isInfinite(bagSuami)) {
+            activity.rowSuami.setVisibility(View.GONE);
         }
-        if (bagIstri == 0 || Double.isNaN(bagIstri)) {
-            rowIstri.setVisibility(View.GONE);
+        if (bagIstri == 0 || Double.isNaN(bagIstri) || Double.isInfinite(bagIstri)) {
+            activity.rowIstri.setVisibility(View.GONE);
         }
-        if (bagCucuLk == 0 || Double.isNaN(bagCucuLk)) {
-            rowCucuLk.setVisibility(View.GONE);
+        if (bagCucuLk == 0 || Double.isNaN(bagCucuLk) || Double.isInfinite(bagCucuLk)) {
+            activity.rowCucuLk.setVisibility(View.GONE);
         }
-        if (bagCucuPr == 0 || Double.isNaN(bagCucuPr)) {
-            rowCucuPr.setVisibility(View.GONE);
+        if (bagCucuPr == 0 || Double.isNaN(bagCucuPr) || Double.isInfinite(bagCucuPr)) {
+            activity.rowCucuPr.setVisibility(View.GONE);
         }
-        if (bagKakek == 0 || Double.isNaN(bagKakek)) {
-            rowKakek.setVisibility(View.GONE);
+        if (bagKakek == 0 || Double.isNaN(bagKakek) || Double.isInfinite(bagKakek)) {
+            activity.rowKakek.setVisibility(View.GONE);
         }
-        if (bagNenekA == 0 || Double.isNaN(bagNenekA)) {
-            rowNenekA.setVisibility(View.GONE);
+        if (bagNenekA == 0 || Double.isNaN(bagNenekA) || Double.isInfinite(bagNenekA)) {
+            activity.rowNenekA.setVisibility(View.GONE);
         }
-        if (bagNenekI == 0 || Double.isNaN(bagNenekI)) {
-            rowNenekI.setVisibility(View.GONE);
+        if (bagNenekI == 0 || Double.isNaN(bagNenekI) || Double.isInfinite(bagNenekI)) {
+            activity.rowNenekI.setVisibility(View.GONE);
         }
-        if (bagSaudaraLkKd == 0 || Double.isNaN(bagSaudaraLkKd)) {
-            rowSaudaraLkKd.setVisibility(View.GONE);
+        if (bagSaudaraLkKd == 0 || Double.isNaN(bagSaudaraLkKd) || Double.isInfinite(bagSaudaraLkKd)) {
+            activity.rowSaudaraLkKd.setVisibility(View.GONE);
         }
-        if (bagSaudaraPrKd == 0 || Double.isNaN(bagSaudaraPrKd)) {
-            rowSaudaraPrKd.setVisibility(View.GONE);
+        if (bagSaudaraPrKd == 0 || Double.isNaN(bagSaudaraPrKd) || Double.isInfinite(bagSaudaraPrKd)) {
+            activity.rowSaudaraPrKd.setVisibility(View.GONE);
         }
-        if (bagSaudaraLkSa == 0 || Double.isNaN(bagSaudaraLkSa)) {
-            rowSaudaraLkSa.setVisibility(View.GONE);
+        if (bagSaudaraLkSa == 0 || Double.isNaN(bagSaudaraLkSa) || Double.isInfinite(bagSaudaraLkSa)) {
+            activity.rowSaudaraLkSa.setVisibility(View.GONE);
         }
-        if (bagSaudaraPrSa == 0 || Double.isNaN(bagSaudaraPrSa)) {
-            rowSaudaraPrSa.setVisibility(View.GONE);
+        if (bagSaudaraPrSa == 0 || Double.isNaN(bagSaudaraPrSa) || Double.isInfinite(bagSaudaraPrSa)) {
+            activity.rowSaudaraPrSa.setVisibility(View.GONE);
         }
-        if (bagSaudaraLkSi == 0 || Double.isNaN(bagSaudaraLkSi)) {
-            rowSaudaraLkSi.setVisibility(View.GONE);
+        if (bagSaudaraLkSi == 0 || Double.isNaN(bagSaudaraLkSi) || Double.isInfinite(bagSaudaraLkSi)) {
+            activity.rowSaudaraLkSi.setVisibility(View.GONE);
         }
-        if (bagSaudaraPrSi == 0 || Double.isNaN(bagSaudaraPrSi)) {
-            rowSaudaraPrSi.setVisibility(View.GONE);
+        if (bagSaudaraPrSi == 0 || Double.isNaN(bagSaudaraPrSi) || Double.isInfinite(bagSaudaraPrSi)) {
+            activity.rowSaudaraPrSi.setVisibility(View.GONE);
         }
-        if (bagKeponakanLkKd == 0 || Double.isNaN(bagKeponakanLkKd)) {
-            rowKeponakanLkKd.setVisibility(View.GONE);
+        if (bagKeponakanLkKd == 0 || Double.isNaN(bagKeponakanLkKd) || Double.isInfinite(bagKeponakanLkKd)) {
+            activity.rowKeponakanLkKd.setVisibility(View.GONE);
         }
-        if (bagKeponakanLkSa == 0 || Double.isNaN(bagKeponakanLkSa)) {
-            rowKeponakanLkSa.setVisibility(View.GONE);
+        if (bagKeponakanLkSa == 0 || Double.isNaN(bagKeponakanLkSa) || Double.isInfinite(bagKeponakanLkSa)) {
+            activity.rowKeponakanLkSa.setVisibility(View.GONE);
         }
-        if (bagPamanKd == 0 || Double.isNaN(bagPamanKd)) {
-            rowPamanKd.setVisibility(View.GONE);
+        if (bagPamanKd == 0 || Double.isNaN(bagPamanKd) || Double.isInfinite(bagPamanKd)) {
+            activity.rowPamanKd.setVisibility(View.GONE);
         }
-        if (bagPamanSa == 0 || Double.isNaN(bagPamanSa)) {
-            rowPamanSa.setVisibility(View.GONE);
+        if (bagPamanSa == 0 || Double.isNaN(bagPamanSa) || Double.isInfinite(bagPamanSa)) {
+            activity.rowPamanSa.setVisibility(View.GONE);
         }
-        if (bagSepupuPamanKd == 0 || Double.isNaN(bagSepupuPamanKd)) {
-            rowSepupuKd.setVisibility(View.GONE);
+        if (bagSepupuPamanKd == 0 || Double.isNaN(bagSepupuPamanKd) || Double.isInfinite(bagSepupuPamanKd)) {
+            activity.rowSepupuKd.setVisibility(View.GONE);
         }
-        if (bagSepupuPamanSa == 0 || Double.isNaN(bagSepupuPamanSa)) {
-            rowSepupuSa.setVisibility(View.GONE);
+        if (bagSepupuPamanSa == 0 || Double.isNaN(bagSepupuPamanSa) || Double.isInfinite(bagSepupuPamanSa)) {
+            activity.rowSepupuSa.setVisibility(View.GONE);
+        }
+
+        if (jAnakLk == 0 && jAnakPr == 0 && !isAyah && !isIbu && !isSuami && jIstri == 0 && jCucuLk == 0 && jCucuPr == 0 && !isKakek && jNenekA == 0 && jNenekI == 0
+                && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jSaudaraLkSa == 0 && jSaudaraPrSa == 0 && jKeponakanLkKd == 0 && jKeponakanLkSa == 0
+                && jPamanKd == 0 && jPamanSa == 0 && jSepupuLkPmnKd == 0 && jSepupuLkPmnSa == 0) {
+            activity.tvnoaw.setVisibility(View.VISIBLE);
+            activity.tvjatah.setVisibility(View.INVISIBLE);
         }
     }
 
-    public void HitungWaris() {
+    public void calculateFaraid(ResultActivity activity) {
         setKbAnakPr();
         setKbAyah();
         setKbIbu();
@@ -516,34 +226,34 @@ ResultActivity extends AppCompatActivity {
 
         setKbCucuPr();
         setKbKakek();
-        setKbNenek();
+        setKbNenek(activity);
 
         setKbSaudaraPrKd();
         setKbSaudaraPrSa();
-        setKbSaudaraSi();
+        setKbSaudaraSi(activity);
 
         Ashobah = irts - (kbAnakPr + kbAyah + kbIbu + kbSuami + kbIstri + kbCucuPr + kbKakek + kbNenek
                 + kbSaudaraPrKd + kbSaudaraPrSa + kbSaudaraSi);
 
-        setAshAnak();
-        setAshAyah();
-        umariyatani();
+        setAshAnak(activity);
+        setAshAyah(activity);
+        umariyatani(activity);
 
-        setAshCucuLk();
-        setAshCucuPr();
-        setAshKakek();
+        setAshCucuLk(activity);
+        setAshCucuPr(activity);
+        setAshKakek(activity);
 
-        setAshSaudaraKd();
-        setAshSaudaraSa();
+        setAshSaudaraKd(activity);
+        setAshSaudaraSa(activity);
 
-        setAshKeponakanLkKd();
-        setAshKeponakanLkSa();
-        setAshPamanKd();
-        setAshPamanSa();
-        setAshSepupuLkKd();
-        setAshSepupuLkSa();
+        setAshKeponakanLkKd(activity);
+        setAshKeponakanLkSa(activity);
+        setAshPamanKd(activity);
+        setAshPamanSa(activity);
+        setAshSepupuLkKd(activity);
+        setAshSepupuLkSa(activity);
 
-        setAshMaalGhoir();
+        setAshMaalGhoir(activity);
 
         Double sisaHarta = irts - (kbAnakPr + kbAyah + kbIbu + kbSuami + kbIstri + kbCucuPr + kbKakek + kbNenek
                 + kbSaudaraPrKd + kbSaudaraPrSa + kbSaudaraSi
@@ -551,15 +261,134 @@ ResultActivity extends AppCompatActivity {
                 + ashSaudaraLkKd + ashSaudaraPrKd + ashSaudaraLkSa + ashSaudaraPrSa + ashKeponakanLkKd + ashKeponakanLkSa
                 + ashPamanKd + ashPamanSa + ashSepupuLkPmnKd + ashSepupuLkPmnSa);
 
-        if (sisaHarta > 0) {
-            Radd();
+        if (sisaHarta > 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek
+                && jSaudaraLkKd == 0 && jSaudaraLkSa == 0 && jKeponakanLkKd == 0 && jKeponakanLkSa == 0
+                && jPamanKd == 0 && jPamanSa == 0 && jSepupuLkPmnKd == 0 && jSepupuLkPmnSa == 0) {
+            if ((kbAnakPr > 0) || (kbIbu > 0) || (kbCucuPr > 0) || (kbSaudaraPrKd > 0) || (kbSaudaraPrSa > 0) || (kbSaudaraSi > 0) || (kbNenek > 0)) {
+                Radd(activity);
+            }
         } else {
-            Aul();
+            Aul(activity);
         }
-        //Aul();
     }
 
-    public void Aul() {
+    public void finalizeCalculation() {
+        if (kbSuami > 0) {
+            bagSuami = kbSuami;
+        }
+
+        if (kbIstri > 0) {
+            bagIstri = kbIstri / jIstri;
+        }
+
+        if (kbNenek > 0 && jNenekA > 0 && jNenekI > 0) {
+            bagNenekA = (kbNenek / 2) / jNenekA;
+            bagNenekI = (kbNenek / 2) / jNenekI;
+        } else if (kbNenek > 0 && jNenekA > 0 && jNenekI == 0) {
+            bagNenekA = kbNenek / jNenekA;
+        } else if (kbNenek > 0 && jNenekA == 0 && jNenekI > 0) {
+            bagNenekI = kbNenek / jNenekI;
+        }
+
+        if (ashAnakLk > 0) {
+            bagAnakLk = ashAnakLk / jAnakLk;
+        }
+
+        if (kbAnakPr > 0) {
+            bagAnakPr = kbAnakPr / jAnakPr;
+        } else if (ashAnakPr > 0) {
+            bagAnakPr = ashAnakPr / jAnakPr;
+        } else if (ashAnakPr > 0 && kbAnakPr > 0) {
+            bagAnakPr = (ashAnakPr + kbAnakPr) / jAnakPr;
+        }
+
+        if (kbAyah > 0 && ashAyah > 0) {
+            bagAyah = kbAyah + ashAyah;
+        } else if (kbAyah > 0) {
+            bagAyah = kbAyah;
+        } else if (ashAyah > 0) {
+            bagAyah = ashAyah;
+        }
+
+        if (kbIbu > 0) {
+            bagIbu = kbIbu;
+        } else if (ashIbu > 0) {
+            bagIbu = ashIbu;
+        }
+
+        if (ashCucuLk > 0) {
+            bagCucuLk = ashCucuLk / jCucuLk;
+        }
+
+        if (kbCucuPr > 0) {
+            bagCucuPr = kbCucuPr / jCucuPr;
+        } else if (ashCucuPr > 0) {
+            bagCucuPr = ashCucuPr / jCucuPr;
+        }
+
+        if (ashKakek > 0 && kbKakek > 0) {
+            bagKakek = ashKakek + kbKakek;
+        } else if (kbKakek > 0) {
+            bagKakek = kbKakek;
+        } else if (ashKakek > 0) {
+            bagKakek = ashKakek;
+        }
+
+        if (ashSaudaraLkKd > 0) {
+            bagSaudaraLkKd = ashSaudaraLkKd / jSaudaraLkKd;
+        }
+
+        if (kbSaudaraPrKd > 0) {
+            bagSaudaraPrKd = kbSaudaraPrKd / jSaudaraPrKd;
+        } else if (ashSaudaraPrKd > 0) {
+            bagSaudaraPrKd = ashSaudaraPrKd / jSaudaraPrKd;
+        }
+
+        if (ashSaudaraLkSa > 0) {
+            bagSaudaraLkSa = ashSaudaraLkSa / jSaudaraLkSa;
+        }
+
+        if (kbSaudaraPrSa > 0) {
+            bagSaudaraPrSa = kbSaudaraPrSa / jSaudaraPrSa;
+        } else if (ashSaudaraPrSa > 0) {
+            bagSaudaraPrSa = ashSaudaraPrSa / jSaudaraPrSa;
+        }
+
+        if (kbSaudaraSi > 0 && jSaudaraLkSi > 0 && jSaudaraPrSi > 0) {
+            bagSaudaraLkSi = (kbSaudaraSi / 2) / jSaudaraLkSi;
+            bagSaudaraPrSi = (kbSaudaraSi / 2) / jSaudaraPrSi;
+        } else if (kbSaudaraSi > 0 && jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
+            bagSaudaraLkSi = kbSaudaraSi / jSaudaraLkSi;
+        } else if (kbSaudaraSi > 0 && jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
+            bagSaudaraPrSi = kbSaudaraSi / jSaudaraPrSi;
+        }
+
+        if (ashKeponakanLkKd > 0) {
+            bagKeponakanLkKd = ashKeponakanLkKd / jKeponakanLkKd;
+        }
+
+        if (ashKeponakanLkSa > 0) {
+            bagKeponakanLkSa = ashKeponakanLkSa / jKeponakanLkSa;
+        }
+
+        if (ashPamanKd > 0) {
+            bagPamanKd = ashPamanKd / jPamanKd;
+        }
+
+        if (ashPamanSa > 0) {
+            bagPamanSa = ashPamanSa / jPamanSa;
+        }
+
+        if (ashSepupuLkPmnKd > 0) {
+            bagSepupuPamanKd = ashSepupuLkPmnKd / jSepupuLkPmnKd;
+        }
+
+        if (ashSepupuLkPmnSa > 0) {
+            bagSepupuPamanSa = ashSepupuLkPmnSa / jSepupuLkPmnSa;
+        }
+    }
+
+    private void Aul(ResultActivity activity) {
         // cek Pembagi/Penyebut
         if (pbAnakPr == 0) {
             pbAnakPr = 1;
@@ -629,49 +458,55 @@ ResultActivity extends AppCompatActivity {
 
         //kaidah a'ul
         if (jPembilang > kpk) {
-            tvKPK.setText("Asal Masalah A'ul :");
-            tvKPK.setVisibility(View.VISIBLE);
-            tvJkpk.setVisibility(View.VISIBLE);
-            tvJkpk.setText(stringAsal);
+            activity.tvket1.setText("Masalah a'ul terjadi ketika jumlah penyebut lebih kecil dari jumlah pembilang, harta waris yang dibagikan menjadi lebih sedikit dibanding bagian seluruh ahli waris. Untuk mengatasi hal tersebut, maka bilangan penyebut disamakan dengan bilangan pembilang.");
+            activity.tvket2.setText("Asal masalah yang dapat di a'ul-kan ialah 6 menjadi 7, 6 menjadi 8, 6 menjadi 9, 6 menjadi 10, 12 menjadi 13, 12 menjadi 15, 12 menjadi 17, dan 24 menjadi 27");
+            activity.tvket1.setVisibility(View.VISIBLE);
+            activity.tvket2.setVisibility(View.VISIBLE);
+
+            activity.tvKPK.setText("Asal Masalah A'ul :");
+            activity.tvKPK.setVisibility(View.VISIBLE);
+            activity.tvJkpk.setVisibility(View.VISIBLE);
+            activity.tvJkpk.setText(stringAsal);
+
             jPembagi = jPembilang;
 
             if (kpk == 6 && jPembilang == 7) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -683,17 +518,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -705,42 +540,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 6 && jPembilang == 8) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -752,17 +587,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -774,42 +609,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 6 && jPembilang == 9) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -821,17 +656,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -843,42 +678,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 6 && jPembilang == 10) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -890,17 +725,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -912,42 +747,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 12 && jPembilang == 13) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -959,17 +794,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -981,42 +816,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 12 && jPembilang == 15) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -1028,17 +863,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -1050,42 +885,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 12 && jPembilang == 17) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -1097,17 +932,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -1119,42 +954,42 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
             } else if (kpk == 24 && jPembilang == 27) {
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbAyah) {
+                if (kbAyah > 0) {
                     kbAyah = (pmAyah / jPembagi) * irts;
                     jthAyah = String.valueOf(df.format(pmAyah) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSuami) {
+                if (kbSuami > 0) {
                     kbSuami = (pmSuami / jPembagi * irts);
                     jthSuami = String.valueOf(df.format(pmSuami) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIstri) {
+                if (kbIstri > 0) {
                     kbIstri = (pmIstri / jPembagi) * irts;
                     jthIstri = String.valueOf(df.format(pmIstri) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbKakek) {
+                if (kbKakek > 0) {
                     kbKakek = (pmKakek / jPembagi) * irts;
                     jthKakek = String.valueOf(df.format(pmKakek) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -1166,17 +1001,17 @@ ResultActivity extends AppCompatActivity {
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -1191,7 +1026,7 @@ ResultActivity extends AppCompatActivity {
         }
     }
 
-    public void Radd() {
+    private void Radd(ResultActivity activity) {
         // cek Pembagi/Penyebut
         if (pbAnakPr == 0) {
             pbAnakPr = 1;
@@ -1234,35 +1069,42 @@ ResultActivity extends AppCompatActivity {
 
         jPembilang = pmAnakPr + pmIbu + pmCucuPr + pmNenek + pmSaudaraPrKd + pmSaudaraPrSa + pmSaudaraSi;
 
+        DecimalFormat df = new DecimalFormat("##.#");
+        String sKpk = String.valueOf(df.format(kpk));
+        String sp = String.valueOf(df.format(jPembilang));
+        stringAsal = sKpk + " -> " + sp;
+
         if (kpk > jPembilang) {
             jPembagi = jPembilang;
 
-            DecimalFormat df = new DecimalFormat("##.#");
-            String sKpk = String.valueOf(df.format(kpk));
-            String sp = String.valueOf(df.format(jPembilang));
-            stringAsal = sKpk + " -> " + sp;
-            tvKPK.setVisibility(View.VISIBLE);
-            tvKPK.setText("Asal Masalah Radd :");
-            tvJkpk.setVisibility(View.VISIBLE);
-            tvJkpk.setText(stringAsal);
+            activity.tvKPK.setText("Asal Masalah Radd :");
+            activity.tvKPK.setVisibility(View.VISIBLE);
+            activity.tvJkpk.setText(stringAsal);
+            activity.tvJkpk.setVisibility(View.VISIBLE);
 
-            if (jSuami == 0 && jIstri == 0) {
-                if (checkKbAnakPr) {
+            activity.tvket1.setText("Masalah radd terjadi ketika tidak adanya penerima ashobah dan jumlah penyebut lebih kecil dari jumlah pembilang, maka terdapat sisa dalam pembagian harta waris. Untuk mengatasi hal tersebut, maka bilangan penyebut disamakan dengan bilangan pembilang.");
+            activity.tvket1.setVisibility(View.VISIBLE);
+            activity.tvket2.setText("Ahli waris yang berhak mendapat bagian radd ada delapan orang, yaitu Anak perempuan, Ibu, Cucu perempuan, Nenek, Saudara perempuan kandung, Saudara perempuan se-ayah, Saudara laki-laki se-ibu dan Saudara perempuan se-ibu.");
+            activity.tvket2.setVisibility(View.VISIBLE);
+            String anot = "";
+
+            if ((kbSuami == 0) && (kbIstri == 0)) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * irts;
                     jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * irts;
                     jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * irts;
                     jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * irts;
                     if (jNenekA > 0 && jNenekI == 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
@@ -1271,20 +1113,24 @@ ResultActivity extends AppCompatActivity {
                     } else if (jNenekA > 0 && jNenekI > 0) {
                         jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
                         jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+
+                        anot = anot + "Anotasi 'B' yang dimaksud disini ialah, nenek baik dari pihak ayah maupun ibu mendapat bagian radd bersama-sama.";
+                        activity.tvket3.setText(anot);
+                        activity.tvket3.setVisibility(View.VISIBLE);
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * irts);
                     jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * irts;
                     jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * irts;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
@@ -1293,211 +1139,115 @@ ResultActivity extends AppCompatActivity {
                     } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
                         jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
                         jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        anot = anot + "Anotasi 'B' yang dimaksud disini ialah, Saudara se-ibu baik laki-laki maupun perempuan mendapat bagian sepertiga bersama-sama.";
+                        activity.tvket3.setText(anot);
+                        activity.tvket3.setVisibility(View.VISIBLE);
                     }
                 }
-            } else if (jSuami == 1 || jIstri == 1) {
+            } else if (kbSuami > 0 ^ kbIstri > 0) { //kaidah radd jika terdapat suami atau istri
                 Double harta;
                 harta = irts - (kbSuami + kbIstri);
-
-                if (checkKbAnakPr) {
+                if (kbAnakPr > 0) {
                     kbAnakPr = (pmAnakPr / jPembagi) * harta;
-                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi));
+                    jthAnakPr = String.valueOf(df.format(pmAnakPr) + "/" + df.format(jPembagi) + " A");
+                    anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
                 }
 
-                if (checkKbIbu) {
+                if (kbIbu > 0) {
                     kbIbu = (pmIbu / jPembagi) * harta;
-                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi));
+                    jthIbu = String.valueOf(df.format(pmIbu) + "/" + df.format(jPembagi) + " A");
+                    anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
                 }
 
-                if (checkKbCucuPr) {
+                if (kbCucuPr > 0) {
                     kbCucuPr = (pmCucuPr / jPembagi) * harta;
-                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi));
+                    jthCucuPr = String.valueOf(df.format(pmCucuPr) + "/" + df.format(jPembagi) + " A");
+                    anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
                 }
 
-                if (checkKbNenek) {
+                if (kbNenek > 0) {
                     kbNenek = (pmNenek / jPembagi) * harta;
                     if (jNenekA > 0 && jNenekI == 0) {
-                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                        anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " A");
                     } else if (jNenekI > 0 && jNenekA == 0) {
-                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi));
+                        anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " A");
                     } else if (jNenekA > 0 && jNenekI > 0) {
-                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
-                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B");
+                        jthNenekA = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B1");
+                        jthNenekI = String.valueOf(df.format(pmNenek) + "/" + df.format(jPembagi) + " B1");
+                        anot = anot + " Anotasi 'B1' yang dimaksud disini ialah, nenek baik dari pihak ayah maupun ibu mendapat bagian radd bersama-sama.";
                     }
                 }
 
-                if (checkKbSaudaraPrKd) {
+                if (kbSaudaraPrKd > 0) {
                     kbSaudaraPrKd = (pmSaudaraPrKd / jPembagi * harta);
-                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi));
+                    jthSaudaraPrKd = String.valueOf(df.format(pmSaudaraPrKd) + "/" + df.format(jPembagi) + " A");
+                    anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
                 }
 
-                if (checkKbSaudaraPrSa) {
+                if (kbSaudaraPrSa > 0) {
                     kbSaudaraPrSa = (pmSaudaraPrSa / jPembagi) * harta;
-                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi));
+                    jthSaudaraPrSa = String.valueOf(df.format(pmSaudaraPrSa) + "/" + df.format(jPembagi) + " A");
+                    anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
                 }
 
-                if (checkKbSaudaraSi) {
+                if (kbSaudaraSi > 0) {
                     kbSaudaraSi = (pmSaudaraSi / jPembagi) * harta;
                     if (jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
-                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                        anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " A");
                     } else if (jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
-                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi));
+                        anot = "Anotasi 'A' yang dimaksud disini ialah, sisa harta(Ashobah) setelah dikurangi oleh bagian untuk suami/istri.";
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + "A");
                     } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1) {
-                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
-                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B");
+                        jthSaudaraLkSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B2");
+                        jthSaudaraPrSi = String.valueOf(df.format(pmSaudaraSi) + "/" + df.format(jPembagi) + " B2");
+                        anot = anot + "Anotasi 'B2' yang dimaksud disini ialah, Saudara se-ibu baik laki-laki maupun perempuan mendapat bagian sepertiga bersama-sama.";
                     }
                 }
+
+                activity.tvket3.setText(anot);
+                activity.tvket3.setVisibility(View.VISIBLE);
             }
         }
     }
 
-    public void setBagian() {
-        if (kbSuami > 0) {
-            bagSuami = kbSuami;
-        }
-
-        if (kbIstri > 0) {
-            bagIstri = kbIstri / jIstri;
-        }
-
-        if (kbNenek > 0 && jNenekA > 0 && jNenekI > 0) {
-            bagNenekA = (kbNenek / 2) / jNenekA;
-            bagNenekI = (kbNenek / 2) / jNenekI;
-        } else if (kbNenek > 0 && jNenekA > 0 && jNenekI == 0) {
-            bagNenekA = kbNenek / jNenekA;
-        } else if (kbNenek > 0 && jNenekA == 0 && jNenekI > 0) {
-            bagNenekI = kbNenek / jNenekI;
-        }
-
-        if (ashAnakLk > 0) {
-            bagAnakLk = ashAnakLk / jAnakLk;
-        }
-
-        if (kbAnakPr > 0) {
-            bagAnakPr = kbAnakPr / jAnakPr;
-        } else if (ashAnakPr > 0) {
-            bagAnakPr = ashAnakPr / jAnakPr;
-        } else if (ashAnakPr > 0 && kbAnakPr > 0) {
-            bagAnakPr = (ashAnakPr + kbAnakPr) / jAnakPr;
-        }
-
-        if (kbAyah > 0) {
-            bagAyah = kbAyah;
-        } else if (ashAyah > 0) {
-            bagAyah = ashAyah;
-        } else if (kbAyah > 0 && ashAyah > 0) {
-            bagAyah = kbAyah + ashAyah;
-        }
-
-        if (kbIbu > 0) {
-            bagIbu = kbIbu;
-        } else if (ashIbu > 0) {
-            bagIbu = ashIbu;
-        }
-
-        if (ashCucuLk > 0) {
-            bagCucuLk = ashCucuLk / jCucuLk;
-        }
-
-        if (kbCucuPr > 0) {
-            bagCucuPr = kbCucuPr / jCucuPr;
-        } else if (ashCucuPr > 0) {
-            bagCucuPr = ashCucuPr / jCucuPr;
-        }
-
-        if (kbKakek > 0) {
-            bagKakek = kbKakek;
-        } else if (ashKakek > 0) {
-            bagKakek = ashKakek;
-        } else if (ashKakek > 0 && kbKakek > 0) {
-            bagKakek = ashKakek + kbKakek;
-        }
-
-        if (ashSaudaraLkKd > 0) {
-            bagSaudaraLkKd = ashSaudaraLkKd / jSaudaraLkKd;
-        }
-
-        if (kbSaudaraPrKd > 0) {
-            bagSaudaraPrKd = kbSaudaraPrKd / jSaudaraPrKd;
-        } else if (ashSaudaraPrKd > 0) {
-            bagSaudaraPrKd = ashSaudaraPrKd / jSaudaraPrKd;
-        }
-
-        if (ashSaudaraLkSa > 0) {
-            bagSaudaraLkSa = ashSaudaraLkSa / jSaudaraLkSa;
-        }
-
-        if (kbSaudaraPrSa > 0) {
-            bagSaudaraPrSa = kbSaudaraPrSa / jSaudaraPrSa;
-        } else if (ashSaudaraPrKd > 0) {
-            bagSaudaraPrSa = ashSaudaraPrSa / jSaudaraPrSa;
-        }
-
-        if (kbSaudaraSi > 0 && jSaudaraLkSi > 0 && jSaudaraPrSi > 0) {
-            bagSaudaraLkSi = (kbSaudaraSi / 2) / jSaudaraLkSi;
-            bagSaudaraPrSi = (kbSaudaraSi / 2) / jSaudaraPrSi;
-        } else if (kbSaudaraSi > 0 && jSaudaraLkSi > 0 && jSaudaraPrSi == 0) {
-            bagSaudaraLkSi = kbSaudaraSi / jSaudaraLkSi;
-        } else if (kbSaudaraSi > 0 && jSaudaraLkSi == 0 && jSaudaraPrSi > 0) {
-            bagSaudaraPrSi = kbSaudaraSi / jSaudaraPrSi;
-        }
-
-        if (ashKeponakanLkKd > 0) {
-            bagKeponakanLkKd = ashKeponakanLkKd / jKeponakanLkKd;
-        }
-
-        if (ashKeponakanLkSa > 0) {
-            bagKeponakanLkSa = ashKeponakanLkSa / jKeponakanLkSa;
-        }
-
-        if (ashPamanKd > 0) {
-            bagPamanKd = ashPamanKd / jPamanKd;
-        }
-
-        if (ashPamanSa > 0) {
-            bagPamanSa = ashPamanSa / jPamanSa;
-        }
-
-        if (ashSepupuLkPmnKd > 0) {
-            bagSepupuPamanKd = ashSepupuLkPmnKd / jSepupuLkPmnKd;
-        }
-
-        if (ashSepupuLkPmnSa > 0) {
-            bagSepupuPamanSa = ashSepupuLkPmnSa / jSepupuLkPmnSa;
-        }
-    }
-
-    // Keluarga terdekat
-    public void setKbAyah() {
-        if (jAyah == 1)
+    //----------------------------- ayah dan ibu
+    private void setKbAyah() {
+        if (isAyah)
             if (jAnakLk >= 1 || jCucuLk >= 1 || jAnakPr >= 1 || jCucuPr >= 1) {
                 // ada ayah, ada salah satu furu'
                 kbAyah = Math.round(irts / 6);
-                checkKbAyah = true;
+                //checkKbAyah = true;
                 pmAyah = 1;
                 pbAyah = 6;
             }
     }
 
-    public void setAshAyah() {
-        if (jAyah == 1 && jAnakLk == 0 && jCucuLk == 0) {
+    private void setAshAyah(ResultActivity activity) {
+        if (isAyah && jAnakLk == 0 && jCucuLk == 0) {
             // ada ayah, tidak ada furu' laki-laki
             ashAyah = Ashobah;
-            checkAshAyah = true;
+            //checkAshAyah = true;
         }
 
-        if (checkKbAyah && checkAshAyah) {
+        if (kbAyah > 0 && ashAyah > 0) {
             jthAyah = "1/6 + A";
-        } else if (checkKbAyah) {
+            activity.tvket1.setText("1/6 + A, maksudnya ialah ayah mendapat bagian pasti seperenam harta ditambah dengan bagian sisa (Ashobah).");
+            activity.tvket1.setVisibility(View.VISIBLE);
+        } else if (kbAyah > 0) {
             jthAyah = "1/6";
-        } else if (checkAshAyah) {
+        } else if (ashAyah > 0) {
             jthAyah = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void umariyatani() {
-        if (jAyah == 1 && jIbu == 1 && jAnakLk == 0 && jCucuLk == 0 && jAnakPr == 0 && jCucuPr == 0)
-            if (jSuami == 1 || jIstri >= 1) {
+    private void umariyatani(ResultActivity activity) {
+        if (isAyah && isIbu && jAnakLk == 0 && jCucuLk == 0 && jAnakPr == 0 && jCucuPr == 0)
+            if (isSuami || jIstri >= 1) {
                 // ada ayah, ada ibu, ada suami/istri  tidak ada furu' (masalah umariyatani)
                 Ashobah = Ashobah + kbAyah + kbIbu;
                 ashAyah = Math.round(2 * Ashobah / 3);
@@ -1506,221 +1256,249 @@ ResultActivity extends AppCompatActivity {
                 kbIbu = 0;
                 jthAyah = "A";
                 jthIbu = "1/3 A";
+
+                activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+                activity.tvket2.setText(" 1/3 A, maksudnya ialah Ibu mendapat bagian sepertiga harta sisa (ashobah) pada masalah umariyatani, dimana ahli waris terdiri dari Ayah, Ibu, dan Suami atau Istri");
+                activity.tvket1.setVisibility(View.VISIBLE);
+                activity.tvket2.setVisibility(View.VISIBLE);
             }
     }
 
-    public void setKbIbu() {
+    private void setKbIbu() {
         int jSdrKd = jSaudaraLkKd + jSaudaraPrKd;
         int jSdrSa = jSaudaraLkSa + jSaudaraPrSa;
         int jSdrSi = jSaudaraLkSi + jSaudaraPrSi;
 
-        if (jIbu == 1)
+        if (isIbu)
             if (jAnakLk >= 1 || jAnakPr >= 1 || jCucuLk >= 1 || jCucuPr >= 1 || jSdrKd >= 2 || jSdrSa >= 2 || jSdrSi >= 2) {
                 // ada ibu, ada furu' atau berkumpulnya saudara kandung atau saudara seayah atau saudara seibu
                 kbIbu = Math.round(irts / 6);
                 jthIbu = "1/6";
-                checkKbIbu = true;
+                //checkKbIbu = true;
                 pmIbu = 1;
                 pbIbu = 6;
             } else if (jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jSdrKd <= 1 && jSdrSa <= 1 && jSdrSi <= 1) {
                 // ada ibu, tidak ada furu' dan  tidak berkumpul saudara kandung atau saudara seayah
                 kbIbu = Math.round(irts / 3);
                 jthIbu = "1/3";
-                checkKbIbu = true;
+                //checkKbIbu = true;
                 pmIbu = 1;
                 pbIbu = 3;
             }
     }
 
-    public void setKbSuami() {
-        if (jSuami == 1)
+    //------------------------------ suami dan istri
+    private void setKbSuami() {
+        if (isSuami)
             if (jAnakLk >= 1 || jAnakPr >= 1 || jCucuLk >= 1 || jCucuPr >= 1) { // ada furu'
                 kbSuami = Math.round(irts / 4);
                 jthSuami = "1/4";
-                checkKbSuami = true;
+                //checkKbSuami = true;
                 pmSuami = 1;
                 pbSuami = 4;
             } else if (jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0) { // tidak ada furu'
                 kbSuami = Math.round(irts / 2);
                 jthSuami = "1/2";
-                checkKbSuami = true;
+                //checkKbSuami = true;
                 pmSuami = 1;
                 pbSuami = 2;
             }
     }
 
-    public void setKbIstri() {
+    private void setKbIstri() {
         if (jIstri >= 1)
             if (jAnakLk >= 1 || jAnakPr >= 1 || jCucuLk >= 1 || jCucuPr >= 1) { // ada furu'
                 kbIstri = Math.round(irts / 8);
                 jthIstri = "1/8";
-                checkKbIstri = true;
+                //checkKbIstri = true;
                 pmIstri = 1;
                 pbIstri = 8;
             } else if (jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0) { // tidak ada furu'
                 kbIstri = Math.round(irts / 4);
                 jthIstri = "1/4";
-                checkKbIstri = true;
+                //checkKbIstri = true;
                 pmIstri = 1;
                 pbIstri = 4;
             }
     }
 
-    public void setAshAnak() {
+    //------------------------------ anak
+    private void setAshAnak(ResultActivity activity) {
         if (jAnakLk >= 1 && jAnakPr >= 1) { //ashobah bil ghoir
             ashAnakLk = Math.round(2 * Ashobah / 3);
             ashAnakPr = Math.round(Ashobah / 3);
             jthAnakLk = "2:1A";
             jthAnakPr = "1:1A";
+
+            activity.tvket1.setText("2:1 A adalah bagian ashobah dengan skala dua kali bagian perempuan.");
+            activity.tvket1.setVisibility(View.VISIBLE);
+            activity.tvket2.setText("1:1 A adalah bagian ashobah dengan skala separuh bagian laki-laki.");
+            activity.tvket2.setVisibility(View.VISIBLE);
         } else if (jAnakLk >= 1 && jAnakPr == 0) {
             ashAnakLk = Ashobah;
             jthAnakLk = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setKbAnakPr() {
+    private void setKbAnakPr() {
         if (jAnakPr == 1 && jAnakLk == 0) { //anak perempuan tungal
             kbAnakPr = Math.round(irts / 2);
             jthAnakPr = "1/2";
-            checkKbAnakPr = true;
+            //checkKbAnakPr = true;
             pmAnakPr = 1;
             pbAnakPr = 2;
         } else if (jAnakPr >= 2 && jAnakLk == 0) { //anak perempuan banyak
             kbAnakPr = Math.round(2 * irts / 3);
             jthAnakPr = "2/3";
-            checkKbAnakPr = true;
+            //checkKbAnakPr = true;
             pmAnakPr = 2;
             pbAnakPr = 3;
         }
     }
 
     //-------------------------------- cucu
-    public void setAshCucuLk() {
+    private void setAshCucuLk(ResultActivity activity) {
         if (jAnakLk == 0 && jCucuLk >= 1 && jCucuPr >= 1) { // bersama cucu perempuan
             ashCucuLk = Math.round(2 * Ashobah / 3);
             jthCucuLk = "2:1A";
+            activity.tvket1.setText("2:1 A adalah bagian ashobah dengan skala dua kali bagian perempuan.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         } else if (jAnakLk == 0 && jCucuLk >= 1 && jCucuPr == 0) { // tidak ada cucu perempuan
             ashCucuLk = Ashobah;
             jthCucuLk = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setAshCucuPr() {
+    private void setAshCucuPr(ResultActivity activity) {
         if (jCucuPr >= 1 && jCucuLk >= 1 && jAnakPr < 2 && jAnakLk == 0) { // bersama cucu laki-laki
             ashCucuPr = Math.round(Ashobah / 3);
             jthCucuPr = "1:1A";
+            activity.tvket2.setText("1:1 A adalah bagian ashobah dengan skala separuh bagian laki-laki.");
+            activity.tvket2.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setKbCucuPr() {
+    private void setKbCucuPr() {
         if (jCucuPr == 1 && jCucuLk == 0 && jAnakLk == 0 && jAnakPr == 0) { // seorang diri
             kbCucuPr = Math.round(irts / 2);
             jthCucuPr = "1/2";
-            checkKbCucuPr = true;
+            //checkKbCucuPr = true;
             pmCucuPr = 1;
             pbCucuPr = 2;
         } else if (jCucuPr >= 1 && jCucuLk == 0 && jAnakLk == 0 && jAnakPr == 1) { // bersama seorang anak perempuan
             kbCucuPr = Math.round(irts / 6);
             jthCucuPr = "1/6";
-            checkKbCucuPr = true;
+            //checkKbCucuPr = true;
             pmCucuPr = 1;
             pbCucuPr = 6;
         } else if (jCucuPr >= 2 && jCucuLk == 0 && jAnakLk == 0 && jAnakPr == 0) { // dua orang atau lebih
             kbCucuPr = Math.round(2 * irts / 3);
             jthCucuPr = "2/3";
-            checkKbCucuPr = true;
+            //checkKbCucuPr = true;
             pmCucuPr = 2;
             pbCucuPr = 3;
         }
     }
 
     //---------------------------- kakek dan nenek
-    public void setKbKakek() {
-        if (jKakek == 1 && jAyah == 0) {
-            kbKakek = Math.round(irts / 6);
-            checkKbKakek = true;
-            pmKakek = 1;
-            pbKakek = 6;
+    private void setKbKakek() {
+        if (isKakek && !isAyah) {
+            if (jAnakLk >= 1 || jCucuLk >= 1 || jAnakPr >= 1 || jCucuPr >= 1) {
+                kbKakek = Math.round(irts / 6);
+                //checkKbKakek = true;
+                pmKakek = 1;
+                pbKakek = 6;
+            }
         }
     }
 
-    public void setAshKakek() {
-        if (jKakek == 1 && jAyah == 0 && jAnakLk == 0 && jCucuLk == 0) {
+    private void setAshKakek(ResultActivity activity) {
+        if (isKakek && !isAyah && jAnakLk == 0 && jCucuLk == 0) {
             ashKakek = Ashobah;
-            checkAshKakek = true;
+            //checkAshKakek = true;
         }
 
-        if (jAyah == 0 && jAnakLk == 0 && jCucuLk == 0 && jAnakPr == 0 && jCucuPr == 0) {
-            kbKakek = 0;
-            checkKbKakek = false;
-        }
-
-        if (checkKbKakek && checkAshKakek) {
+        if (kbKakek > 0 && ashKakek > 0) {
             jthKakek = "1/6 + A";
-        } else if (checkKbKakek) {
+            activity.tvket1.setText("1/6 + A, maksudnya ialah kakek mendapat bagian pasti seperenam harta ditambah dengan bagian sisa (Ashobah).");
+            activity.tvket1.setVisibility(View.VISIBLE);
+        } else if (kbKakek > 0) {
             jthKakek = "1/6";
-        } else if (checkAshKakek) {
+        } else if (ashKakek > 0) {
             jthKakek = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setKbNenek() {
-        if (jIbu == 0 && jNenekA >= 1 && jNenekI == 0) {
+    private void setKbNenek(ResultActivity activity) {
+        if (!isIbu && jNenekA >= 1 && jNenekI == 0) {
             kbNenek = Math.round(irts / 6);
             jthNenekA = "1/6";
-            checkKbNenek = true;
+            //checkKbNenek = true;
             pmNenek = 1;
             pbNenek = 6;
-        } else if (jIbu == 0 && jNenekA == 0 && jNenekI >= 1) {
+        } else if (!isIbu && jNenekA == 0 && jNenekI >= 1) {
             kbNenek = Math.round(irts / 6);
             jthNenekI = "1/6";
-            checkKbNenek = true;
+            //checkKbNenek = true;
             pmNenek = 1;
             pbNenek = 6;
-        } else if (jIbu == 0 && jNenekA >= 1 && jNenekI >= 1) {
+        } else if (!isIbu && jNenekA >= 1 && jNenekI >= 1) {
             kbNenek = Math.round(irts / 6);
-            //kbNenek = Math.round(irts / 6);
             jthNenekA = "1/6B";
             jthNenekI = "1/6B";
-            checkKbNenek = true;
+            activity.tvket3.setText("1/6B, maksudnya ialah nenek baik dari pihak ayah maupun ibu mendapat bagian seperenam bersama-sama.");
+            activity.tvket3.setVisibility(View.VISIBLE);
+            //checkKbNenek = true;
             pmNenek = 1;
             pbNenek = 6;
         }
     }
 
     //------------------------------ suadara kandung
-    public void setAshSaudaraKd() {
-        if (jSaudaraLkKd >= 1 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
+    private void setAshSaudaraKd(ResultActivity activity) {
+        if (jSaudaraLkKd >= 1 && jSaudaraPrKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek) {
             ashSaudaraLkKd = Ashobah;
             jthSaudaraLkKd = "A";
-        } else if (jSaudaraLkKd >= 1 && jSaudaraPrKd >= 1 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
+        } else if (jSaudaraLkKd >= 1 && jSaudaraPrKd >= 1 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek) {
             ashSaudaraLkKd = Math.round(2 * Ashobah / 3); // ashobah bil ghoir
             ashSaudaraPrKd = Math.round(Ashobah / 3);
             jthSaudaraLkKd = "2:1A";
             jthSaudaraPrKd = "1:1A";
+            activity.tvket1.setText("2:1 A adalah bagian ashobah dengan skala dua kali bagian perempuan.");
+            activity.tvket1.setVisibility(View.VISIBLE);
+            activity.tvket2.setText("1:1 A adalah bagian ashobah dengan skala separuh bagian laki-laki.");
+            activity.tvket2.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setKbSaudaraPrKd() {
-        if (jSaudaraPrKd == 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0 && jAnakPr == 0 && jCucuPr == 0) {
+    private void setKbSaudaraPrKd() {
+        if (jSaudaraPrKd == 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrKd = Math.round(irts / 2);
             jthSaudaraPrKd = "1/2";
-            checkKbSaudaraPrKd = true;
+            //checkKbSaudaraPrKd = true;
             pmSaudaraPrKd = 1;
             pbSaudaraPrKd = 2;
-        } else if (jSaudaraPrKd >= 2 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0 && jAnakPr == 0 && jCucuPr == 0) {
+        } else if (jSaudaraPrKd >= 2 && jSaudaraLkKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrKd = Math.round(2 * irts / 3);
             jthSaudaraPrKd = "2/3";
-            checkKbSaudaraPrKd = true;
+            //checkKbSaudaraPrKd = true;
             pmSaudaraPrKd = 2;
             pbSaudaraPrKd = 3;
         }
     }
 
     //------------------------------------------------------
-    public void setAshMaalGhoir() {
+    private void setAshMaalGhoir(ResultActivity activity) {
         if (jAnakPr >= 1 || jCucuPr >= 1) {
-            if (jSaudaraPrKd >= 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
+            if (jSaudaraPrKd >= 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek) {
                 ashSaudaraPrKd = Ashobah; //Ashobah maal ghoir, bersama anak perempuan atau cucu perempuan
                 kbSaudaraPrKd = 0;
                 jthSaudaraPrKd = "A";
@@ -1734,7 +1512,10 @@ ResultActivity extends AppCompatActivity {
                 ashPamanSa = 0;
                 ashSaudaraLkKd = 0;
                 ashSepupuLkPmnSa = 0;
-            } else if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
+
+                activity.tvket1.setText("Saudara perempuan kandung mendapat bagian sisa bersama-sama dengan Anak perempuan dan atau Cucu perempuan. Bagian ini dinamakan Ashobah ma'al Ghoir");
+                activity.tvket1.setVisibility(View.VISIBLE);
+            } else if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek) {
                 ashSaudaraPrSa = Ashobah; //Ashobah maal ghoir, bersama anak perempuan atau cucu perempuan
                 kbSaudaraPrSa = 0;
                 jthSaudaraPrSa = "A";
@@ -1745,79 +1526,89 @@ ResultActivity extends AppCompatActivity {
                 ashPamanSa = 0;
                 ashSaudaraLkKd = 0;
                 ashSepupuLkPmnSa = 0;
+
+                activity.tvket1.setText("Saudara perempuan se-ayah mendapat bagian sisa bersama-sama dengan Anak perempuan dan atau Cucu perempuan. Bagian ini dinamakan Ashobah ma'al Ghoir");
+                activity.tvket1.setVisibility(View.VISIBLE);
             }
         }
     }
 
     //------------------------------ saudara tiri
-    public void setAshSaudaraSa() {
-        if (jSaudaraLkSa >= 1 && jSaudaraPrSa == 0 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
+    private void setAshSaudaraSa(ResultActivity activity) {
+        if (jSaudaraLkSa >= 1 && jSaudaraPrSa == 0 && jSaudaraLkKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek) {
             ashSaudaraLkSa = Ashobah;
             jthSaudaraLkSa = "A";
-        } else if (jSaudaraLkSa >= 1 && jSaudaraPrSa >= 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0) {
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
+        } else if (jSaudaraLkSa >= 1 && jSaudaraPrSa >= 1 && jSaudaraLkKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek) {
             ashSaudaraLkSa = Math.round(2 * Ashobah / 3);
             ashSaudaraPrSa = Math.round(Ashobah / 3);
             jthSaudaraLkSa = "2:1A";
             jthSaudaraPrSa = "1:1A";
+            activity.tvket1.setText("2:1 A adalah bagian ashobah dengan skala dua kali bagian perempuan.");
+            activity.tvket1.setVisibility(View.VISIBLE);
+            activity.tvket2.setText("1:1 A adalah bagian ashobah dengan skala separuh bagian laki-laki.");
+            activity.tvket2.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setKbSaudaraPrSa() {
-        if (jSaudaraPrSa == 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0
+    private void setKbSaudaraPrSa() {
+        if (jSaudaraPrSa == 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek
                 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrSa = Math.round(irts / 2);
             jthSaudaraPrSa = "1/2";
-            checkKbSaudaraPrSa = true;
+            //checkKbSaudaraPrSa = true;
             pmSaudaraPrSa = 1;
             pbSaudaraPrSa = 2;
-        } else if (jSaudaraPrSa >= 2 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0
+        } else if (jSaudaraPrSa >= 2 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd == 0 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek
                 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrSa = Math.round(2 * irts / 3);
             jthSaudaraPrSa = "2/3";
-            checkKbSaudaraPrSa = true;
+            //checkKbSaudaraPrSa = true;
             pmSaudaraPrSa = 2;
             pbSaudaraPrSa = 3;
-        } else if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd >= 1 && jAnakLk == 0 && jAyah == 0 && jCucuLk == 0 && jKakek == 0
+        } else if (jSaudaraPrSa >= 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0 && jSaudaraPrKd >= 1 && jAnakLk == 0 && !isAyah && jCucuLk == 0 && !isKakek
                 && jAnakPr == 0 && jCucuPr == 0) {
             kbSaudaraPrSa = Math.round(irts / 6);
             jthSaudaraPrSa = "1/6";
-            checkKbSaudaraPrSa = true;
+            //checkKbSaudaraPrSa = true;
             pmSaudaraPrSa = 1;
             pbSaudaraPrSa = 6;
         }
     }
 
-    public void setKbSaudaraSi() {
-        if (jSaudaraLkSi == 1 && jSaudaraPrSi == 0 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
+    private void setKbSaudaraSi(ResultActivity activity) {
+        if (jSaudaraLkSi == 1 && jSaudaraPrSi == 0 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && !isAyah && !isKakek) {
             kbSaudaraSi = Math.round(irts / 6);
             jthSaudaraLkSi = "1/6";
-            checkKbSaudaraSi = true;
+            //checkKbSaudaraSi = true;
             pmSaudaraSi = 1;
             pbSaudaraSi = 6;
-        } else if (jSaudaraLkSi >= 2 && jSaudaraPrSi == 0 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
+        } else if (jSaudaraLkSi >= 2 && jSaudaraPrSi == 0 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && !isAyah && !isKakek) {
             kbSaudaraSi = Math.round(irts / 3);
             jthSaudaraLkSi = "1/3";
-            checkKbSaudaraSi = true;
+            //checkKbSaudaraSi = true;
             pmSaudaraSi = 1;
             pbSaudaraSi = 3;
-        } else if (jSaudaraLkSi == 0 && jSaudaraPrSi == 1 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
+        } else if (jSaudaraLkSi == 0 && jSaudaraPrSi == 1 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && !isAyah && !isKakek) {
             kbSaudaraSi = Math.round(irts / 6);
             jthSaudaraPrSi = "1/6";
-            checkKbSaudaraSi = true;
+            //checkKbSaudaraSi = true;
             pmSaudaraSi = 1;
             pbSaudaraSi = 6;
-        } else if (jSaudaraLkSi == 0 && jSaudaraPrSi >= 2 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
+        } else if (jSaudaraLkSi == 0 && jSaudaraPrSi >= 2 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && !isAyah && !isKakek) {
             kbSaudaraSi = Math.round(irts / 3);
             jthSaudaraPrSi = "1/3";
-            checkKbSaudaraSi = true;
+            //checkKbSaudaraSi = true;
             pmSaudaraSi = 1;
             pbSaudaraSi = 3;
-        } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && jAyah == 0 && jKakek == 0) {
+        } else if (jSaudaraLkSi >= 1 && jSaudaraPrSi >= 1 && jAnakLk == 0 && jAnakPr == 0 && jCucuLk == 0 && jCucuPr == 0 && !isAyah && !isKakek) {
             kbSaudaraSi = Math.round(irts / 3);
             //kbSaudaraSi = Math.round(irts / 6);
             jthSaudaraLkSi = "1/3B";
             jthSaudaraPrSi = "1/3B";
-            checkKbSaudaraSi = true;
+            activity.tvnoaw.setText("1/3B, maksudnya ialah Saudara se-ibu baik laki-laki maupun perempuan mendapat bagian sepertiga bersama-sama.");
+            //checkKbSaudaraSi = true;
             pmSaudaraSi = 1;
             pbSaudaraSi = 3;
             //checkKbSaudaraPrSi = true;
@@ -1826,59 +1617,71 @@ ResultActivity extends AppCompatActivity {
     }
 
     //------------------------------ keponakan
-    public void setAshKeponakanLkKd() {
+    private void setAshKeponakanLkKd(ResultActivity activity) {
         if (jKeponakanLkKd >= 1 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
-                && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
+                && jAnakLk == 0 && jCucuLk == 0 && !isAyah && !isKakek) {
             ashKeponakanLkKd = Ashobah;
             jthKeponakanLkKd = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setAshKeponakanLkSa() {
+    private void setAshKeponakanLkSa(ResultActivity activity) {
         if (jKeponakanLkSa >= 1 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
-                && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
+                && jAnakLk == 0 && jCucuLk == 0 && !isAyah && !isKakek) {
             ashKeponakanLkSa = Ashobah;
             jthKeponakanLkSa = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
     //------------------------------ paman
-    public void setAshPamanKd() {
+    private void setAshPamanKd(ResultActivity activity) {
         if (jPamanKd >= 1 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
-                && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
+                && jAnakLk == 0 && jCucuLk == 0 && !isAyah && !isKakek) {
             ashPamanKd = Ashobah;
             jthPamanKd = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setAshPamanSa() {
+    private void setAshPamanSa(ResultActivity activity) {
         if (jPamanSa >= 1 && jPamanKd == 0 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
-                && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
+                && jAnakLk == 0 && jCucuLk == 0 && !isAyah && !isKakek) {
             ashPamanSa = Ashobah;
             jthPamanSa = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
     //------------------------------ sepupu
-    public void setAshSepupuLkKd() {
+    private void setAshSepupuLkKd(ResultActivity activity) {
         if (jSepupuLkPmnKd >= 1 && jPamanSa == 0 && jPamanKd == 0 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
-                && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
+                && jAnakLk == 0 && jCucuLk == 0 && !isAyah && !isKakek) {
             ashSepupuLkPmnKd = Ashobah;
             jthSepupuLkKd = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    public void setAshSepupuLkSa() {
+    private void setAshSepupuLkSa(ResultActivity activity) {
         if (jSepupuLkPmnSa >= 1 && jSepupuLkPmnKd == 0 && jPamanSa == 0 && jPamanKd == 0
                 && jKeponakanLkSa == 0 && jKeponakanLkKd == 0 && jSaudaraLkSa == 0 && jSaudaraLkKd == 0
-                && jAnakLk == 0 && jCucuLk == 0 && jAyah == 0 && jKakek == 0) {
+                && jAnakLk == 0 && jCucuLk == 0 && !isAyah && !isKakek) {
             ashSepupuLkPmnSa = Ashobah;
             jthSepupuLkSa = "A";
+            activity.tvket1.setText("A merupakan anotasi dari Ashobah atau bagian yang diambil dari sisa pembagian harta, ahli waris yang menerima bagian 'A' berarti menerima seluruh bagian Ashobah.");
+            activity.tvket1.setVisibility(View.VISIBLE);
         }
     }
 
-    //--------------------------------------------- method mencari KPK untuk masalah aul
-    public double gcd(double a, double b) {
+    //------------------------------ kpk dan fpb function
+    private double gcd(double a, double b) {
         while (b > 0) {
             double temp = b;
             b = a % b; // % is remainder
@@ -1887,17 +1690,17 @@ ResultActivity extends AppCompatActivity {
         return a;
     }
 
-    public double gcd(double[] input) {
+    private double gcd(double[] input) {
         double result = input[0];
         for (int i = 1; i < input.length; i++) result = gcd(result, input[i]);
         return result;
     }
 
-    public double lcm(double a, double b) {
+    private double lcm(double a, double b) {
         return a * (b / gcd(a, b));
     }
 
-    public double lcm(double[] input) {
+    private double lcm(double[] input) {
         double result = input[0];
         for (int i = 1; i < input.length; i++)
             result = lcm(result, input[i]);

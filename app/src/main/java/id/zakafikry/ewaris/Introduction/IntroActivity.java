@@ -1,4 +1,4 @@
-package id.zakafikry.ewaris.IntroActivity;
+package id.zakafikry.ewaris.Introduction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        setTitle("Pengenalan Faraidh");
+        setTitle("Pengenalan");
 
         btnAwaris = findViewById(R.id.btnAhliWaris);
         btnFaraidh = findViewById(R.id.btnFaraid);
@@ -51,6 +51,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(IntroActivity.this, FTreeActivity.class);
                 startActivity(i);
+
             }
         });
     }

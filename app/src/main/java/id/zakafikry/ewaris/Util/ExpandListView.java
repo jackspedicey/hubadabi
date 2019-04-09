@@ -1,4 +1,4 @@
-package id.zakafikry.ewaris;
+package id.zakafikry.ewaris.Util;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
+
+import id.zakafikry.ewaris.R;
 
 public class ExpandListView extends BaseExpandableListAdapter {
     private Context context;

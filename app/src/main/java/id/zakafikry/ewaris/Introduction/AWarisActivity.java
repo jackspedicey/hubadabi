@@ -1,4 +1,4 @@
-package id.zakafikry.ewaris.IntroActivity;
+package id.zakafikry.ewaris.Introduction;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import id.zakafikry.ewaris.ExpandListView;
 import id.zakafikry.ewaris.R;
+import id.zakafikry.ewaris.Util.ExpandListView;
 
 public class AWarisActivity extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class AWarisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_awaris);
-        setTitle("Daftar Ahli Waris");
+        setTitle("Daftar Ahli AhliWaris");
 
         ExpandableListView listView = findViewById(R.id.lvExp);
         initData();

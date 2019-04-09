@@ -1,4 +1,4 @@
-package id.zakafikry.ewaris.Class;
+package id.zakafikry.ewaris.Util;
 
 import android.content.Context;
 import android.graphics.Canvas;

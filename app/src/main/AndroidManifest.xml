@@ -6,37 +6,73 @@
         android:allowBackup="true"
         android:icon="@drawable/hitung2"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InputActivity.InputActivity1" />
-        <activity android:name=".InputActivity.InputActivity2" />
-        <activity android:name=".InputActivity.InputActivity3" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".InputActivity.InputActivity4" />
-        <activity android:name=".InputActivity.InputActivity5" />
-        <activity android:name=".InputActivity.InputActivity6" />
-        <activity android:name=".InputActivity.InputActivity7" />
-        <activity android:name=".InputActivity.InputActivity8" />
-        <activity android:name=".InputActivity.InputActivity9" />
-        <activity android:name=".FinishActivity9" />
-        <activity android:name=".InputActivity.ConfirmActivity1" />
-        <activity android:name=".IntroActivity.IntroActivity" />
-        <activity android:name=".InputActivity.ResultActivity" />
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".IntroActivity.FaraidhActivity" />
-        <activity android:name=".IntroActivity.AWarisActivity" />
-        <activity android:name=".IntroActivity.DalilActivity" />
-        <activity android:name=".IntroActivity.FTreeActivity" />
-        <activity android:name=".IntroActivity.Main2Activity" />
+        <activity
+            android:name=".Introduction.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Introduction.FaraidhActivity" />
+        <activity android:name=".Introduction.AWarisActivity" />
+        <activity android:name=".Introduction.DalilActivity" />
+        <activity android:name=".Introduction.FTreeActivity" />
+        <activity
+            android:name=".Input.InputActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity6"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity7"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity8"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.InputActivity9"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.ConfirmActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Input.ResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Misc.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Misc.HelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Misc.help_pengenalan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Misc.help_hitung"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Input.WelcomePage" />
+        <activity android:name=".Input.TransitionInfo"></activity>
     </application>
 
 </manifest>

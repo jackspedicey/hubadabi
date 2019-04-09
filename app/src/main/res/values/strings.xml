@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">eWaris</string>
 
+    <string name="hint_et_duit">masukan nominal uang. Contoh: 10.000.0000</string>
+
+    <string name="hint_et_jml">masukan jumlah ahli waris. Contoh: 1,2,3 dst</string>
+
     <string name="notif_cucu">Cucu laki-laki terhalang oleh anak laki-laki</string>
 
-    <string name="descIlmuFaraidh">Ilmu Faraidh merupakan ilmu yang mempelajari warisan dan bagian-bagian yang ditentukan bagi mereka (Ahli Waris), serta tata cara membagi harta warisan bagi orang-orang yang berhak mendapatkannya. Ilmu Faraidh adalah sinonim dari Ilmu Waris</string>
-    <string name="descWFaraidh">Faraidh secara bahasa artinya ialah ketentuan. Menurut istilah faraidh artinya bagian bagi ahli waris yang telah ditentukan</string>
-    <string name="descHukumFaraidh">Hukum mempelajari Ilmu Faraidh ialah Fardlu Kifayah. Apabila ada seseorang diantara suatu penduduk yang sudah mempelajarinya, maka gugur kewajiban bagi penduduk tersebut.</string>
+    <string name="descIlmuFaraidh">Ilmu Faraid merupakan ilmu yang mempelajari warisan dan bagian-bagian yang ditentukan bagi mereka (Ahli Waris), serta tata cara membagi harta warisan bagi orang-orang yang berhak mendapatkannya. Ilmu Faraid merupakan nama lain dari Ilmu Waris</string>
+    <string name="descWFaraidh">Faraid secara bahasa artinya ialah ketentuan. Menurut istilah faraid artinya bagian bagi ahli waris yang telah ditentukan</string>
+    <string name="descHukumFaraidh">Hukum mempelajari Ilmu Faraid ialah Fardlu Kifayah. Apabila ada seseorang diantara suatu penduduk yang sudah mempelajarinya, maka gugur kewajiban bagi seluruh penduduk tersebut.</string>
 
     <string name="ayat1">QS. An-Nisa:11</string>
     <string name="annisa11">يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنْثَيَيْنِ ۚ فَإِنْ كُنَّ نِسَاءً فَوْقَ اثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۖ وَإِنْ كَانَتْ وَاحِدَةً فَلَهَا النِّصْفُ ۚ وَلِأَبَوَيْهِ لِكُلِّ وَاحِدٍ مِنْهُمَا السُّدُسُ مِمَّا تَرَكَ إِنْ كَانَ لَهُ وَلَدٌ ۚ فَإِنْ لَمْ يَكُنْ لَهُ وَلَدٌ وَوَرِثَهُ أَبَوَاهُ فَلِأُمِّهِ الثُّلُثُ ۚ فَإِنْ كَانَ لَهُ إِخْوَةٌ فَلِأُمِّهِ السُّدُسُ ۚ مِنْ بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ ۗ آبَاؤُكُمْ وَأَبْنَاؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًا ۚ فَرِيضَةً مِنَ اللَّهِ ۗ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا </string>
@@ -21,8 +25,7 @@
     <string name="annisa176">يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ ۚ إِنِ امْرُؤٌ هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهُ أُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَ ۚ وَهُوَ يَرِثُهَا إِن لَّمْ يَكُن لَّهَا وَلَدٌ ۚ فَإِن كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ ۚ وَإِن كَانُوا إِخْوَةً رِّجَالًا وَنِسَاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ ۗ يُبَيِّنُ اللَّهُ لَكُمْ أَن تَضِلُّوا ۗ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ</string>
     <string name="trjm_ayat3">Artinya :
         Mereka meminta fatwa kepadamu (tentang kalalah). Katakanlah: "Allah memberi fatwa kepadamu tentang kalalah (yaitu): jika seorang meninggal dunia, dan ia tidak mempunyai anak dan mempunyai saudara perempuan, maka bagi saudaranya yang perempuan itu seperdua dari harta yang ditinggalkannya, dan saudaranya yang laki-laki mempusakai (seluruh harta saudara perempuan), jika ia tidak mempunyai anak; tetapi jika saudara perempuan itu dua orang, maka bagi keduanya dua pertiga dari harta yang ditinggalkan oleh yang meninggal. Dan jika mereka (ahli waris itu terdiri dari) saudara-saudara laki dan perempuan, maka bahagian seorang saudara laki-laki sebanyak bahagian dua orang saudara perempuan. Allah menerangkan (hukum ini) kepadamu, supaya kamu tidak sesat. Dan Allah Maha Mengetahui segala sesuatu (An Nisa:176).</string>
-    <string name="ayat4"></string>
-    <string name="trjm_ayat4"></string>
+    <string name="trjm_ayat4" translatable="false"></string>
 
     <string name="hadits1">حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ حَدَّثَنَا وُهَيْبٌ حَدَّثَنَا ابْنُ طَاوُسٍ عَنْ أَبِيهِ عَنْ ابْنِ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا عَنْ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ أَلْحِقُوا الْفَرَائِضَ بِأَهْلِهَا فَمَا بَقِيَ فَهُوَ لِأَوْلَى رَجُلٍ ذَكَرٍ</string>
     <string name="trjm_hadits1">(BUKHARI – 6235) : Telah menceritakan kepada kami Musa bin Isma’il telah menceritakan kepada kami Wuhaib telah menceritakan kepada kami Ibnu Thawus dari ayahnya dari Ibnu ‘Abbas radliallahu ‘anhuma, dari Nabi  bersabda: “Berikanlah bagian fara`idh (warisan yang telah ditetapkan) kepada yang berhak, maka bagian yang tersisa bagi pewaris lelaki yang paling dekat (nasabnya).”</string>

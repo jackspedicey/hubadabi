@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="id.zakafikry.ewaris.IntroActivity.DalilActivity">
+    tools:context="id.zakafikry.ewaris.Introduction.DalilActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dalil-dalil yang Menjadi Dasar Pengambilan Hukum Waris"
                 android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="id.zakafikry.ewaris.Misc.help_hitung">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Bantuan Penggunaan Aplikasi"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imght1"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/klik_htg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Mula-mula pilih menu hitung."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <ImageView
+                android:id="@+id/imght2"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/helpht1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Tentukan jenis kelamin pewaris dan isi jumlah harta peninggalan. Anda juga dapat memasukan tanggunan pewaris, seperti hutang, biaya pemakaman dan wasiat (opsional). Setelah data yang dibutuhkan terinput, klik tombol next yang ada di pojok kanan bawah."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <ImageView
+                android:id="@+id/imght3"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/helpht2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Masukan jumlah ahli waris dari golongan keluarga terdekat. Jika tidak terdapat ahli waris, anda bisa mengosongkan halaman. Klik tombol next untuk melanjutkan perhitungan."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <ImageView
+                android:id="@+id/imght4"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/helpht3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. Aplikasi akan otomatis menampilkan informasi bahwa ahli waris tertentu terhalang, bila pada halaman sebelumnya anda sudah mengisi ahli waris yang hubungannya lebih dekat dengan pewaris. Klik next untuk melanjutkan perhitungan."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <ImageView
+                android:id="@+id/imght5"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/helpht4" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. Apabila sudah tidak ada ahli waris lain yang berhak mendapatkan bagian warisan, aplikasi akan menghentikan proses input, kemudian menampilkan halaman konfirmasi. Klik next untuk melanjutkan perhitungan."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <ImageView
+                android:id="@+id/imght6"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/helpht5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6. Aplikasi akan menampilkan hasil perhitungan dalam bentuk tabel, disertai keterangan perhitungan di bawahnya. anda dapat mengulang perhitungan dengan memencet tombol pada tanda 2, dan kembali ke halaman utama dengan memencet tombol pada tanda 1."
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

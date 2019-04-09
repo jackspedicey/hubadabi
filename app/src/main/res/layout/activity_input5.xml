@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="id.zakafikry.ewaris.InputActivity.InputActivity5">
+    tools:context="id.zakafikry.ewaris.Input.InputActivity5">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,11 +23,20 @@
             android:textStyle="bold" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pewaris"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/tvNotifSaudaraKd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
             android:text="Saudara laki-laki dan Saudara perempuan kandung dilewati karena sudah terhalang(mahjub) oleh kakek"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -38,7 +47,7 @@
             android:id="@+id/tvSaudaraLkKd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
             android:text="Saudara Laki-laki Kandung"
             android:textAppearance="@style/TextAppearance.AppCompat"
@@ -48,9 +57,10 @@
             android:id="@+id/etSaudaraLkKd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -58,8 +68,8 @@
             android:id="@+id/tvSaudaraPrKd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:text="Saudara Perempuan Kandung"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp" />
@@ -68,9 +78,10 @@
             android:id="@+id/etSaudaraPrKd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
+            android:hint="@string/hint_et_jml"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
@@ -84,8 +95,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/prev2" />
 
 
@@ -97,8 +108,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/next2" />
 
 
